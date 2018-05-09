@@ -1,0 +1,111 @@
+/* Style supplémentaires */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+SC');
+@import url('https://fonts.googleapis.com/css?family=Gilda+Display');
+@import url('https://fonts.googleapis.com/css?family=Cardo');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import url('https://fonts.googleapis.com/css?family=Economica');
+.institution p{
+	font-weight: 700;
+}
+.site-title{    
+	font-weight: 700;
+    text-transform: uppercase;
+    font-size: 24px;
+	position:relative;
+	top:13px;
+}
+.navbar ul.nav > li > a {
+    text-decoration: none;
+}
+#top .social a {
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+}
+.bar {
+    padding: 14px 0;
+}
+.box-image-text {
+    margin: 15px 0 0 0;
+}
+#map-container {
+    height: 450px;
+    width: 100%;
+}
+section#map {
+    height: 450px;
+	margin:0;
+}
+#top {
+    background: #333;
+}
+.visually-hidden{
+	display:none;
+}
+form.user-login-form div.description{
+	display:none;
+}
+form.user-login-form input.form-text.form-control{
+	margin-bottom:8px;
+}
+form.user-login-form input[type="submit"] {
+	margin-top:20px;
+} 
+header div.institution p{
+	position:relative;
+	top:4px;
+}
+
+#top {
+  background: #333333;
+  color: #eeeeee;
+  padding: 6px 0;
+}
+
+#top p,#top .login a, #top .social a {
+	font-size:10px;
+}
+
+.ribbon {
+	position:absolute;
+	z-index:100;
+    background: #DA4D4D url("../images/flag/redclear/flag32.png") center 4px no-repeat;
+    border-left: 1px dashed #aaa;
+    border-right: 1px dashed #aaa;
+    border-radius: 0;
+    box-shadow: 5px 0 0 #DA4D4D,
+                -5px 0 0 #DA4D4D;
+    height: 120px;
+    margin: 0 5px;
+    width: 50px;
+	left: -60px;
+	top: -6px;
+    -webkit-filter: drop-shadow(0 2px 5px hsla(0,0%,0%,.5));
+}
+.ribbon:after,
+.ribbon:before {
+    border-top: 15px solid #DA4D4D;
+    content: '';
+    height: 0;
+    position: absolute;
+    top: 100%;
+    width: 0;
+}
+.ribbon:after {
+    border-left: 50px solid transparent;
+    right: -6px;
+}
+.ribbon:before {
+    border-right: 50px solid transparent;
+    left: -6px;
+}
+body.logged.toolbar-tray-open.toolbar-fixed.toolbar-horizontal{
+padding-top:78px !important;
+}
+.navbar-affixed-top.affix {
+    z-index: 500;
+}
