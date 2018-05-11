@@ -76,11 +76,12 @@ gulp.task('html', function() {
 gulp.task('serve-root', ['bs-sass', 'html'], function() {
   browserSync.init({
     server: {
-      baseDir: source
+      baseDir: destination
     },
   })
 
   gulp.watch(source + '/scss/*.scss', ['bs-sass']);
+  gulp.watch(source + '/*.html', ['html']);
   gulp.watch(source + '/*.html').on('change', browserSync.reload);
 
 })
