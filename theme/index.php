@@ -1,69 +1,25 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?php bloginfo( 'name' ); ?> <?php bloginfo( 'description' ); ?></title>
-  <!-- Favicon et icones apple touch -->
-	<link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/img/icons/favicon.ico" type="image/x-icon" />
-	<link rel="apple-touch-icon" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon.png" />
-	<link rel="apple-touch-icon" sizes="57x57" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon-57x57.png" />
-	<link rel="apple-touch-icon" sizes="72x72" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="76x76" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon-114x114.png" />
-	<link rel="apple-touch-icon" sizes="120x120" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="144x144" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon-144x144.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon-180x180.png" />
-  <!-- meta -->
-  <!-- For Robots -->
-  <meta name="robots" content="noimageindex">
-  <meta name="googlebot" content="noimageindex">
-  <!-- Semantic property -->
-  <meta property="og:language" content="fr">
-  <meta property="og:locale" content="fr">
-  <meta property="og:title" content="HFSI">
-  <meta property="og:url" content="www.url.com">
-  <meta property="og:description" content="description">
-  <meta property="og:updated_time" content="time">
-  <meta property="og:image" content="<?= get_template_directory_uri() ?>/img/armoirie.png">
-  <meta property="og:image:secure_url" content="<?= get_template_directory_uri() ?>/img/armoirie.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="80">
-  <meta property="og:image:height" content="125">
-  <meta property="business:contact_data:street_address" content="Rue Mohamed Fadhel Ben Achour">
-  <meta property="business:contact_data:locality" content="Marsa">
-  <meta property="business:contact_data:postal_code" content="1000">
-  <meta property="business:contact_data:country_name" content="Tunisia">
-  <meta property="place:location:latitude" content="36.8787259">
-  <meta property="place:location:longitude" content="10.3247723">
-  <!-- meta -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="keywords" content="keywords">
-  <meta name="description" content="description">
-  <meta name="author" content="Benfarhat Elyes">
-  <meta name="geo.placename" content="Tunis, Tunisie">
-  <meta name="geo.region" content="TN-11">
-  <meta name="geo.position" content="36.8787259;10.3247723">
-  <meta name="ICBM" content="36.8787259, 10.3247723">
-  <link href="/feed" title="Fil d'actualitÃ©s RSS" type="application/rss+xml" rel="alternate">
+<?php
+/**
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package hfsi
+ */
 
-  <?php wp_head(); ?>
-  <!-- script -->
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-</head>
+get_header();
+?>
 
 <body <?php body_class(); ?>>
   <!-- Title and connexion menu -->
   <nav id="menu-top" class="navbar navbar-expand-md navbar-light bg-light p-0">
     <div class="container">
-        <a class="navbar-brand position-relative animated bounceInLeft" href="<?= home_url('/')?>"><img class="position-relative" src="<?= get_template_directory_uri() ?>/img/40px-Flag_of_Tunisia.png" height="16px" alt=""> <span class="text-success"><?php bloginfo( 'name' ); ?></span> <?php bloginfo( 'description' ); ?></a>
+        <a class="navbar-brand position-relative animated bounceInLeft" href="<?= home_url('/')?>"><img class="position-relative" src="<?= get_template_directory_uri() ?>/img/40px-Flag_of_Tunisia.png" height="16px" alt=""> <span class="text-success"><?php bloginfo('name'); ?></span> <?php bloginfo('description'); ?></a>
       <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation"></button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -484,198 +440,5 @@
       </div>
   </section>
   <!-- /Code du patient -->
-  <footer>
-  <!-- footer - top -->
-  <div id="footer-top" class="section py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-              <div class="contact">
-                  <address>
-                    <strong>Smart , Inc.</strong><br>
-                    14 Hached St<br>
-                    Tunis, TN1000<br>
-                    <abbr title="Phone">P:</abbr> (216) 71-000-000
-                  </address>
-
-                  <address>
-                    <strong>Full Name</strong><br>
-                    <a href="mailto:#">contact.us@example.com</a>
-                  </address>
-                </div>
-          </div>
-          <div class="col-md-4">
-
-
-              <ul>
-                  <li>Lorem ipsum dolor sit amet</li>
-                  <li>Consectetur adipiscing elit</li>
-                  <li>Integer molestie lorem at massa</li>
-                  <li>Facilisis in pretium nisl aliquet</li>
-                  <li>Nulla volutpat aliquam velit
-                    <ul>
-                      <li>Phasellus iaculis neque</li>
-                      <li>Purus sodales ultricies</li>
-                      <li>Vestibulum laoreet porttitor sem</li>
-                      <li>Ac tristique libero volutpat at</li>
-                    </ul>
-                  </li>
-              </ul>
-
-          </div>
-          <div class="col-md-4">
-
-              <ul class="list-unstyled">
-                  <li><i class="fa fa-home"></i> Lorem ipsum dolor sit amet</li>
-                  <li><i class="fa fa-user"></i> Consectetur adipiscing elit</li>
-                  <li><i class="fa fa-facebook"></i> Integer molestie lorem at massa</li>
-                  <li><i class="fa fa-twitter"></i> Facilisis in pretium nisl aliquet</li>
-                  <li><i class="fa fa-instagram"></i> Lorem ipsum dolor sit amet</li>
-                  <li><i class="fa fa-youtube"></i> Consectetur adipiscing elit</li>
-                  <li><i class="fa fa-vin"></i> Integer molestie lorem at massa</li>
-                  <li><i class="fa fa-cog"></i> Facilisis in pretium nisl aliquet</li>
-              </ul>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  <!-- /footer - top -->
-  <!-- footer - bottom -->
-  <section id="footer-bottom" class="bg-dark mt-2">
-      <nav class="nav navbar-dark justify-content-center pt-5 pb-2">
-          <a class="nav-link active" href="#">L'hopital</a>
-          <a class="nav-link" href="#">Nos services</a>
-          <a class="nav-link" href="#">contact</a>
-          <a class="nav-link" href="#">Let's work together</a>
-          <a class="nav-link" href="#">Location</a>
-          <a class="nav-link" href="#">Download</a>
-          <a class="nav-link" href="#">Licence</a>
-          <a class="nav-link" href="#home"><i class="fa fa-chevron-up"></i></a>
-        </nav>
-        <p class="text-white text-center py-3"><small>&copy <?= date('Y') ?> <?php bloginfo('name') ?> <?php bloginfo('description') ?></small></p>
-  </section>
-  <!-- /footer - bottom -->
-  </footer>
-  <?php wp_footer(); ?>
-  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-	<script>
-	particlesJS('particles-js',
-
-	  {
-		"particles": {
-		  "number": {
-			"value": 80,
-			"density": {
-			  "enable": true,
-			  "value_area": 800
-			}
-		  },
-		  "color": {
-			"value": "#ffffff"
-		  },
-		  "shape": {
-			"type": "circle",
-			"stroke": {
-			  "width": 0,
-			  "color": "#000000"
-			},
-			"polygon": {
-			  "nb_sides": 5
-			}
-		  },
-		  "opacity": {
-			"value": 0.5,
-			"random": false,
-			"anim": {
-			  "enable": false,
-			  "speed": 1,
-			  "opacity_min": 0.1,
-			  "sync": false
-			}
-		  },
-		  "size": {
-			"value": 5,
-			"random": true,
-			"anim": {
-			  "enable": false,
-			  "speed": 40,
-			  "size_min": 0.1,
-			  "sync": false
-			}
-		  },
-		  "line_linked": {
-			"enable": true,
-			"distance": 150,
-			"color": "#ffffff",
-			"opacity": 0.4,
-			"width": 1
-		  },
-		  "move": {
-			"enable": true,
-			"speed": 6,
-			"direction": "none",
-			"random": false,
-			"straight": false,
-			"out_mode": "out",
-			"attract": {
-			  "enable": false,
-			  "rotateX": 600,
-			  "rotateY": 1200
-			}
-		  }
-		},
-		"interactivity": {
-		  "detect_on": "canvas",
-		  "events": {
-			"onhover": {
-			  "enable": true,
-			  "mode": "grab"
-			},
-			"onclick": {
-			  "enable": true,
-			  "mode": "push"
-			},
-			"resize": true
-		  },
-		  "modes": {
-			"grab": {
-			  "distance": 400,
-			  "line_linked": {
-				"opacity": 1
-			  }
-			},
-			"bubble": {
-			  "distance": 400,
-			  "size": 40,
-			  "duration": 2,
-			  "opacity": 8,
-			  "speed": 3
-			},
-			"repulse": {
-			  "distance": 200
-			},
-			"push": {
-			  "particles_nb": 4
-			},
-			"remove": {
-			  "particles_nb": 2
-			}
-		  }
-		},
-		"retina_detect": true,
-		"config_demo": {
-		  "hide_card": false,
-		  "background_color": "#22A7F0",
-		  "background_image": "",
-		  "background_position": "50% 50%",
-		  "background_repeat": "no-repeat",
-		  "background_size": "cover"
-		}
-	  }
-
-	);</script>
-
-</body>
-
-</html>
+<?php
+get_footer();
