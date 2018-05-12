@@ -16,6 +16,7 @@ get_header();
 ?>
 
 <body <?php body_class(); ?>>
+  <a class="skip-link screen-reader-text btn btn-warning d-none d-sm-block d-md-none" href="#content"><?php esc_html_e( 'Aller au contenu', 'hfsi' ); ?></a>
   <!-- Title and connexion menu -->
   <nav id="menu-top" class="navbar navbar-expand-md navbar-light bg-light p-0">
     <div class="container">
