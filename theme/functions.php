@@ -44,7 +44,10 @@ if ( ! function_exists( 'hfsi_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'hfsi' ),
+			'menu-top' => esc_html__( 'Menu du hau (Réseaux sociaux)', 'hfsi' ),
+			'menu-banner' => esc_html__( 'Menu général (catégories)', 'hfsi' ),
+			'menu-primary' => esc_html__( 'Menu primaire', 'hfsi' ),
+			'menu-bottom' => esc_html__( 'Menu du bas', 'hfsi' ),
 		) );
 
 		/*
