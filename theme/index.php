@@ -4,7 +4,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HFSI</title>
+  <title><?php bloginfo( 'name' ); ?> <?php bloginfo( 'description' ); ?></title>
   <!-- Favicon et icones apple touch -->
 	<link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/img/icons/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="<?= get_template_directory_uri() ?>/img/icons/apple-touch-icon.png" />
@@ -63,11 +63,11 @@
   <!-- Title and connexion menu -->
   <nav id="menu-top" class="navbar navbar-expand-md navbar-light bg-light p-0">
     <div class="container">
-        <a class="navbar-brand position-relative animated bounceInLeft" href="#"><img class="position-relative" src="<?= get_template_directory_uri() ?>/img/40px-Flag_of_Tunisia.png" height="16px" alt=""> <span class="text-success"><?php bloginfo( 'name' ); ?></span> of our Website</a>
+        <a class="navbar-brand position-relative animated bounceInLeft" href="<?= home_url('/')?>"><img class="position-relative" src="<?= get_template_directory_uri() ?>/img/40px-Flag_of_Tunisia.png" height="16px" alt=""> <span class="text-success"><?php bloginfo( 'name' ); ?></span> <?php bloginfo( 'description' ); ?></a>
       <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation"></button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0" role="navigation">
               <li class="nav-item">
                   <a class="nav-link facebook" href="#"><i class="fa fa-facebook"></i></a>
               </li>
@@ -91,12 +91,12 @@
   </nav>
   <!-- /Title and connexion menu -->
   <!-- Header -->
-  <section id="header-top">
+  <header id="header-top">
     <div id="particles-js" class="overlay position-absolute"></div>
     <div class="container position-relative d-flex flex-column">
       <div class="overlay rgba4 animated bounceInRight">
         <div class="row py-5">
-          <div class="col-md-3 offset-md-1 text-center title">
+          <div class="col-md-3 offset-md-1 text-center title" role="banner">
             <img src="<?= get_template_directory_uri() ?>/img/logo/3/logo128.png" alt="">
             <h2 class="text-whiete">HOPITAL FSI</h2>
             <h3 class="text-wheite">La Marsa</h3>
@@ -108,15 +108,14 @@
               <a class="nav-link" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> E-learning</a>
             </nav>
           </div>
-
         </div>
       </div>
     </div>
-  </section>
+  </header>
   <!-- /Header -->
   <!-- Logo and Primary menu -->
   <nav id="menu" class="navbar navbar-expand-md navbar-dark bg-success sticky-top">
-    <div class="container animated bounceInLeft">
+    <div class="container animated bounceInLeft" role="navigation">
       <!-- Left side -->
       <ul class="nav mr-auto justify-content-start">
           <li class="nav-item">
@@ -544,7 +543,7 @@
   <!-- /footer - top -->
   <!-- footer - bottom -->
   <section id="footer-bottom" class="bg-dark mt-2">
-      <nav class="nav navbar-dark justify-content-center py-5">
+      <nav class="nav navbar-dark justify-content-center pt-5 pb-2">
           <a class="nav-link active" href="#">L'hopital</a>
           <a class="nav-link" href="#">Nos services</a>
           <a class="nav-link" href="#">contact</a>
@@ -554,6 +553,7 @@
           <a class="nav-link" href="#">Licence</a>
           <a class="nav-link" href="#home"><i class="fa fa-chevron-up"></i></a>
         </nav>
+        <p class="text-white text-center py-3"><small>&copy <?= date('Y') ?> <?php bloginfo('name') ?> <?php bloginfo('description') ?></small></p>
   </section>
   <!-- /footer - bottom -->
   </footer>
