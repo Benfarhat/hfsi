@@ -133,9 +133,9 @@ gulp.task('theme-fa-css', function() {
 })
 
 
-gulp.task('theme- img', function() {
-
-  gulp.src(source + '/img/**/*.{png,jpg,jpeg,gif}')
+gulp.task('theme-img', function() {
+  // original pictures are ine the distribution / destination folder (dist)
+  gulp.src(destination + '/img/**/*.{png,jpg,jpeg,gif}')
 
     .pipe(imagemin({
 
@@ -145,33 +145,12 @@ gulp.task('theme- img', function() {
 
     }))
 
-    .pipe(gulp.dest(theme + '/img2'))
+    .pipe(gulp.dest(theme + '/img'))
 
 });
 
-/* Here we don't need html copy or serving files */
-gulp.task('theme-html', function() {
-  return gulp.src([source + '/*.html'])
-  .pipe(gulp.dest(destination + '/'))
-  .pipe(browserSync.stream());
-})
 
-
-/* Task: Serve and sass */
-gulp.task('serve-root', ['bs-sass', 'html'], function() {
-  browserSync.init({
-    server: {
-      baseDir: destination
-    },
-  })
-
-  gulp.watch(source + '/scss/*.scss', ['bs-sass']);
-  gulp.watch(source + '/*.html', ['html']);
-  gulp.watch(source + '/*.html').on('change', browserSync.reload);
-
-})
-
-gulp.task('build', ['bs-js', 'fa-fonts', 'fa-css', 'serve-root'])
+gulp.task('build', ['theme-bs-js', 'theme-fa-fonts', 'theme-fa-css', 'theme-img'])
 
 
 
