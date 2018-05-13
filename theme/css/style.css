@@ -1,4 +1,4 @@
-/* For debuggin a div just add "debug" class */
+/* For debugging a div just add "debug" class */
 @import url('https://fonts.googleapis.com/css?family=Oswald|Archivo+Narrow|Lato|Roboto|Patua+One|Playfair+Display+SC|Spectral+SC|Tulpen+One');
 
 .debug
@@ -163,11 +163,19 @@ body
 }
 
 /* Menu-top */
+#menu-top .flag
+{
+  padding: 0;
+}
+
 #menu-top .navbar-brand
 {
   font-family: 'Oswald', sans-serif !important;
   font-weight: 300;
-  padding: inherit;
+  padding-top: 4.5px;
+  padding-right: inherit;
+  padding-bottom: 4.5px;
+  padding-left: inherit;
 }
 
 #menu-top .navbar-brand img

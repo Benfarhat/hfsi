@@ -1,4 +1,4 @@
-/* For debuggin a div just add "debug" class */
+/* For debugging a div just add "debug" class */
 .debug{
     position:relative;
   }
@@ -123,8 +123,14 @@
   /* Menu-top */
 
   #menu-top{
+    .flag{
+      padding: 0;
+    }
     .navbar-brand{
-      padding:inherit;
+      padding-left:inherit;
+      padding-right:inherit;
+      padding-top:4.5px;
+      padding-bottom:4.5px;
       @include oswald;
       font-weight: 300;
       img{

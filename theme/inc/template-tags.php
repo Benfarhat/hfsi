@@ -146,3 +146,18 @@ if ( ! function_exists( 'hfsi_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+
+if ( ! function_exists( 'hfsi_get_svg_logo' ) ) :
+	/**
+	 * Return svg logo/flag.
+	 *
+   * @param string $color recommanded> red:#b33939 / green:#218c74  / blue:#227093  / orange:#cd6133
+   * @param int  $width
+   * @param int  $height
+	 */
+	function hfsi_get_svg_logo($color = '#b33939',$height = 16, $width = false) {
+
+    return '<svg height="'.$height.'" viewBox="-60 -55 120 80" width="'.$width.'" xmlns="http://www.w3.org/2000/svg"><g fill="'.$color.'"><path d="m-60-40h120v80h-120z"/><circle fill="#fff" r="20"/><path d="m600 250a150 150 0 0 0 -150 150 150 150 0 0 0  150 150 150 150 0 0 0  121.02344-61.64844 120 120 0 0 1 -81.02344 31.64844 120 120 0 0 1 -120-120 120 120 0 0 1  120-120 120 120 0 0 1  81.01367 31.67383 150 150 0 0 0 -121.01367-61.67383z" fill="'.$color.'" stroke-width="10" transform="matrix(.1 0 0 .1 -60 -40)"/><path d="m0-1 .58779 1.80902-1.53885-1.11804h1.90212l-1.53885 1.11804z" fill="'.$color.'" transform="matrix(0 -9 9 0 4 0)"/></g></svg>';
+	}
+endif;

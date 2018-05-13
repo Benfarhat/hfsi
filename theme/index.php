@@ -20,7 +20,17 @@ get_header();
   <!-- Title and connexion menu -->
   <nav id="menu-top" class="navbar navbar-expand-md navbar-light bg-light p-0">
     <div class="container">
-        <a class="navbar-brand position-relative animated bounceInLeft" href="<?= home_url('/')?>"><img class="position-relative" src="<?= get_template_directory_uri() ?>/img/40px-Flag_of_Tunisia.png" height="16px" alt=""> <span class="text-success"><?php bloginfo('name'); ?></span> <?php bloginfo('description'); ?></a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" role="navigation">
+          <li class="bg-danger mr-2">
+              <a class="flag" href="<?= home_url('/')?>"><span><?php echo hfsi_get_svg_logo('#b33939',false, 42) ?></span></a>
+          </li>
+          <li>
+              <a class="navbar-brand" href="<?= home_url('/')?>"><span class="text-success"><?php bloginfo('name'); ?></span> <?php bloginfo('description'); ?></a></a>
+          </li>
+      </ul>
+      <!--
+        <a class="navbar-brand position-relative animated bounceInLeft" href="<?= home_url('/')?>"><?php echo hfsi_get_svg_logo('#b33939',false, 32) ?> <span class="text-success"><?php bloginfo('name'); ?></span> <?php bloginfo('description'); ?></a>
+      -->
       <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation"></button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -244,7 +254,7 @@ wp_nav_menu( $defaults );
                               <input type="password" class="form-control" id="identifiant" placeholder="Votre identifiant">
                             </div>
                           </div>
-                          <button type="submit" class="btn btn-success">Sign in</button>
+                          <button type="submit" class="btn btn-success">Consulter</button>
                         </form>
 
                   </div>
@@ -264,7 +274,7 @@ wp_nav_menu( $defaults );
                         <h3 class="card-text">24heures/24</h3>
                         <h3 class="card-text">7jours/7</h3>
                       </div>
-                      <a href="#" class="mt-2 btn btn-outline-light">Go somewhere</a>
+                      <a href="#" class="mt-2 btn btn-outline-light">Lire ...</a>
                     </div>
                   </div>
                 </div>
