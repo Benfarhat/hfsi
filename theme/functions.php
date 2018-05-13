@@ -221,6 +221,13 @@ require get_template_directory() . '/inc/bootstrap-menu.php';
 
 /**
  * Custom menu fields and walker.
+ *
+ * Need more information like menu description
+ * Each Menu Item has a configuration arrow on the right side of the Menu Item title,
+ * that when clicked opens the configuration box.
+ * Click the arrow a second time closed the configuration box.
+ * If you don't see Link Target, CSS Classes, Link Relationship (XFN), and Description,
+ * then under Screen Options make sure those boxes are checked to expose them here.
  */
 require get_template_directory() . '/inc/custom-menu-fields.php';
 
