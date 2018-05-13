@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
+const livereload = require('gulp-livereload');
 const runSequence = require('run-sequence');
 /* Gulp plugins */
 const csscomb = require('gulp-csscomb'); // Réodonner les propriété
@@ -153,6 +154,20 @@ gulp.task('theme-img', function() {
 gulp.task('build', ['theme-bs-js', 'theme-fa-fonts', 'theme-fa-css', 'theme-img', 'theme-bs-sass'])
 
 
+/* Livereload */
+/*
+Browser extension/addon:
+Chrome > @see: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
+Firefox > @see: https://addons.mozilla.org/en-US/firefox/addon/livereload-web-extension/
+*/
+
+gulp.task('watch', function() {
+
+  livereload.listen();
+  gulp.watch(source + '/scss/*.scss', ['theme-bs-sass'])
+  gulp.watch(source + '/img/**/*.{png,jpg,jpeg,gif}', ['theme-img']);
+
+});
 
 
 
