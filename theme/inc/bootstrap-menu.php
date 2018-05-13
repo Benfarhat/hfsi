@@ -62,7 +62,7 @@ class hfsi_walker_nav_menu extends Walker_Nav_menu {
      */
 	public function start_lvl( &$output, $depth = 0, $args = array() ){ // ul
 		$indent = str_repeat("\t",$depth); // indents the outputted HTML
-    $output .= "\n$indent<div class=\"dropdown-menu animated fadeIn\">\n";
+    $output .= preg_replace('#\s+#', ' ', "\n$indent<div class=\"dropdown-menu ".$args->submenu_class." animated fadeIn\">\n");
   }
 
       /**
@@ -123,7 +123,7 @@ class hfsi_walker_nav_menu extends Walker_Nav_menu {
     $attributes .= ( $args->walker->has_children ) ? ' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : '';
 
     $class_link .= ( $depth > 0 ) ? 'dropdown-item' : 'nav-link';
-    $class_link .= ( $args->walker->has_children ) ? ' dropdown-toggle' : '';
+    $class_link .= ( $args->walker->has_children ) ? ' dropdown-toggle ' : '';
 
 		$item_output = $args->before;
 		$item_output .= '<a class="'.$class_link.'"' . $attributes . '>';
@@ -131,7 +131,14 @@ class hfsi_walker_nav_menu extends Walker_Nav_menu {
 		$item_output .= '</a>';
     $item_output .= $args->after;
 
-		$output .= apply_filters ( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    // If we reach the highest level / depth
+    // we don't need to display link for hidden that will automatically not be displayed
+
+    if(($depth == ($args->depth - 1)) && ($args->walker->has_children)):
+      $item_output = '';
+    endif;
+    $output .= apply_filters ( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+
   }
     /**
      * Ends the element output, if needed.
