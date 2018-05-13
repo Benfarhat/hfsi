@@ -150,7 +150,7 @@ gulp.task('theme-img', function() {
 });
 
 
-gulp.task('build', ['theme-bs-js', 'theme-fa-fonts', 'theme-fa-css', 'theme-img'])
+gulp.task('build', ['theme-bs-js', 'theme-fa-fonts', 'theme-fa-css', 'theme-img', 'theme-bs-sass'])
 
 
 
