@@ -34,6 +34,34 @@ get_header();
       <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation"></button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <?php
+
+$defaults = array(
+	'theme_location'  => 'menu-top',
+	'menu'            => 'menu-top',
+	'container'       => 'ul',
+	'container_class' => 'navbar-nav ml-auto mt-2 mt-lg-0',
+	'container_id'    => '',
+	'menu_class'      => '',
+	'menu_id'         => '',
+	'echo'            => true,
+	'fallback_cb'     => 'wp_page_menu',
+	'before'          => '',
+	'after'           => '',
+	'link_before'     => '',
+	'link_after'      => '',
+	'items_wrap'      => '<ul id="%1$s" class="nav ml-auto justify-content-end %2$s">%3$s</ul>',
+	'depth'           => 2,
+  'walker'          => new hfsi_walker_nav_menu(),
+  'submenu_class'   => 'dropdown-menu-right'
+);
+
+if ( has_nav_menu( 'menu-top' ) ) {
+  wp_nav_menu( $defaults );
+}
+?>
+
+      <!--
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0" role="navigation">
               <li class="nav-item">
                   <a class="nav-link facebook" href="#"><i class="fa fa-facebook"></i></a>
@@ -52,6 +80,8 @@ get_header();
                   </div>
               </li>
           </ul>
+
+          -->
       </div>
     </div>
 
@@ -101,62 +131,41 @@ $defaults = array(
 	'link_before'     => '',
 	'link_after'      => '',
 	'items_wrap'      => '<ul id="%1$s" class="nav mr-auto justify-content-start %2$s">%3$s</ul>',
-	'depth'           => 3,
-	'walker'          => new hfsi_walker_nav_menu()
+	'depth'           => 2,
+  'walker'          => new hfsi_walker_nav_menu(),
+  'submenu_class'   => ''
 );
 
-wp_nav_menu( $defaults );
-// new hfsi_walker_nav_menu()
+if ( has_nav_menu( 'menu-primary-left' ) ) {
+  wp_nav_menu( $defaults );
+}
 ?>
-<!--
-      <ul class="nav mr-auto justify-content-start">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Organisation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Attributions</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Opendata</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu  animated fadeIn">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu  animated fadeIn">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </li>
-      </ul>
-      -->
-      <!-- Right side -->
-      <ul class="nav mr-auto justify-content-end flex-1">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contact</a>
-            <div class="dropdown-menu dropdown-menu-right animated fadeIn">
-              <a class="dropdown-item" href="#">Contact</a>
-              <a class="dropdown-item" href="#">Localisation</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Suggestions</a>
-              <a class="dropdown-item" href="#">Reclamations</a>
-            </div>
-          </li>
-      </ul>
+<!-- Right Menu -->
+<?php
+$defaults = array(
+	'theme_location'  => 'menu-primary-right',
+	'menu'            => 'menu-primary-right',
+	'container'       => 'ul',
+	'container_class' => 'nav mr-auto justify-content-end flex-1',
+	'container_id'    => '',
+	'menu_class'      => '',
+	'menu_id'         => '',
+	'echo'            => true,
+	'fallback_cb'     => 'wp_page_menu',
+	'before'          => '',
+	'after'           => '',
+	'link_before'     => '',
+	'link_after'      => '',
+	'items_wrap'      => '<ul id="%1$s" class="nav mr-auto justify-content-start %2$s">%3$s</ul>',
+	'depth'           => 2,
+  'walker'          => new hfsi_walker_nav_menu(),
+  'submenu_class'   => 'dropdown-menu-right'
+);
+
+if ( has_nav_menu( 'menu-primary-right' ) ) {
+  wp_nav_menu( $defaults );
+}
+?>
 
     </div>
 
@@ -250,7 +259,7 @@ wp_nav_menu( $defaults );
                               <input type="email" class="form-control" id="numanalyse" placeholder="Numéro des analyses">
                             </div>
                             <div class="form-group col-md-6">
-                              <label for="inputPassword4">Identifiant</label>
+                              <label for="inputPassword4">Matricule</label>
                               <input type="password" class="form-control" id="identifiant" placeholder="Votre identifiant">
                             </div>
                           </div>
