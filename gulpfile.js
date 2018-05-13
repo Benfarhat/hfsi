@@ -12,21 +12,22 @@ const cache = require('gulp-cache'); // Evite la réoptimisation des images déj
 /* Options */
 const source = './src';
 const destination = './dist';
+const theme = './theme'
 
-/* Tasks Dedicated to Bootstrap */
+/* TOOLS */
 
-/* Here we populate source folder */
+/* Get bootstrap scss files for edition to custom file */
 
-/* Task: Bootstrap style */
-
-/* Get bootstrap scss files */
 gulp.task('get-bootstrap-css', function(){
   return gulp.src(['./node_modules/bootstrap/scss/*'])
   .pipe(gulp.dest(source + '/custom-bs'))
   .pipe(browserSync.stream());
 });
 
-/* --------------------------------------- */
+/* DEVELOPMENT TASKS */
+
+
+/* Task: Bootstrap style */
 
 /* compile scss file to css */
 gulp.task('bs-sass', function(){
@@ -66,6 +67,90 @@ gulp.task('fa-css', function() {
 
 /* Task: HTML */
 gulp.task('html', function() {
+  return gulp.src([source + '/*.html'])
+  .pipe(gulp.dest(destination + '/'))
+  .pipe(browserSync.stream());
+})
+
+
+/* Task: Serve and sass */
+gulp.task('serve-root', ['bs-sass', 'html'], function() {
+  browserSync.init({
+    server: {
+      baseDir: destination
+    },
+  })
+
+  gulp.watch(source + '/scss/*.scss', ['bs-sass']);
+  gulp.watch(source + '/*.html', ['html']);
+  gulp.watch(source + '/*.html').on('change', browserSync.reload);
+
+})
+
+gulp.task('dev', ['bs-js', 'fa-fonts', 'fa-css', 'serve-root'])
+
+
+
+/* BUILD TASKS */
+
+
+
+/* Task: Bootstrap style */
+
+/* compile scss file to css */
+gulp.task('theme-bs-sass', function(){
+  return gulp.src([source + '/custom-bs/scss/bootstrap.scss', source + '/scss/*.scss'])
+  .pipe(sass())
+  .pipe(csscomb())
+  .pipe(cssbeautify({
+      indent: '  ',
+      openbrace: 'separate-line',
+      autosemicolon: true
+  }))
+  .pipe(gulp.dest(theme + '/css'))
+  .pipe(browserSync.stream());
+});
+
+/* Task: Bootstrap scripts */
+gulp.task('theme-bs-js', function() {
+  return gulp.src(['./node_modules/bootstrap/dist/js/bootstrap.min.js', './node_modules/jquery/dist/jquery.min.js', './node_modules/popper.js/dist/umd/popper.min.js'])
+  .pipe(gulp.dest(theme + '/js'))
+  .pipe(browserSync.stream());
+})
+
+/* Task: FontAwesome fonts*/
+gulp.task('theme-fa-fonts', function() {
+  return gulp.src(['./node_modules/font-awesome/fonts/*'])
+  .pipe(gulp.dest(theme + '/fonts'))
+  .pipe(browserSync.stream());
+})
+
+/* Task: FontAwesome style*/
+gulp.task('theme-fa-css', function() {
+  return gulp.src(['./node_modules/font-awesome/css/font-awesome.min.css'])
+  .pipe(gulp.dest(theme + '/css'))
+  .pipe(browserSync.stream());
+})
+
+
+gulp.task('theme- img', function() {
+
+  gulp.src(source + '/img/**/*.{png,jpg,jpeg,gif}')
+
+    .pipe(imagemin({
+
+      optimizationLevel: 7,
+
+      progressive: true
+
+    }))
+
+    .pipe(gulp.dest(theme + '/img2'))
+
+});
+
+/* Here we don't need html copy or serving files */
+gulp.task('theme-html', function() {
   return gulp.src([source + '/*.html'])
   .pipe(gulp.dest(destination + '/'))
   .pipe(browserSync.stream());
