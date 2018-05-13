@@ -74,6 +74,31 @@ get_header();
   <nav id="menu" class="navbar navbar-expand-md navbar-dark bg-success sticky-top">
     <div class="container animated bounceInLeft" role="navigation">
       <!-- Left side -->
+<?php
+
+$defaults = array(
+	'theme_location'  => 'menu-primary-left',
+	'menu'            => 'menu-primary-left',
+	'container'       => 'ul',
+	'container_class' => 'nav mr-auto justify-content-start',
+	'container_id'    => '',
+	'menu_class'      => '',
+	'menu_id'         => '',
+	'echo'            => true,
+	'fallback_cb'     => 'wp_page_menu',
+	'before'          => '',
+	'after'           => '',
+	'link_before'     => '',
+	'link_after'      => '',
+	'items_wrap'      => '<ul id="%1$s" class="nav mr-auto justify-content-start %2$s">%3$s</ul>',
+	'depth'           => 3,
+	'walker'          => new hfsi_walker_nav_menu()
+);
+
+wp_nav_menu( $defaults );
+// new hfsi_walker_nav_menu()
+?>
+<!--
       <ul class="nav mr-auto justify-content-start">
           <li class="nav-item">
             <a class="nav-link" href="#">Accueil</a>
@@ -108,6 +133,7 @@ get_header();
             </div>
           </li>
       </ul>
+      -->
       <!-- Right side -->
       <ul class="nav mr-auto justify-content-end flex-1">
           <li class="nav-item dropdown">

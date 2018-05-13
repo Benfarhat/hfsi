@@ -40,13 +40,32 @@ if ( ! function_exists( 'hfsi_setup' ) ) :
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-thumbnails' );
+
+    update_option('thumbnail_size_w', 285); /* internal max-width of col-3 */
+		update_option('small_size_w', 350); /* internal max-width of col-4 */
+		update_option('medium_size_w', 730); /* internal max-width of col-8 */
+    update_option('large_size_w', 1110); /* internal max-width of col-12 */
+
+
+		add_theme_support( 'post-formats', array(
+			'aside',
+			'gallery',
+			'link',
+			'image',
+			'quote',
+			'status',
+			'video',
+			'audio',
+			'chat'
+    ) );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-top' => esc_html__( 'Menu du hau (Réseaux sociaux)', 'hfsi' ),
+			'menu-top' => esc_html__( 'Menu du haut (Réseaux sociaux)', 'hfsi' ),
 			'menu-banner' => esc_html__( 'Menu général (catégories)', 'hfsi' ),
-			'menu-primary' => esc_html__( 'Menu primaire', 'hfsi' ),
+			'menu-primary-left' => esc_html__( 'Menu primaire de gauche', 'hfsi' ),
+			'menu-primary-right' => esc_html__( 'Menu primaire de droite', 'hfsi' ),
 			'menu-bottom' => esc_html__( 'Menu du bas', 'hfsi' ),
 		) );
 
@@ -97,7 +116,7 @@ function hfsi_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'hfsi_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'hfsi_content_width', 1100 );
 }
 add_action( 'after_setup_theme', 'hfsi_content_width', 0 );
 
@@ -106,6 +125,7 @@ add_action( 'after_setup_theme', 'hfsi_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
+/* @todo change widget as a bootstrap card */
 function hfsi_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'hfsi' ),
@@ -142,3 +162,62 @@ function hfsi_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hfsi_scripts' );
+
+
+
+
+if ( ! function_exists( 'hfsi_post_date' ) ) {
+	function b4st_post_date() {
+		if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated" datetime="%3$s">(updated %4$s)</time>';
+			}
+
+			$time_string = sprintf( $time_string,
+				esc_attr( get_the_date( 'c' ) ),
+				get_the_date(),
+				esc_attr( get_the_modified_date( 'c' ) ),
+				get_the_modified_date()
+			);
+
+			echo $time_string;
+		}
+	}
+}
+
+if ( ! function_exists('hfsi_excerpt_more') ) {
+	function hfsi_excerpt_more() {
+		return '&hellip;</p><p><a class="btn btn-success" href="'. get_permalink() . '">' . __('Continuer à lire', 'hfsi') . ' <i class="fas fa-arrow-right"></i>' . '</a></p>';
+	}
+}
+add_filter('excerpt_more', 'hfsi_excerpt_more');
+
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Custom bootstrap menu and walker.
+ */
+require get_template_directory() . '/inc/bootstrap-menu.php';
+
+
+
