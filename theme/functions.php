@@ -219,5 +219,10 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/bootstrap-menu.php';
 
+/**
+ * Custom menu fields and walker.
+ */
+require get_template_directory() . '/inc/custom-menu-fields.php';
+
 
 
