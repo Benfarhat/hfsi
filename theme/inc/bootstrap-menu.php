@@ -22,6 +22,7 @@ class hfsi_walker_navbar_menu extends Walker_Nav_menu {
 		$classes[] = ($item->current || $item->current_item_ancestor) ? 'active' : '';
 		$classes[] = 'nav-item';
 		$classes[] = 'nav-item-' . $item->ID;
+		$classes[] = $item->container_bg;
 		if( $depth && $args->walker->has_children ){
 			$classes[] = 'dropdown-menu dropdown-menu-right';
 		}
