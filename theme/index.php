@@ -61,27 +61,6 @@ if ( has_nav_menu( 'menu-top' ) ) {
 }
 ?>
 
-      <!--
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0" role="navigation">
-              <li class="nav-item">
-                  <a class="nav-link facebook" href="#"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link twitter" href="#"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link youtube" href="#"><i class="fa fa-youtube"></i></a>
-              </li>
-              <li class="nav-item dropdown text-white bg-success">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-in"></i> Connexion</a>
-                  <div class="dropdown-menu dropdown-menu-right animeated flipInY" aria-labelledby="dropdownId">
-                      <a class="dropdown-item" href="#"><i class="fa fa-user-md" aria-hidden="true"></i> Staff médical</a>
-                      <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Patients</a>
-                  </div>
-              </li>
-          </ul>
-
-          -->
       </div>
     </div>
 

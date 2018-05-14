@@ -69,6 +69,32 @@
   <!-- /footer - top -->
   <!-- footer - bottom -->
   <section id="footer-bottom" class="bg-dark mt-2">
+	<?php
+
+$defaults = array(
+	'theme_location'  => 'menu-bottom',
+	'menu'            => 'menu-bottom',
+	'container'       => 'ul',
+	'container_class' => 'nav navbar-dark justify-content-center pt-5 pb-2',
+	'container_id'    => '',
+	'menu_class'      => '',
+	'menu_id'         => '',
+	'echo'            => true,
+	'fallback_cb'     => 'wp_page_menu',
+	'before'          => '',
+	'after'           => '',
+	'link_before'     => '',
+	'link_after'      => '',
+	'items_wrap'      => '<ul id="%1$s" class="nav navbar-dark justify-content-center pt-5 pb-2 %2$s">%3$s</ul>',
+	'depth'           => 2,
+  'walker'          => new hfsi_walker_nav_menu(),
+  'submenu_class'   => 'dropdown-menu-right'
+);
+
+if ( has_nav_menu( 'menu-bottom' ) ) {
+  wp_nav_menu( $defaults );
+}
+?>
       <nav class="nav navbar-dark justify-content-center pt-5 pb-2">
           <a class="nav-link active" href="#">L'hopital</a>
           <a class="nav-link" href="#">Nos services</a>
