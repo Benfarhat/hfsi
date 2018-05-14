@@ -95,16 +95,6 @@ if ( has_nav_menu( 'menu-bottom' ) ) {
   wp_nav_menu( $defaults );
 }
 ?>
-      <nav class="nav navbar-dark justify-content-center pt-5 pb-2">
-          <a class="nav-link active" href="#">L'hopital</a>
-          <a class="nav-link" href="#">Nos services</a>
-          <a class="nav-link" href="#">contact</a>
-          <a class="nav-link" href="#">Let's work together</a>
-          <a class="nav-link" href="#">Location</a>
-          <a class="nav-link" href="#">Download</a>
-          <a class="nav-link" href="#">Licence</a>
-          <a class="nav-link" href="#home"><i class="fa fa-chevron-up"></i></a>
-        </nav>
         <p class="text-white text-center py-3"><small>&copy <?= date('Y') ?> <?php bloginfo('name') ?> <?php bloginfo('description') ?></small></p>
   </section>
   <!-- /footer - bottom -->
