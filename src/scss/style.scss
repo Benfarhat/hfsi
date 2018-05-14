@@ -93,6 +93,31 @@
     }
   }
 
+  /* Special hover */
+  .hover-success:hover{
+    background-color: var(--success);
+    color:var(--white);
+  }
+  .hover-danger:hover{
+    background-color: var(--danger);
+    color:var(--white);
+  }
+  .hover-info:hover{
+    background-color: var(--info);
+    color:var(--white);
+  }
+  .hover-warning:hover{
+    background-color: var(--warning);
+    color:var(--white);
+  }
+  .hover-dark:hover{
+    background-color: var(--dark);
+    color:var(--white);
+  }
+  .hover-primary:hover{
+    background-color: var(--primary);
+    color:var(--white);
+  }
 
   /* Font size */
   @for $i from 1 through 9{
