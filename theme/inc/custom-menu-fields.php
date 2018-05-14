@@ -29,6 +29,7 @@ class hfsi_custom_menu {
 	function hfsi_add_custom_nav_fields( $menu_item ) {
 
 	    $menu_item->container_bg = get_post_meta( $menu_item->ID, '_menu_item_container_bg', true );
+	    $menu_item->container_class = get_post_meta( $menu_item->ID, '_menu_item_container_class', true );
 	    $menu_item->subtitle = get_post_meta( $menu_item->ID, '_menu_item_subtitle', true );
 	    return $menu_item;
 
@@ -49,6 +50,10 @@ class hfsi_custom_menu {
 
 	    if ( is_array( $_REQUEST['menu-item-container-bg']) ) {
 	        update_post_meta( $menu_item_db_id, '_menu_item_container_bg', $_REQUEST['menu-item-container-bg'][$menu_item_db_id] );
+	    }
+
+	    if ( is_array( $_REQUEST['menu-item-container-class']) ) {
+	        update_post_meta( $menu_item_db_id, '_menu_item_container_class', $_REQUEST['menu-item-container-class'][$menu_item_db_id] );
 	    }
 
 	}
@@ -248,10 +253,15 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu  {
 	                </label>
 	            </p>
 	            <p class="field-custom description description-wide">
+	                <label for="edit-menu-item-container-class-<?php echo $item_id; ?>">
+                      <?php _e( 'Container class' ); ?><br />
+                      <input type="text" id="edit-menu-item-container-class-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-container-class[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->container_class ); ?>" />
+                      <small style="display:block;">▴ Custom class for container (ex: hover-success, hover-danger, hover-info, hover-warning, hover-dark, hover-light).</small>
+	                </label>
+	            </p>
+	            <p class="field-custom description description-wide">
 	                <label for="edit-menu-item-container-bg-<?php echo $item_id; ?>">
                       <?php _e( 'Background color' ); ?><br />
-                      <input type="text" id="edit-menu-item-container-bg-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-container-bg[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->container_bg ); ?>" />
-                      <small style="display:block;">▴ For custom class.</small>
 						<select name="menu-item-container-bg[<?php echo $item_id; ?>]" id="edit-menu-item-container-bg-<?php echo $item_id; ?>">
 						<option value="">Choose a background color</option>
 						<?php

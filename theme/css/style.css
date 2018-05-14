@@ -94,6 +94,43 @@ body
   border-bottom: 4px solid var(--success);
 }
 
+/* Special hover */
+.hover-success:hover
+{
+  color: var(--white);
+  background-color: var(--success);
+}
+
+.hover-danger:hover
+{
+  color: var(--white);
+  background-color: var(--danger);
+}
+
+.hover-info:hover
+{
+  color: var(--white);
+  background-color: var(--info);
+}
+
+.hover-warning:hover
+{
+  color: var(--white);
+  background-color: var(--warning);
+}
+
+.hover-dark:hover
+{
+  color: var(--white);
+  background-color: var(--dark);
+}
+
+.hover-primary:hover
+{
+  color: var(--white);
+  background-color: var(--primary);
+}
+
 /* Font size */
 .rgba1
 {
