@@ -252,6 +252,7 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu  {
 	                    <?php _e( 'Background color' ); ?><br />
 	                    <input type="text" id="edit-menu-item-container-bg-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-container-bg[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->container_bg ); ?>" />
 						<select name="menu-item-container-bg[<?php echo $item_id; ?>]" id="edit-menu-item-container-bg-<?php echo $item_id; ?>">
+						<option value="">Choose a background color</option>
 						<?php
 							$array_color = array(
 								"bg-success" => "Vert",
