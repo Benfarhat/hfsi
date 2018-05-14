@@ -249,8 +249,9 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu  {
 	            </p>
 	            <p class="field-custom description description-wide">
 	                <label for="edit-menu-item-container-bg-<?php echo $item_id; ?>">
-	                    <?php _e( 'Background color' ); ?><br />
-	                    <input type="text" id="edit-menu-item-container-bg-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-container-bg[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->container_bg ); ?>" />
+                      <?php _e( 'Background color' ); ?><br />
+                      <input type="text" id="edit-menu-item-container-bg-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-container-bg[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->container_bg ); ?>" />
+                      <small style="display:block;">▴ For custom class.</small>
 						<select name="menu-item-container-bg[<?php echo $item_id; ?>]" id="edit-menu-item-container-bg-<?php echo $item_id; ?>">
 						<option value="">Choose a background color</option>
 						<?php
@@ -270,7 +271,8 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu  {
 							}
 
 						?>
-						</select>
+            </select>
+            <small style="display:block;">▴ For predefined class (bg-success, bg-danger, bg-info, bg-warning, bg-dark, bg-light).</small>
 	                </label>
 	            </p>
 	            <?php
