@@ -20,3 +20,5 @@ function about_hfsi_page_display() {
 	echo '<p>Quelques infos sur le thème.</p>';
 	echo '</div>';
 }
+
+// @see: https://wpshout.com/wordpress-options-page/
