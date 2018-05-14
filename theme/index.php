@@ -19,7 +19,7 @@ get_header();
   <a class="skip-link screen-reader-text btn btn-warning d-none d-sm-block d-md-none" href="#content"><?php esc_html_e( 'Aller au contenu', 'hfsi' ); ?></a>
   <!-- Title and connexion menu -->
   <nav id="menu-top" class="navbar navbar-expand-md navbar-light bg-light p-0">
-    <div class="container">
+    <div class="container animated bounceInLeft">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0" role="navigation">
           <li class="bg-danger mr-2">
               <a class="flag" href="<?= home_url('/')?>"><span><?php echo hfsi_get_svg_logo('#b33939',false, 42) ?></span></a>
@@ -78,11 +78,39 @@ if ( has_nav_menu( 'menu-top' ) ) {
             <h3 class="text-wheite">La Marsa</h3>
           </div>
           <div class="col-md-8">
+          <?php
+
+$defaults = array(
+	'theme_location'  => 'menu-banner',
+	'menu'            => 'menu-banner',
+	'container'       => 'ul',
+	'container_class' => 'navbar-nav ml-auto mt-2 mt-lg-0',
+	'container_id'    => '',
+	'menu_class'      => '',
+	'menu_id'         => '',
+	'echo'            => true,
+	'fallback_cb'     => 'wp_page_menu',
+	'before'          => '',
+	'after'           => '',
+	'link_before'     => '',
+	'link_after'      => '',
+	'items_wrap'      => '<nav id="%1$s" class="nav ml-auto justify-content-end %2$s">%3$s</nav>',
+	'depth'           => 1,
+  'walker'          => new hfsi_walker_nav_menu(),
+  'submenu_class'   => ''
+);
+
+if ( has_nav_menu( 'menu-banner' ) ) {
+  wp_nav_menu( $defaults );
+}
+?>
+<!--
             <nav class="nav ml-auto justify-content-end">
               <a class="nav-link active" href="#"><i class="fa fa-shield"></i> Famille et proches</a>
               <a class="nav-link" href="#"><i class="fa fa-user-md"></i> Staff médical</a>
               <a class="nav-link" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> E-learning</a>
             </nav>
+-->
           </div>
         </div>
       </div>
