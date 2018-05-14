@@ -28,6 +28,7 @@ class hfsi_custom_menu {
 	*/
 	function hfsi_add_custom_nav_fields( $menu_item ) {
 
+	    $menu_item->container_bg = get_post_meta( $menu_item->ID, '_menu_item_container_bg', true );
 	    $menu_item->subtitle = get_post_meta( $menu_item->ID, '_menu_item_subtitle', true );
 	    return $menu_item;
 
@@ -42,10 +43,12 @@ class hfsi_custom_menu {
 	*/
 	function hfsi_update_custom_nav_fields( $menu_id, $menu_item_db_id, $args ) {
 
-	    // Check if element is properly sent
 	    if ( is_array( $_REQUEST['menu-item-subtitle']) ) {
-	        $subtitle_value = $_REQUEST['menu-item-subtitle'][$menu_item_db_id];
-	        update_post_meta( $menu_item_db_id, '_menu_item_subtitle', $subtitle_value );
+	        update_post_meta( $menu_item_db_id, '_menu_item_subtitle', $_REQUEST['menu-item-subtitle'][$menu_item_db_id] );
+	    }
+
+	    if ( is_array( $_REQUEST['menu-item-container-bg']) ) {
+	        update_post_meta( $menu_item_db_id, '_menu_item_container_bg', $_REQUEST['menu-item-container-bg'][$menu_item_db_id] );
 	    }
 
 	}
@@ -244,6 +247,12 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu  {
 	                    <input type="text" id="edit-menu-item-subtitle-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-subtitle[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->subtitle ); ?>" />
 	                </label>
 	            </p>
+	            <p class="field-custom description description-wide">
+	                <label for="edit-menu-item-container-bg-<?php echo $item_id; ?>">
+	                    <?php _e( 'Menu container background color' ); ?><br />
+	                    <input type="text" id="edit-menu-item-container-bg-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-container-bg[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->container_bg ); ?>" />
+	                </label>
+	            </p>
 	            <?php
 	            /* New fields insertion ends here */
 	            ?>
@@ -283,6 +292,7 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu  {
 }
 
 
+/* We don't need this section */
 class hfsi_walker extends Walker_Nav_Menu
 {
       function start_el(&$output, $item, $depth, $args)
