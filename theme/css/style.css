@@ -101,10 +101,20 @@ body
   background-color: var(--success);
 }
 
+.hover-success:hover a.nav-link
+{
+  color: var(--white);
+}
+
 .hover-danger:hover
 {
   color: var(--white);
   background-color: var(--danger);
+}
+
+.hover-danger:hover a.nav-link
+{
+  color: var(--white);
 }
 
 .hover-info:hover
@@ -113,10 +123,20 @@ body
   background-color: var(--info);
 }
 
+.hover-info:hover a.nav-link
+{
+  color: var(--white);
+}
+
 .hover-warning:hover
 {
   color: var(--white);
   background-color: var(--warning);
+}
+
+.hover-warning:hover a.nav-link
+{
+  color: var(--white);
 }
 
 .hover-dark:hover
@@ -125,10 +145,20 @@ body
   background-color: var(--dark);
 }
 
+.hover-dark:hover a.nav-link
+{
+  color: var(--white);
+}
+
 .hover-primary:hover
 {
   color: var(--white);
   background-color: var(--primary);
+}
+
+.hover-primary:hover a.nav-link
+{
+  color: var(--white);
 }
 
 /* Font size */

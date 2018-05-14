@@ -101,9 +101,10 @@ class hfsi_walker_nav_menu extends Walker_Nav_menu {
     $classes = '';
 		// $classes[] = ($args->walker->has_children) ? 'dropdown-toggle' : '';
 		$classes[] = ($item->current || $item->current_item_ancestor) ? 'active' : '';
-    $classes[] = 'nav-item';   
+    $classes[] = 'nav-item';
     $classes[] = $item->container_bg;
-    
+    $classes[] = $item->container_class;
+
     if($args->walker->has_children) $classes[] = "dropdown";
 
 		if( $depth && $args->walker->has_children ){

@@ -231,5 +231,12 @@ require get_template_directory() . '/inc/bootstrap-menu.php';
  */
 require get_template_directory() . '/inc/custom-menu-fields.php';
 
+/**
+ * Options pages.
+ *
+ * The place where we add custom and advanced theme parameters
+ */
+require get_template_directory() . '/inc/options-page.php';
+
 
 
