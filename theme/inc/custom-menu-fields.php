@@ -249,8 +249,27 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu  {
 	            </p>
 	            <p class="field-custom description description-wide">
 	                <label for="edit-menu-item-container-bg-<?php echo $item_id; ?>">
-	                    <?php _e( 'Menu container background color' ); ?><br />
+	                    <?php _e( 'Background color' ); ?><br />
 	                    <input type="text" id="edit-menu-item-container-bg-<?php echo $item_id; ?>" class="widefat code edit-menu-item-custom" name="menu-item-container-bg[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $item->container_bg ); ?>" />
+						<select name="menu-item-container-bg[<?php echo $item_id; ?>]" id="edit-menu-item-container-bg-<?php echo $item_id; ?>">
+						<?php
+							$array_color = array(
+								"bg-success" => "Vert",
+								"bg-danger" => "Rouge",
+								"bg-info" => "Bleu",
+								"bg-warning" => "Orange",
+								"bg-dark" => "Sombre",
+								"bg-light" => "Clair",
+							);
+							foreach ($array_color as $k => $v){
+								echo '<option value="'.$k.'"';
+								if (esc_attr( $item->container_bg ) == $k)
+									echo ' selected="selected"';
+								echo '>'.$v.'</option>';
+							}
+
+						?>
+						</select>
 	                </label>
 	            </p>
 	            <?php
