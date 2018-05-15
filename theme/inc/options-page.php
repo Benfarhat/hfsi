@@ -15,10 +15,8 @@ function hfsi_page_create() {
 function about_hfsi_page_display() {
 	if ( !current_user_can( 'manage_options' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
-	echo '<div class="wrap">';
-	echo '<p>Quelques infos sur le thème.</p>';
-	echo '</div>';
+  }
+  include 'about_hfsi_page_display.php';
 }
 
 // @see: https://wpshout.com/wordpress-options-page/
