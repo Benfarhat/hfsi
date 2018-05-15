@@ -210,6 +210,13 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Theme customizer.
+ *
+ * Custom option for our theme (category to use for carousel, copyright text, and so on)
+ */
+require get_template_directory() . '/inc/theme-customizer.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
@@ -237,6 +244,7 @@ require get_template_directory() . '/inc/custom-menu-fields.php';
  * The place where we add custom and advanced theme parameters
  */
 require get_template_directory() . '/inc/options-page.php';
+
 
 
 
