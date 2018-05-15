@@ -178,32 +178,76 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
   </nav>
   <!-- /Logo and Primary menu -->
-  <!-- Slideshow -->
+  <?php
+  if ( get_theme_mod('enable_category_carousel') ):
+  // Add comment to html
+  echo "  <!-- Slideshow -->";
+
+  $args = array(
+    'category_name' => get_theme_mod('category_carousel'),
+    'posts_per_page' => 5
+  );
+  $the_query = new WP_Query( $args );
+ /*
+ $custom_posts->post_count;
+  // Displays the category's name
+  echo "<h3>" . get_category_by_slug($args['category_name'])->name . </h3>;
+  $the_query = new WP_Query( $args );
+
+  // The Loop
+  if ( $the_query->have_posts() ) :
+    echo "<ul>";
+    while ( $the_query->have_posts() ) : $the_query->the_post();
+      $link = get_permalink();
+      $title = get_the_title();
+      echo '<li><a href="' . $link . '">'  . $title . '</a></li>';
+    endwhile;
+    echo "</ul>";
+  endif;
+ */
+  // Reset Post Data
+  wp_reset_postdata();
+
+?>
+
   <div id="slideshow-section">
       <div class="container my-5">
           <div class="row">
-            <h2 class="titre animated bounceInRight">Espace étudiants</h2>
+            <h2 class="titre animated bounceInRight"><?= get_theme_mod('category_carousel') ?></h2>
           </div>
           <div class="row">
 
               <div id="carousel" class="carousel slide position-relative animated bounceInLeft" data-ride="carousel" data-interval="false">
               <ol class="carousel-indicators d-flex flex-column">
-                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-                <li data-target="#carousel" data-slide-to="2"></li>
+                <?php
+                for ($i = 0; $i < $the_query->post_count; $i++) {
+                    echo '<li data-target="#carousel" data-slide-to="0"';
+                    if($i == 0) echo ' class="active"';
+                    echo '></li>';
+                }
+                ?>
               </ol>
               <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
+                <?php
+                $i=0;
+                while ( $the_query->have_posts() ) : $the_query->the_post();
+                $link = get_permalink();
+                $title = get_the_title();
+                $excerpt = get_the_excerpt();
+                ?>
+                <div class="carousel-item<?php if($i==0) echo " active"; $i++;?>">
                   <img src="<?= get_template_directory_uri() ?>/img/laboratoire2.jpg" alt="First slide">
                   <div class="carousel-caption d-none d-md-block text-dark">
-                    <h3 class="bd-title">Evènements</h3>
+                    <h3 class="bd-title"><?= $title ?></h3>
 
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <small>Category 1</small>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quia quas ullam illo assumenda quis vero soluta accusamus? Labore, soluta!</p>
-                    <a href="#" class="btn btn-outline-success text-uppercase align-items-end"><i class="fa fa-long-arrow-right"></i> Lire la suite</a>
+                    <p><?= $excerpt ?></p>
+                    <a href="<?= $link ?>" class="btn btn-outline-success text-uppercase align-items-end"><i class="fa fa-long-arrow-right"></i> Lire la suite</a>
                   </div>
                 </div>
+                <?php
+                endwhile;
+                ?>
+                <!--
                 <div class="carousel-item">
                   <img src="<?= get_template_directory_uri() ?>/img/instrument2.jpg" alt="Second slide">
                   <div class="carousel-caption d-none d-md-block text-dark">
@@ -228,6 +272,8 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
                   </div>
                 </div>
+
+                -->
               </div>
               <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                   <i class="fa fa-chevron-left"></i>
@@ -243,7 +289,12 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
         </div>
   </div>
-  <!-- /Slideshow -->
+
+  <?php
+  echo "<!-- /Slideshow -->";
+  endif;
+  ?>
+
 
   <!-- Horaire et rendez vous -->
   <section id="horaire-rdv">

@@ -24,39 +24,63 @@ function hfsi_full_customize_register( $wp_customize )
         'title'    => __( 'Interface', 'starter' ),
         'priority' => 30
     ) );
+ // Enable Carousel
+    $wp_customize->add_setting( 'enable_category_carousel' , array(
+        'default' => 0,
+        'sanitize_callback' => 'hfsi_chkbox_sanitization',
+        'transport' => 'refresh',
+    ) );
 
-    $wp_customize->add_setting( 'starter_new_setting_name' , array(
+  $wp_customize->add_control( 'enable_category_carousel', array(
+        'label' => __( 'Enable carousel', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable carousel' ),
+        'section'  => 'starter_new_section_name',
+        'settings' => 'enable_category_carousel',
+        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+  // Category selection for carousel
+    $wp_customize->add_setting( 'category_carousel' , array(
         'default'   => '',
         'transport' => 'refresh',
     ) );
 
     $wp_customize->add_control( 'category_carousel', array(
         'label' => __( 'Select category for carousel' ),
-        'description' => esc_html__( 'Choose a section' ),
+        'description' => esc_html__( 'Choose your category' ),
         'section' => 'starter_new_section_name',
-        'settings' => 'starter_new_setting_name',
-        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'settings' => 'category_carousel',
+        'priority' => 15, // Optional. Order priority to load the control. Default: 10
         'type' => 'select',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
-        'choices' => get_categories_select()
+        'choices' => hfsi_get_categories_select()
     )
   );
 
 }
 
-function get_categories_select() {
-  $teh_cats = get_categories();
+function hfsi_get_categories_select() {
+  $__categories = get_categories();
   $results;
 
-  $count = count($teh_cats);
+  $count = count($__categories);
   for ($i=0; $i < $count; $i++) {
-    if (isset($teh_cats[$i]))
-      $results[$teh_cats[$i]->slug] = $teh_cats[$i]->name;
+    if (isset($__categories[$i]))
+      $results[$__categories[$i]->slug] = $__categories[$i]->name;
     else
       $count++;
   }
   return $results;
 }
 
+function hfsi_chkbox_sanitization( $input ) {
+  if ( true === $input ) {
+     return 1;
+  } else {
+     return 0;
+  }
+}
 
 add_action( 'customize_register', 'hfsi_full_customize_register');
