@@ -185,7 +185,7 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
   $args = array(
     'category_name' => get_theme_mod('category_carousel'),
-    'posts_per_page' => 5
+    'posts_per_page' => get_theme_mod('num_category_carousel')
   );
   $the_query = new WP_Query( $args );
  /*
