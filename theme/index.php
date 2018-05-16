@@ -185,7 +185,7 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
   $args = array(
     'category_name' => get_theme_mod('category_carousel'),
-    'posts_per_page' => get_theme_mod('num_category_carousel')
+    'posts_per_page' => get_theme_mod('num_category_carousel', 5)
   );
   $the_query = new WP_Query( $args );
  /*
@@ -297,7 +297,7 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
 
   <!-- Horaire et rendez vous -->
-  <section id="horaire-rdv">
+  <section id="horaire-rdv mt-2">
     <div class="container">
       <div class="row">
         <!-- Horaire -->
