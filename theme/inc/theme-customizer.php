@@ -20,7 +20,7 @@ Additional CSS	custom_css	200
 
 function hfsi_full_customize_register( $wp_customize )
 {
-    $wp_customize->add_section( 'starter_new_section_name' , array(
+    $wp_customize->add_section( 'hfsi_interface_section' , array(
         'title'    => __( 'Interface', 'starter' ),
         'priority' => 30
     ) );
@@ -34,13 +34,32 @@ function hfsi_full_customize_register( $wp_customize )
   $wp_customize->add_control( 'enable_category_carousel', array(
         'label' => __( 'Enable carousel', 'hfsi' ),
         'description' => esc_html__( 'Enable or disable carousel' ),
-        'section'  => 'starter_new_section_name',
+        'section'  => 'hfsi_interface_section',
         'settings' => 'enable_category_carousel',
         'priority' => 10, // Optional. Order priority to load the control. Default: 10
         'type'=> 'checkbox',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
     )
   );
+
+  // Number of elements for carousel
+    $wp_customize->add_setting( 'num_category_carousel' , array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( 'num_category_carousel', array(
+        'label' => __( 'How many elements you want to display' ),
+        'description' => esc_html__( 'Choose a number' ),
+        'section' => 'hfsi_interface_section',
+        'settings' => 'num_category_carousel',
+        'priority' => 15,
+        'type' => 'select',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+        'choices' => array(2,3,4,5,6,7,8,9,10)
+    )
+  );
+
   // Category selection for carousel
     $wp_customize->add_setting( 'category_carousel' , array(
         'default'   => '',
@@ -50,14 +69,15 @@ function hfsi_full_customize_register( $wp_customize )
     $wp_customize->add_control( 'category_carousel', array(
         'label' => __( 'Select category for carousel' ),
         'description' => esc_html__( 'Choose your category' ),
-        'section' => 'starter_new_section_name',
+        'section' => 'hfsi_interface_section',
         'settings' => 'category_carousel',
-        'priority' => 15, // Optional. Order priority to load the control. Default: 10
+        'priority' => 20,
         'type' => 'select',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
         'choices' => hfsi_get_categories_select()
     )
   );
+
 
 }
 
