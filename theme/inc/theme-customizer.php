@@ -44,7 +44,7 @@ function hfsi_full_customize_register( $wp_customize )
 
   // Number of elements for carousel
     $wp_customize->add_setting( 'num_category_carousel' , array(
-        'default'   => '',
+        'default'   => 5,
         'transport' => 'refresh',
     ) );
 
