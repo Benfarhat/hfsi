@@ -20,8 +20,8 @@ function hfsi_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'hfsi_custom_header_args', array(
 		'default-image'          => get_parent_theme_file_uri( '/img/hospital3.jpeg' ),
 		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
+		'width'                  => 1600,
+		'height'                 => 350,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'hfsi_header_style',
   ) ) );

@@ -1,6 +1,8 @@
 <?php
 
-// @see: https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/
+/* @see: https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/
+* @see: https://github.com/WordPress/WordPress/blob/master/wp-includes/class-wp-customize-control.php
+*/
 /*
 * Panel  > Section > Control > Setting
 */
@@ -21,22 +23,29 @@ Additional CSS	custom_css	200
 function hfsi_full_customize_register( $wp_customize )
 {
     $wp_customize->add_section( 'hfsi_interface_section' , array(
-        'title'    => __( 'Interface', 'starter' ),
+        'title'    => __( 'Interface Title', 'starter' ),
         'priority' => 30
     ) );
+    $wp_customize->add_section( 'hfsi_carousel_section' , array(
+        'title'    => __( 'Carousel / Diaporama', 'starter' ),
+        'priority' => 35
+    ) );
+    $wp_customize->add_section( 'hfsi_webservice_section' , array(
+        'title'    => __( 'Webservice', 'starter' ),
+        'priority' => 200
+    ) );
 
-    // Titre
-    $wp_customize->add_setting( 'organization_title_set' , array(
+    // Title
+    $wp_customize->add_setting( 'organization_title' , array(
       'default' => '',
-      'sanitize_callback' => 'hfsi_chkbox_sanitization',
-      'transport' => 'refresh',
+      'transport' => 'postMessage', // Values are refresh and postMessage
     ) );
 
     $wp_customize->add_control( 'organization_title', array(
       'label' => __( 'Title of organisation', 'hfsi' ),
       'description' => esc_html__( 'Website title will be used as default' ),
       'section'  => 'hfsi_interface_section',
-      'settings' => 'organization_title_set',
+      'settings' => 'organization_title',
       'priority' => 2, // Optional. Order priority to load the control. Default: 10
       'type' => 'text', // Can be either text, email, url, number, hidden, or date
       'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
@@ -46,19 +55,18 @@ function hfsi_full_customize_register( $wp_customize )
       ),
     ) );
 
-    // Sous Titre
-    $wp_customize->add_setting( 'organization_subtitle_set' , array(
+    // Subtitle
+    $wp_customize->add_setting( 'organization_subtitle' , array(
       'default' => '',
-      'sanitize_callback' => 'hfsi_chkbox_sanitization',
-      'transport' => 'refresh',
+      'transport' => 'postMessage',
     ) );
 
     $wp_customize->add_control( 'organization_subtitle', array(
       'label' => __( 'Subtitle of organisation', 'hfsi' ),
-      'description' => esc_html__( 'Website slogan will be used as default' ),
+      'description' => esc_html__( 'Website description will be used as default' ),
       'section'  => 'hfsi_interface_section',
-      'settings' => 'organization_subtitle_set',
-      'priority' => 2, // Optional. Order priority to load the control. Default: 10
+      'settings' => 'organization_subtitle',
+      'priority' => 3, // Optional. Order priority to load the control. Default: 10
       'type' => 'text', // Can be either text, email, url, number, hidden, or date
       'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
       'input_attrs' => array( // Optional.
@@ -67,8 +75,71 @@ function hfsi_full_customize_register( $wp_customize )
       ),
     ) );
 
+
+    // Banner title
+    $wp_customize->add_setting( 'organization_banner_title' , array(
+      'default' => '',
+      'transport' => 'refresh', // Values are refresh and postMessage
+    ) );
+
+    $wp_customize->add_control( 'organization_banner_title', array(
+      'label' => __( 'Banner title', 'hfsi' ),
+      'description' => esc_html__( 'Website title will be used as default' ),
+      'section'  => 'hfsi_interface_section',
+      'settings' => 'organization_banner_title',
+      'priority' => 4, // Optional. Order priority to load the control. Default: 10
+      'type' => 'text', // Can be either text, email, url, number, hidden, or date
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'input_attrs' => array( // Optional.
+         'style' => 'border: 1px solid #ddd',
+         'placeholder' => __( 'Enter banner title...' ),
+      ),
+    ) );
+
+    // banner subtitle
+    $wp_customize->add_setting( 'organization_banner_subtitle' , array(
+      'default' => '',
+      'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( 'organization_banner_subtitle', array(
+      'label' => __( 'Banner subtitle', 'hfsi' ),
+      'description' => esc_html__( 'Website description will be used as default' ),
+      'section'  => 'hfsi_interface_section',
+      'settings' => 'organization_banner_subtitle',
+      'priority' => 5, // Optional. Order priority to load the control. Default: 10
+      'type' => 'text', // Can be either text, email, url, number, hidden, or date
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'input_attrs' => array( // Optional.
+         'style' => 'border: 1px solid #ddd',
+         'placeholder' => __( 'Enter banner subtitle...' ),
+      ),
+    ) );
+
+    // banner slogan
+    $wp_customize->add_setting( 'organization_banner_slogan' , array(
+      'default' => '',
+      'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( 'organization_banner_slogan', array(
+      'label' => __( 'Subtitle of organisation', 'hfsi' ),
+      'description' => esc_html__( 'Banner Slogan' ),
+      'section'  => 'hfsi_interface_section',
+      'settings' => 'organization_banner_slogan',
+      'priority' => 6, // Optional. Order priority to load the control. Default: 10
+      'type' => 'text', // Can be either text, email, url, number, hidden, or date
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'input_attrs' => array( // Optional.
+         'style' => 'border: 1px solid #ddd',
+         'placeholder' => __( 'Enter banner slogan subtitle...' ),
+      ),
+    ) );
+
+
+
     // Enable Carousel
-    $wp_customize->add_setting( 'enable_category_carousel_set' , array(
+    $wp_customize->add_setting( 'enable_category_carousel' , array(
         'default' => 0,
         'sanitize_callback' => 'hfsi_chkbox_sanitization',
         'transport' => 'refresh',
@@ -77,8 +148,8 @@ function hfsi_full_customize_register( $wp_customize )
     $wp_customize->add_control( 'enable_category_carousel', array(
           'label' => __( 'Enable carousel', 'hfsi' ),
           'description' => esc_html__( 'Enable or disable carousel' ),
-          'section'  => 'hfsi_interface_section',
-          'settings' => 'enable_category_carousel_set',
+          'section'  => 'hfsi_carousel_section',
+          'settings' => 'enable_category_carousel',
           'priority' => 10, // Optional. Order priority to load the control. Default: 10
           'type'=> 'checkbox',
           'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
@@ -86,7 +157,7 @@ function hfsi_full_customize_register( $wp_customize )
     );
 
   // Number of elements for carousel
-    $wp_customize->add_setting( 'num_category_carousel_set' , array(
+    $wp_customize->add_setting( 'num_category_carousel' , array(
         'default'   => 5,
         'transport' => 'refresh',
     ) );
@@ -94,8 +165,8 @@ function hfsi_full_customize_register( $wp_customize )
     $wp_customize->add_control( 'num_category_carousel', array(
         'label' => __( 'How many elements you want to display' ),
         'description' => esc_html__( 'Choose a number' ),
-        'section' => 'hfsi_interface_section',
-        'settings' => 'num_category_carousel_set',
+        'section' => 'hfsi_carousel_section',
+        'settings' => 'num_category_carousel',
         'priority' => 15,
         'type' => 'select',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
@@ -114,7 +185,7 @@ function hfsi_full_customize_register( $wp_customize )
   );
 
   // Category selection for carousel
-    $wp_customize->add_setting( 'category_carousel_set' , array(
+    $wp_customize->add_setting( 'category_carousel' , array(
         'default'   => '',
         'transport' => 'refresh',
     ) );
@@ -122,8 +193,8 @@ function hfsi_full_customize_register( $wp_customize )
     $wp_customize->add_control( 'category_carousel', array(
         'label' => __( 'Select category for carousel' ),
         'description' => esc_html__( 'Choose your category' ),
-        'section' => 'hfsi_interface_section',
-        'settings' => 'category_carousel_set',
+        'section' => 'hfsi_carousel_section',
+        'settings' => 'category_carousel',
         'priority' => 20,
         'type' => 'select',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
@@ -131,6 +202,33 @@ function hfsi_full_customize_register( $wp_customize )
     )
   );
 
+    // Webservice section
+
+
+    $wp_customize->add_setting( 'enable_webservice' , array(
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'enable_webservice', array(
+        'label' => __( 'Enable Webservice', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable webservice' ),
+        'section'  => 'hfsi_webservice_section',
+        'settings' => 'enable_webservice',
+        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+
+
+  // Remove unused section
+  // @see: https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/remove_section
+  $wp_customize->remove_section( 'colors' );
+  $wp_customize->remove_section( 'background_image' );
+  $wp_customize->remove_section( 'static_front_page' );
+  $wp_customize->remove_section( 'custom_css' );
 
 }
 

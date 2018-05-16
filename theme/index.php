@@ -14,6 +14,15 @@
 
 get_header();
 ?>
+<?php if ( get_header_image() ) : ?>
+<style>
+    #header-top{
+    background: url(<?php header_image(); ?>);
+    background-position-y: 40%;
+    background-size: cover;
+    }
+</style>
+<?php endif; ?>
 
 <body <?php body_class(); ?>>
   <a class="skip-link screen-reader-text btn btn-warning d-none d-sm-block d-md-none" href="#content"><?php esc_html_e( 'Aller au contenu', 'hfsi' ); ?></a>
@@ -25,7 +34,7 @@ get_header();
               <a class="flag" href="<?= home_url('/')?>"><span><?php echo hfsi_get_svg_logo('#b33939',false, 42) ?></span></a>
           </li>
           <li>
-              <a class="navbar-brand" href="<?= home_url('/')?>"><span class="text-success"><?php bloginfo('name'); ?></span> <?php bloginfo('description'); ?></a></a>
+              <a class="navbar-brand" href="<?= home_url('/')?>"><span class="text-success organization_title"><?= esc_html(get_theme_mod('organization_title', get_bloginfo('name'))); ?></span> <span class="organization_subtitle"><?= esc_html(get_theme_mod('organization_subtitle', get_bloginfo('description'))); ?></span></a></a>
           </li>
       </ul>
       <!--
@@ -72,12 +81,15 @@ if ( has_nav_menu( 'menu-top' ) ) {
     <div class="container position-relative d-flex flex-column">
       <div class="overlay rgba4 animated bounceInRight">
         <div class="row py-5">
-          <div class="col-md-3 offset-md-1 text-center title" role="banner">
+          <div class="col-md-4 offset-md-1 text-center title" role="banner">
             <img src="<?= get_template_directory_uri() ?>/img/logo/3/logo128.png" alt="">
-            <h2 class="text-whiete">HOPITAL FSI</h2>
-            <h3 class="text-wheite">La Marsa</h3>
+            <h2 class="organization_banner_title"><?= get_theme_mod('organization_banner_title', 'HOPITAL FSI'); ?></h2>
+            <h3 class="organization_banner_subtitle"><?= get_theme_mod('organization_banner_subtitle', 'La Marsa'); ?></h3>
+            <?php if(get_theme_mod('organization_banner_slogan')): ?>
+            <p class="organization_banner_slogan"><?= get_theme_mod('organization_banner_slogan'); ?></p>
+            <?php endif; ?>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-7">
           <?php
 
 $defaults = array(
@@ -153,7 +165,7 @@ $defaults = array(
 	'theme_location'  => 'menu-primary-right',
 	'menu'            => 'menu-primary-right',
 	'container'       => 'ul',
-	'container_class' => 'nav mr-auto justify-content-end flex-1',
+	'container_class' => 'nav ml-auto justify-content-end flex-1',
 	'container_id'    => '',
 	'menu_class'      => '',
 	'menu_id'         => '',
@@ -163,7 +175,7 @@ $defaults = array(
 	'after'           => '',
 	'link_before'     => '',
 	'link_after'      => '',
-	'items_wrap'      => '<ul id="%1$s" class="nav mr-auto justify-content-start %2$s">%3$s</ul>',
+	'items_wrap'      => '<ul id="%1$s" class="nav ml-auto justify-content-end %2$s">%3$s</ul>',
 	'depth'           => 2,
   'walker'          => new hfsi_walker_nav_menu(),
   'submenu_class'   => 'dropdown-menu-right'
@@ -221,7 +233,7 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
               <ol class="carousel-indicators d-flex flex-column">
                 <?php
                 for ($i = 0; $i < $the_query->post_count; $i++) {
-                    echo '<li data-target="#carousel" data-slide-to="0"';
+                    echo '<li data-target="#carousel" data-slide-to="'.$i.'"';
                     if($i == 0) echo ' class="active"';
                     echo '></li>';
                 }
@@ -292,6 +304,7 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
   <?php
   echo "<!-- /Slideshow -->";
+  wp_reset_postdata();
   endif;
   ?>
 

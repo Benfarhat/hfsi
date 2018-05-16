@@ -81,11 +81,13 @@ if ( ! function_exists( 'hfsi_setup' ) ) :
 			'caption',
 		) );
 
-		// Set up the WordPress core custom background feature.
+    // Set up the WordPress core custom background feature.
+    /*
 		add_theme_support( 'custom-background', apply_filters( 'hfsi_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
-		) ) );
+    ) ) );
+    */
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -100,7 +102,9 @@ if ( ! function_exists( 'hfsi_setup' ) ) :
 			'width'       => 250,
 			'flex-width'  => true,
 			'flex-height' => true,
-		) );
+    ) );
+
+    remove_theme_support( 'colors' );
 	}
 endif;
 add_action( 'after_setup_theme', 'hfsi_setup' );

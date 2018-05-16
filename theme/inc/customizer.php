@@ -14,6 +14,11 @@ function hfsi_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'organization_title' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'organization_subtitle' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'organization_banner_title' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'organization_banner_subtitle' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'organization_banner_slogan' )->transport = 'postMessage';
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -23,6 +28,26 @@ function hfsi_customize_register( $wp_customize ) {
 		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
 			'selector'        => '.site-description',
 			'render_callback' => 'hfsi_customize_partial_blogdescription',
+		) );
+		$wp_customize->selective_refresh->add_partial( 'organization_title', array(
+			'selector'        => '.organization_title',
+			'render_callback' => 'hfsi_customize_partial_organization_title',
+		) );
+		$wp_customize->selective_refresh->add_partial( 'organization_subtitle', array(
+			'selector'        => '.organization_subtitle',
+			'render_callback' => 'hfsi_customize_partial_organization_subtitle',
+		) );
+		$wp_customize->selective_refresh->add_partial( 'organization_banner_title', array(
+			'selector'        => '.organization_banner_title',
+			'render_callback' => 'hfsi_customize_partial_organization_banner_title',
+		) );
+		$wp_customize->selective_refresh->add_partial( 'organization_banner_subtitle', array(
+			'selector'        => '.organization_banner_subtitle',
+			'render_callback' => 'hfsi_customize_partial_organization_banner_subtitle',
+		) );
+		$wp_customize->selective_refresh->add_partial( 'organization_banner_slogan', array(
+			'selector'        => '.organization_banner_slogan',
+			'render_callback' => 'hfsi_customize_partial_organization_banner_slogan',
 		) );
 	}
 }
@@ -44,6 +69,62 @@ function hfsi_customize_partial_blogname() {
  */
 function hfsi_customize_partial_blogdescription() {
 	bloginfo( 'description' );
+}
+
+/**
+ * Render the Organization title.
+ *
+ * @return void
+ */
+function hfsi_customize_partial_organization_title() {
+  if ( ( get_theme_mod( 'organization_title' ) ) != '' ) {
+    $organization_title = get_theme_mod( 'organization_title' );
+    echo $organization_title;
+  }
+}
+
+/**
+ * Render the Organization subtitle.
+ *
+ * @return void
+ */
+function hfsi_customize_partial_organization_banner_title() {
+  if ( ( get_theme_mod( 'organization_banner_title' ) ) != '' ) {
+    echo get_theme_mod( 'organization_banner_title' );
+  }
+}
+
+/**
+ * Render the Organization subtitle.
+ *
+ * @return void
+ */
+function hfsi_customize_partial_organization_banner_subtitle() {
+  if ( ( get_theme_mod( 'organization_banner_subtitle' ) ) != '' ) {
+    echo get_theme_mod( 'organization_banner_subtitle' );
+  }
+}
+
+/**
+ * Render the Organization subtitle.
+ *
+ * @return void
+ */
+function hfsi_customize_partial_organization_banner_slogan() {
+  if ( ( get_theme_mod( 'organization_banner_slogan' ) ) != '' ) {
+    echo get_theme_mod( 'organization_banner_slogan' );
+  }
+}
+
+/**
+ * Render the Organization subtitle.
+ *
+ * @return void
+ */
+function hfsi_customize_partial_organization_subtitle() {
+  if ( ( get_theme_mod( 'organization_subtitle' ) ) != '' ) {
+    echo get_theme_mod( 'organization_subtitle' );
+  }
 }
 
 /**
