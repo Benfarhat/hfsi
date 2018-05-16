@@ -24,26 +24,69 @@ function hfsi_full_customize_register( $wp_customize )
         'title'    => __( 'Interface', 'starter' ),
         'priority' => 30
     ) );
- // Enable Carousel
-    $wp_customize->add_setting( 'enable_category_carousel' , array(
+
+    // Titre
+    $wp_customize->add_setting( 'organization_title_set' , array(
+      'default' => '',
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( 'organization_title', array(
+      'label' => __( 'Title of organisation', 'hfsi' ),
+      'description' => esc_html__( 'Website title will be used as default' ),
+      'section'  => 'hfsi_interface_section',
+      'settings' => 'organization_title_set',
+      'priority' => 2, // Optional. Order priority to load the control. Default: 10
+      'type' => 'text', // Can be either text, email, url, number, hidden, or date
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'input_attrs' => array( // Optional.
+         'style' => 'border: 1px solid #ddd',
+         'placeholder' => __( 'Enter title...' ),
+      ),
+    ) );
+
+    // Sous Titre
+    $wp_customize->add_setting( 'organization_subtitle_set' , array(
+      'default' => '',
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( 'organization_subtitle', array(
+      'label' => __( 'Subtitle of organisation', 'hfsi' ),
+      'description' => esc_html__( 'Website slogan will be used as default' ),
+      'section'  => 'hfsi_interface_section',
+      'settings' => 'organization_subtitle_set',
+      'priority' => 2, // Optional. Order priority to load the control. Default: 10
+      'type' => 'text', // Can be either text, email, url, number, hidden, or date
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'input_attrs' => array( // Optional.
+         'style' => 'border: 1px solid #ddd',
+         'placeholder' => __( 'Enter subtitle...' ),
+      ),
+    ) );
+
+    // Enable Carousel
+    $wp_customize->add_setting( 'enable_category_carousel_set' , array(
         'default' => 0,
         'sanitize_callback' => 'hfsi_chkbox_sanitization',
         'transport' => 'refresh',
     ) );
 
-  $wp_customize->add_control( 'enable_category_carousel', array(
-        'label' => __( 'Enable carousel', 'hfsi' ),
-        'description' => esc_html__( 'Enable or disable carousel' ),
-        'section'  => 'hfsi_interface_section',
-        'settings' => 'enable_category_carousel',
-        'priority' => 10, // Optional. Order priority to load the control. Default: 10
-        'type'=> 'checkbox',
-        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
-    )
-  );
+    $wp_customize->add_control( 'enable_category_carousel', array(
+          'label' => __( 'Enable carousel', 'hfsi' ),
+          'description' => esc_html__( 'Enable or disable carousel' ),
+          'section'  => 'hfsi_interface_section',
+          'settings' => 'enable_category_carousel_set',
+          'priority' => 10, // Optional. Order priority to load the control. Default: 10
+          'type'=> 'checkbox',
+          'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      )
+    );
 
   // Number of elements for carousel
-    $wp_customize->add_setting( 'num_category_carousel' , array(
+    $wp_customize->add_setting( 'num_category_carousel_set' , array(
         'default'   => 5,
         'transport' => 'refresh',
     ) );
@@ -52,7 +95,7 @@ function hfsi_full_customize_register( $wp_customize )
         'label' => __( 'How many elements you want to display' ),
         'description' => esc_html__( 'Choose a number' ),
         'section' => 'hfsi_interface_section',
-        'settings' => 'num_category_carousel',
+        'settings' => 'num_category_carousel_set',
         'priority' => 15,
         'type' => 'select',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
@@ -71,7 +114,7 @@ function hfsi_full_customize_register( $wp_customize )
   );
 
   // Category selection for carousel
-    $wp_customize->add_setting( 'category_carousel' , array(
+    $wp_customize->add_setting( 'category_carousel_set' , array(
         'default'   => '',
         'transport' => 'refresh',
     ) );
@@ -80,7 +123,7 @@ function hfsi_full_customize_register( $wp_customize )
         'label' => __( 'Select category for carousel' ),
         'description' => esc_html__( 'Choose your category' ),
         'section' => 'hfsi_interface_section',
-        'settings' => 'category_carousel',
+        'settings' => 'category_carousel_set',
         'priority' => 20,
         'type' => 'select',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
