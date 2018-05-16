@@ -127,6 +127,23 @@ function hfsi_customize_partial_organization_subtitle() {
   }
 }
 
+/*
+* We can also smplify like this
+*
+
+  $wp_customize->selective_refresh->add_partial( 'social_urls',
+    array(
+        'selector' => '.social-header',
+        'container_inclusive' => false,
+        'render_callback' => function() {
+          echo mytheme_get_social_media_icons();
+        },
+        'fallback_refresh' => true
+    )
+  );
+
+*/
+
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
