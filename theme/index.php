@@ -248,7 +248,14 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
                 $excerpt = get_the_excerpt();
                 ?>
                 <div class="carousel-item<?php if($i==0) echo " active"; $i++;?>">
-                  <img src="<?= get_template_directory_uri() ?>/img/laboratoire2.jpg" alt="First slide">
+                <?php
+                if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+                  $image_url = get_the_post_thumbnail_url();
+                } else {
+                  $image_url = get_template_directory_uri() . '/img/laboratoire2.jpg';
+                }
+                ?>
+                  <img src="<?= $image_url ?>" alt="<?= $title ?>">
                   <div class="carousel-caption d-none d-md-block text-dark">
                     <h3 class="bd-title"><?= $title ?></h3>
 
