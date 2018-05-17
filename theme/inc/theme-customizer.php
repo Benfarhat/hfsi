@@ -144,21 +144,44 @@ function hfsi_full_customize_register( $wp_customize )
 
     // Enable Carousel
     $wp_customize->add_setting( 'enable_category_carousel' , array(
-        'default' => 0,
-        'sanitize_callback' => 'hfsi_chkbox_sanitization',
-        'transport' => 'refresh',
-    ) );
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
 
-    $wp_customize->add_control( 'enable_category_carousel', array(
-          'label' => __( 'Enable carousel', 'hfsi' ),
-          'description' => esc_html__( 'Enable or disable carousel' ),
-          'section'  => 'hfsi_carousel_section',
-          'settings' => 'enable_category_carousel',
-          'priority' => 10, // Optional. Order priority to load the control. Default: 10
-          'type'=> 'checkbox',
-          'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
-      )
-    );
+  $wp_customize->add_control( 'enable_category_carousel', array(
+        'label' => __( 'Enable carousel', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable carousel' ),
+        'section'  => 'hfsi_carousel_section',
+        'settings' => 'enable_category_carousel',
+        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+
+
+    // Carousel Title
+    $wp_customize->add_setting( 'title_carousel' , array(
+      'default' => '',
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'postMessage',
+  ) );
+
+  $wp_customize->add_control( 'title_carousel', array(
+        'label' => __( 'Enable carousel', 'hfsi' ),
+        'description' => esc_html__( 'Title for your carousel' ),
+        'section'  => 'hfsi_carousel_section',
+        'settings' => 'title_carousel',
+        'priority' => 12, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'text',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+        'input_attrs' => array( // Optional.
+           'style' => 'border: 1px solid #ddd',
+           'placeholder' => __( 'Enter title for your carousel...' ),
+        ),
+    )
+  );
 
   // Number of elements for carousel
     $wp_customize->add_setting( 'num_category_carousel' , array(
