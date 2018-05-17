@@ -225,7 +225,7 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
   <div id="slideshow-section">
       <div class="container my-5">
           <div class="row">
-            <h2 class="titre animated bounceInRight"><?= get_theme_mod('category_carousel') ?></h2>
+            <h2 class="titre animated bounceInRight title_carousel"><?= get_theme_mod('title_carousel') ?></h2>
           </div>
           <div class="row">
 
