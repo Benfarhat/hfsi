@@ -164,7 +164,7 @@ function hfsi_full_customize_register( $wp_customize )
     // Carousel Title
     $wp_customize->add_setting( 'title_carousel' , array(
       'default' => '',
-      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'sanitize_callback' => 'hfsi_sanitize_text',
       'transport' => 'postMessage',
   ) );
 
@@ -344,6 +344,10 @@ function hfsi_sanitize_dropdown_pages( $page_id, $setting ) {
 
   // If $page_id is an ID of a published page, return it; otherwise, return the default.
   return ( 'publish' == get_post_status( $page_id ) ? $page_id : $setting->default );
+}
+
+function hfsi_sanitize_text( $input ) {
+  return sanitize_text_field($input);
 }
 
 add_action( 'customize_register', 'hfsi_full_customize_register');
