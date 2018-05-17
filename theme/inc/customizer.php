@@ -48,7 +48,19 @@ function hfsi_customize_register( $wp_customize ) {
 		$wp_customize->selective_refresh->add_partial( 'organization_banner_slogan', array(
 			'selector'        => '.organization_banner_slogan',
 			'render_callback' => 'hfsi_customize_partial_organization_banner_slogan',
-		) );
+    ) );
+		$wp_customize->selective_refresh->add_partial( 'title_carousel', array(
+			'selector'        => '.title_carousel',
+      'container_inclusive' => false,
+			'render_callback' => function() {
+        if ( ( get_theme_mod( 'title_carousel' ) ) != '' ) {
+          echo get_theme_mod( 'title_carousel' );
+        }
+      },
+      'fallback_refresh' => true
+    ) );
+
+
 	}
 }
 add_action( 'customize_register', 'hfsi_customize_register' );
