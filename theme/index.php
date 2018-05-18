@@ -130,7 +130,7 @@ if ( has_nav_menu( 'menu-banner' ) ) {
   </header>
   <!-- /Header -->
   <!-- Logo and Primary menu -->
-  <nav id="menu" class="navbar navbar-expand-md navbar-dark bg-success sticky-top">
+  <nav id="menu" class="navbar navbar-expand-md navbar-dark bg-success sticky-top" style="border-bottom:8px solid var(--dark) !important;">
     <div class="container animated bounceInLeft" role="navigation">
       <!-- Left side -->
 <?php
