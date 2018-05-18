@@ -116,13 +116,7 @@ if ( has_nav_menu( 'menu-banner' ) ) {
   wp_nav_menu( $defaults );
 }
 ?>
-<!--
-            <nav class="nav ml-auto justify-content-end">
-              <a class="nav-link active" href="#"><i class="fa fa-shield"></i> Famille et proches</a>
-              <a class="nav-link" href="#"><i class="fa fa-user-md"></i> Staff médical</a>
-              <a class="nav-link" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> E-learning</a>
-            </nav>
--->
+
           </div>
         </div>
       </div>
@@ -200,27 +194,7 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
     'posts_per_page' => get_theme_mod('num_category_carousel', 5)
   );
   $the_query = new WP_Query( $args );
- /*
- $custom_posts->post_count;
-  // Displays the category's name
-  echo "<h3>" . get_category_by_slug($args['category_name'])->name . </h3>;
-  $the_query = new WP_Query( $args );
-
-  // The Loop
-  if ( $the_query->have_posts() ) :
-    echo "<ul>";
-    while ( $the_query->have_posts() ) : $the_query->the_post();
-      $link = get_permalink();
-      $title = get_the_title();
-      echo '<li><a href="' . $link . '">'  . $title . '</a></li>';
-    endwhile;
-    echo "</ul>";
-  endif;
- */
-  // Reset Post Data
-  wp_reset_postdata();
-
-?>
+  ?>
 
   <div id="slideshow-section">
       <div class="container my-5">
@@ -266,33 +240,6 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
                 <?php
                 endwhile;
                 ?>
-                <!--
-                <div class="carousel-item">
-                  <img src="<?= get_template_directory_uri() ?>/img/instrument2.jpg" alt="Second slide">
-                  <div class="carousel-caption d-none d-md-block text-dark">
-                      <h3 class="bd-title">Another title</h3>
-
-                      <h3>Lorem, ipsum dolor.</h3>
-                      <small>Category 2</small>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quia quas ullam illo assumenda quis vero soluta accusamus? Labore, soluta!</p>
-                      <a href="#" class="btn btn-outline-success text-uppercase align-items-end"><i class="fa fa-long-arrow-right"></i> Lire la suite</a>
-
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <img src="<?= get_template_directory_uri() ?>/img/dentist.jpg" alt="">
-                  <div class="carousel-caption d-none d-md-block text-dark">
-                      <h3 class="bd-title">Last title</h3>
-
-                      <h3>Lorem, ipsum dolor.</h3>
-                      <small>Category 3</small>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quia quas ullam illo assumenda quis vero soluta accusamus? Labore, soluta!</p>
-                      <a href="#" class="btn btn-outline-success text-uppercase align-items-end"><i class="fa fa-long-arrow-right"></i> Lire la suite</a>
-
-                  </div>
-                </div>
-
-                -->
               </div>
               <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                   <i class="fa fa-chevron-left"></i>
@@ -311,6 +258,7 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
   <?php
   echo "<!-- /Slideshow -->";
+  // Reset data
   wp_reset_postdata();
   endif;
   ?>
