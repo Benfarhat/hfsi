@@ -50,7 +50,7 @@ add_filter( 'login_headertitle', 'change_login_logo_url_title' );
 /* Change default login error message */
 function login_error_override()
 {
-    return 'Incorrect login details.';
+    return 'Vos paramètres de connexion sont incorrectes.';
 }
 add_filter('login_errors', 'login_error_override');
 
