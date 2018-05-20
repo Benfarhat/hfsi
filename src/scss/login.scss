@@ -11,10 +11,11 @@ $logo_dimension: 128px;
 body{
   position: relative;
   &.login {
-    background-image: url('../img/hospital3.jpeg');
+    background-image: url('../img/login6b.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    background-size: cover;
     h1{
       a{
         background-image: url('../img/logo/3/logo256.png');
@@ -28,17 +29,20 @@ body{
       }
     }
     #login{
-      width:340px;
+      width:420px;
     }
     form{
+      /*
       -webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
       -moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
       box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
+      */
       input[type="text"]{
         background-color: #ffffff;
         border: none;
         border-bottom: 1px solid #ddd;
         box-shadow: none;
+        font-size: 1em;
       }
 
       input[type="password"]{
@@ -46,6 +50,7 @@ body{
         border: none;
         border-bottom: 1px solid #ddd;
         box-shadow: none;
+        font-size: 1em;
       }
       .button-primary{
         background: var(--success);

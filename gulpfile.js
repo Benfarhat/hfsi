@@ -114,7 +114,7 @@ gulp.task('theme-bs-sass', function(){
 
 /* Task: Bootstrap scripts */
 gulp.task('theme-bs-js', function() {
-  return gulp.src(['./node_modules/bootstrap/dist/js/bootstrap.min.js', './node_modules/jquery/dist/jquery.min.js', './node_modules/popper.js/dist/umd/popper.min.js'])
+  return gulp.src(['./node_modules/bootstrap/dist/js/bootstrap.min.js', './node_modules/jquery/dist/jquery.min.js', './node_modules/popper.js/dist/umd/popper.min.js', source + '/custom-js/*.js'])
   .pipe(gulp.dest(theme + '/js'))
   .pipe(browserSync.stream());
 })
@@ -165,6 +165,7 @@ gulp.task('watch', function() {
 
   livereload.listen();
   gulp.watch(source + '/scss/*.scss', ['theme-bs-sass'])
+  gulp.watch(source + '/custom-js/*.js', ['theme-bs-js'])
   gulp.watch(source + '/img/**/*.{png,jpg,jpeg,gif}', ['theme-img']);
 
 });

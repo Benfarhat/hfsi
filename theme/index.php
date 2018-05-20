@@ -265,8 +265,8 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
 
   <!-- Horaire et rendez vous -->
-  <section id="horaire-rdv mt-2">
-    <div class="container">
+  <section id="horaire-rdv">
+    <div class="container mt-3">
       <div class="row">
         <!-- Horaire -->
         <div id="horaire" class="col-md-6">
@@ -280,13 +280,17 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
 
                       <form>
                           <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                               <label for="inputEmail4">Numéro des analyses</label>
                               <input type="email" class="form-control" id="numanalyse" placeholder="Numéro des analyses">
                             </div>
                             <div class="form-group col-md-6">
                               <label for="inputPassword4">Matricule</label>
                               <input type="password" class="form-control" id="identifiant" placeholder="Votre identifiant">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label for="inputPassword4">Date des analyses</label>
+                              <input type="password" class="form-control" id="identifiant" placeholder="Cliquer pour afficher le calendrier">
                             </div>
                           </div>
                           <button type="submit" class="btn btn-success">Consulter</button>
@@ -373,21 +377,24 @@ if ( has_nav_menu( 'menu-primary-right' ) ) {
               <form>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="inputEmail4">Email</label>
-                      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                      <label for="inputEmail4">Matricule</label>
+                      <input type="text" class="form-control" id="inputEmail4" placeholder="Votre identifiant">
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="inputPassword4">Password</label>
-                      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                      <label for="inputPassword4">Services</label>
+                      <select id="inputState" class="form-control">
+                        <option selected>Choisissez un service...</option>
+                        <option>...</option>
+                      </select>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    <label for="inputAddress">Localisation</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Rue / Localité / Gouvernorat">
                   </div>
                   <div class="form-group">
-                    <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <label for="inputAddress2">Date souhaitée</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Cliquez pour afficher le calendrier">
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">

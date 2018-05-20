@@ -1,9 +1,39 @@
 <?php
-/* Add css to login page */
-function insert_css_to_login() {
+/* Specific login page selector :
+body.login {}
+body.login div#login {}
+body.login div#login h1 {}
+body.login div#login h1 a {}
+body.login div#login form#loginform {}
+body.login div#login form#loginform p {}
+body.login div#login form#loginform p label {}
+body.login div#login form#loginform input {}
+body.login div#login form#loginform input#user_login {}
+body.login div#login form#loginform input#user_pass {}
+body.login div#login form#loginform p.forgetmenot {}
+body.login div#login form#loginform p.forgetmenot input#rememberme {}
+body.login div#login form#loginform p.submit {}
+body.login div#login form#loginform p.submit input#wp-submit {}
+body.login div#login p#nav {}
+body.login div#login p#nav a {}
+body.login div#login p#backtoblog {}
+body.login div#login p#backtoblog a {}
+*/
+
+/* Add custom css and js to login page */
+function insert_css_js_to_login() {
   echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/css/login.css" />';
+  wp_enqueue_style( 'cdn_animated-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css');
+  wp_register_script(
+    'extra-login-js',
+    get_stylesheet_directory_uri() . '/js/login.js',
+    array( 'jquery' ),
+    '',
+    TRUE
+  );
+  wp_enqueue_script( 'extra-login-js' );
 }
-add_action('login_head', 'insert_css_to_login');
+add_action('login_head', 'insert_css_js_to_login');
 
 /* Change logo URL */
 function change_login_logo_url() {
