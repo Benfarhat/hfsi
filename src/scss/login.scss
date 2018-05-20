@@ -1,0 +1,79 @@
+$logo_dimension: 128px;
+
+:root {
+  --primary: #2c2c54;
+  --secondary: #6c757d;
+  --success: #218c74;
+  --info: #227093;
+  --warning: #cd6133;
+}
+
+body{
+  position: relative;
+  &.login {
+    background-image: url('../img/hospital3.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    h1{
+      a{
+        background-image: url('../img/logo/3/logo256.png');
+        background-size: cover;
+        height: $logo_dimension;
+        width: $logo_dimension;
+        &:focus{
+          outline:0;
+          box-shadow: none;
+        }
+      }
+    }
+    #login{
+      width:296px;
+    }
+    form{
+      -webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
+      -moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
+      box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
+      input[type="text"]{
+        background-color: #ffffff;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        box-shadow: none;
+      }
+
+      input[type="password"]{
+        background-color: #ffffff;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        box-shadow: none;
+      }
+      .button-primary{
+        background: var(--success);
+        border-color: var(--success);
+        border-radius: 0;
+        box-shadow: none;
+        text-shadow: none;
+        &.button.button-large{
+          line-height: 1em;
+          padding: 4px 24px 4px 24px;
+        }
+        &:hover, &:focus, &:active{
+          color: #fff;
+          border-color: #176352;
+          background-color: #1a6d5a;
+          border-radius: 0;
+          box-shadow: none;
+          text-shadow: none;
+        }
+      }
+    }
+    #nav, #backtoblog{
+      display: none;
+      margin-top: 20px;
+      margin-left: 0;
+      padding: 26px 24px 46px;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    }
+  }
+}

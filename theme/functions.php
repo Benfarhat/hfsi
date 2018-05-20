@@ -249,6 +249,12 @@ require get_template_directory() . '/inc/custom-menu-fields.php';
  */
 require get_template_directory() . '/inc/options-page.php';
 
+/**
+ * Customize login page.
+ *
+ */
+require get_template_directory() . '/inc/template-login.php';
+
 
 
 

@@ -1,0 +1,101 @@
+:root
+{
+  --primary: #2c2c54;
+  --secondary: #6c757d;
+  --success: #218c74;
+  --info: #227093;
+  --warning: #cd6133;
+}
+
+body
+{
+  position: relative;
+}
+
+body.login
+{
+  background-image: url('../img/hospital3.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+body.login h1 a
+{
+  width: 128px;
+  height: 128px;
+  background-image: url('../img/logo/3/logo256.png');
+  background-size: cover;
+}
+
+body.login h1 a:focus
+{
+  outline: 0;
+  box-shadow: none;
+}
+
+body.login #login
+{
+  width: 296px;
+}
+
+body.login form
+{
+  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
+  -moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
+  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, .75);
+}
+
+body.login form input[type='text']
+{
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+body.login form input[type='password']
+{
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+body.login form .button-primary
+{
+  border-color: var(--success);
+  border-radius: 0;
+  background: var(--success);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+body.login form .button-primary.button.button-large
+{
+  line-height: 1em;
+  padding: 4px 24px 4px 24px;
+}
+
+body.login form .button-primary:hover,
+body.login form .button-primary:focus,
+body.login form .button-primary:active
+{
+  color: #fff;
+  border-color: #176352;
+  border-radius: 0;
+  background-color: #1a6d5a;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+body.login #nav,
+body.login #backtoblog
+{
+  display: none;
+  margin-top: 20px;
+  margin-left: 0;
+  padding: 26px 24px 46px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+}
