@@ -79,12 +79,12 @@ function change_admin_login_redirect( $redirect_to, $request, $user )
 add_filter("login_redirect", "change_admin_login_redirect", 10, 3);
 
 /* Set remember me to checked */
+function rememberme_checked() {
+  echo "<script>document.getElementById('rememberme').checked = true;</script>";
+}
 function set_login_checked_remember_me() {
   add_filter( 'login_footer', 'rememberme_checked' );
-  }
-  echo "<script>document.getElementById('rememberme').checked = true;</script>";
-  add_action( 'init', 'set_login_checked_remember_me' );
+}
+add_action( 'init', 'set_login_checked_remember_me' );
 
-  function rememberme_checked() {
-  echo "<script>document.getElementById('rememberme').checked = true;</script>";
-  }
+
