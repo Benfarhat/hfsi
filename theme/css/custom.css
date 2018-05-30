@@ -161,3 +161,14 @@ body.course-item-popup #learn-press-content-item .course-item-title::after
   background: var(--green) !important;
 }
 
+/* Menu */
+.course-curriculum ul.curriculum-sections .section-content .course-item.has-status.status-completed .course-item-status {
+  color: var(--green) !important;
+}
+.course-curriculum ul.curriculum-sections .section-content .course-item.has-status.status-completed .course-item-status, .course-curriculum ul.curriculum-sections .section-content .course-item.has-status.status-started .course-item-status {
+  border-color: var(--green) !important;
+}
+.course-curriculum ul.curriculum-sections .section-content .course-item.has-status.passed {
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+}
