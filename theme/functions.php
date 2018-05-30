@@ -150,7 +150,8 @@ function hfsi_scripts() {
   /* Styles */
 	wp_enqueue_style( 'hfsi-style', get_stylesheet_uri() );
   wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css',false,'4.0','all');
-  wp_enqueue_style( 'custom', get_template_directory_uri() . '/css/style.css',array('bootstrap'),'1.0','all');
+  wp_enqueue_style( 'theme', get_template_directory_uri() . '/css/style.css',array('bootstrap'),'1.0','all');
+  wp_enqueue_style( 'learnpress', get_template_directory_uri() . '/css/custom.css',array('theme'),'1.0','all');
   wp_enqueue_style( 'cdn_font-awesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
   wp_enqueue_style( 'cdn_animated-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css');
   /* Scripts */
@@ -168,6 +169,11 @@ function hfsi_scripts() {
 add_action( 'wp_enqueue_scripts', 'hfsi_scripts' );
 
 
+/*Remove WordPress menu from admin bar*/
+function remove_wp_logo( $wp_admin_bar ) {
+	$wp_admin_bar->remove_node( 'wp-logo' );
+}
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
 
 
 if ( ! function_exists( 'hfsi_post_date' ) ) {

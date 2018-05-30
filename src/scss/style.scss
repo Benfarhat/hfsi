@@ -370,9 +370,10 @@
   }
 
   footer{
-    #footer-top{
+    border-top: 4px solid var(--success);
+    margin-top: 3rem;
+    padding-top: 1.2rem;
 
-    }
     #footer-bottom{
       a.nav-link{
         color: var(--white);
