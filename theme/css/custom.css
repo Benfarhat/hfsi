@@ -155,3 +155,9 @@ body.course-item-popup #learn-press-content-item .course-item-title::after
   color:  var(--red) !important;
 }
 
+/* Progress */
+
+.learn-press-progress .progress-bg .progress-active {
+  background: var(--green);
+}
+
