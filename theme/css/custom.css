@@ -158,6 +158,6 @@ body.course-item-popup #learn-press-content-item .course-item-title::after
 /* Progress */
 
 .learn-press-progress .progress-bg .progress-active {
-  background: var(--green);
+  background: var(--green) !important;
 }
 
