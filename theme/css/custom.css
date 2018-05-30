@@ -1,0 +1,157 @@
+/*
+Harmonisation du thème de LearnPress
+avec celui du HFSI
+*/
+
+/* General / Interface */
+#course-item-content-header {
+  background: var(--green) !important;
+  border-bottom: 1px solid var(--green) !important;
+  color: var(--light) !important;
+}
+#course-item-content-header a {
+  color: #dedede !important;
+}
+#course-item-content-header a:hover,
+#course-item-content-header a:focus,
+#course-item-content-header a:active,
+#course-item-content-header .course-item-search input,
+#course-item-content-header .course-item-search button {
+  color: #fff !important;
+}
+#course-item-content-header .toggle-content-item {
+  border-left: 1px solid rgba(255,255,255,.2) !important;
+}
+#course-item-content-header .form-button.lp-button-back button {
+  border: none !important;
+}
+.course-curriculum ul.curriculum-sections .section-header {
+  border-bottom: 1px solid var(--green) !important;
+}
+.course-curriculum ul.curriculum-sections .section-content .course-item::before {
+  background: var(--green) !important;
+}
+.course-curriculum ul.curriculum-sections .section-content .course-item .course-item-meta .item-meta {
+  border-radius: 0 !important;
+}
+.course-curriculum ul.curriculum-sections .section-content .course-item .course-item-meta .count-questions {
+  background: var(--warning) !important;
+}
+.course-curriculum ul.curriculum-sections .section-content .course-item .course-item-meta .duration {
+  background: var(--green) !important;
+}
+
+/* Custom button */
+.learnpress-page .lp-button,
+#learn-press-content-item button,
+#learn-press-content-item [type="button"],
+#learn-press-content-item [type="reset"],
+ #learn-press-content-item [type="submit"] {
+  border: 1px solid var(--green) !important;
+  color: var(--green) !important;
+}
+.learnpress-page .lp-button:hover,
+#learn-press-content-item button:hover,
+#learn-press-content-item [type="button"]:hover,
+#learn-press-content-item [type="reset"]:hover,
+ #learn-press-content-item [type="submit"]:hover {
+  background: var(--green) !important;
+  color: #fff !important;
+}
+
+/* Scrool bar */
+
+.scrollbar-light > .scroll-element.scroll-y .scroll-bar {
+  background: var(--green) !important;
+}
+
+/* Custom quizz element */
+.quiz-progress {
+  background: #e5e5e5 !important;
+}
+/*
+.quiz-progress .progress-items .progress-item {
+  color: #fff !important;
+}
+*/
+/* Custom answer */
+.answer-options .answer-option {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+.answer-options .answer-option input[type="checkbox"]::after, .answer-options .answer-option input[type="radio"]::after {
+  border-bottom: 2px solid var(--green) !important;
+  border-right: 2px solid var(--green) !important;
+  border-top: none !important;
+  border-left: none !important;
+  content:'' !important;
+}
+
+.answer-options .answer-option input[type="checkbox"]:checked ~ .option-title::before, .answer-options .answer-option input[type="radio"]:checked ~ .option-title::before {
+  background: var(--green) !important;
+}
+/* Top title (course title) */
+#course-item-content-header .course-title{
+  position: relative;
+}
+#course-item-content-header .course-title:before{
+  content:' ';
+  width:56px;
+  height:100%;
+  display:inline-block;
+  background: url('../img/logo/3/logo64.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position:absolute;
+}
+#course-item-content-header .course-title a {
+  box-shadow: none;
+  margin-left: 60px;
+}
+
+/* title (lesson title) */
+
+body.course-item-popup #learn-press-content-item .course-item-title
+{
+  position: relative;
+  margin-bottom: 16px;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  border-bottom: 4px solid rgba(0, 0, 0, .1);
+  flex: 1;
+}
+
+body.course-item-popup #learn-press-content-item .course-item-title::before
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10%;
+  height: 1px;
+  content: '';
+  border-top: 1px solid var(--success);
+}
+
+body.course-item-popup #learn-press-content-item .course-item-title::after
+{
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 50%;
+  height: 1px;
+  content: '';
+  border-bottom: 4px solid var(--success);
+}
+
+/* Result */
+.quiz-result .result-grade .result-achieved {
+  border-bottom: 2px solid var(--success) !important;
+}
+
+/* Close button */
+.course-curriculum ul.curriculum-sections .section-content .course-item.has-status.item-failed .course-item-status, .course-curriculum ul.curriculum-sections .section-content .course-item.has-status.failed .course-item-status {
+  border-color:  var(--red) !important;
+  color:  var(--red) !important;
+}
+
