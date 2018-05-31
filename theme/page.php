@@ -27,12 +27,28 @@ get_header();
 
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="container">
+
+          <!-- Title -->
           <div class="row entry-header">
             <div class="col-sm-12">
               <h2 class="titre animated slideInRight"><?php the_title(); ?></h2>
             </div>
           </div>
+          <!-- /Title -->
 
+          <!-- thumbnail -->
+          <div class="row entry-thumbnail animated slideInLeft">
+            <div class="col-sm-12">
+            <?php if ( '' !== get_the_post_thumbnail() ) : ?>
+              <div class="post-thumbnail" style="height:260px;background:#ddd url('<?= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')[0] ?>') no-repeat fixed right top;background-size: cover;">
+                <div class="overlay rgba3 hover0"></div>
+              </div><!-- .post-thumbnail -->
+            <?php endif; ?>
+            </div>
+          </div>
+          <!-- /thumbnail -->
+
+          <!-- Content -->
           <div class="row entry-content mt-3 animated slideInLeft">
             <div class="col-sm-12">
               <?php
@@ -44,6 +60,8 @@ get_header();
               ?>
             </div>
           </div>
+          <!-- /Content -->
+
         </div>
       </article><!-- #post-## -->
 <?php
