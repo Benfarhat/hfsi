@@ -23,17 +23,30 @@ get_header();
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="container">
           <!-- title -->
-          <div class="row entry-header">
+          <div class="row entry-header animated slideInRight">
             <div class="col-sm-12">
-              <h2 class="titre animated slideInRight"><?php the_title(); ?></h2>
+              <h2 class="titre mb-1"><?php the_title(); ?></h2>
+              <?php
+              $categories = get_the_category();
+              if(count($categories)>0):
+                ?>
+                <div class="mb-1">
+                <?php
+                foreach($categories as $category)
+                echo '<small><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'hfsi' ), $category->name ) ) . '" class="text-muted">' . esc_html( $category->name ) . '</a></small> ';
+                ?>
+                </div>
+                <?php
+              endif;
+              ?>
             </div>
           </div>
           <!-- /title -->
           <!-- thumbnail -->
-          <div class="row entry-thumbnail">
+          <div class="row entry-thumbnail animated slideInLeft">
             <div class="col-sm-12">
             <?php if ( '' !== get_the_post_thumbnail() ) : ?>
-              <div class="post-thumbnail" style="display:block; height:260px;background:#ddd url('<?= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')[0] ?>') no-repeat fixed right top;background-size: cover;">
+              <div class="post-thumbnail" style="height:260px;background:#ddd url('<?= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')[0] ?>') no-repeat fixed right top;background-size: cover;">
                 <a href="<?php the_permalink(); ?>">
                   <?php // the_post_thumbnail(); ?>
                 </a>
