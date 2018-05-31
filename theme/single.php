@@ -28,17 +28,18 @@ get_header();
               <h2 class="titre mb-1"><?php the_title(); ?></h2>
               <?php
               $categories = get_the_category();
-              if(count($categories)>0):
-                ?>
-                <div class="mb-1">
-                <?php
-                foreach($categories as $category)
-                echo '<small><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'hfsi' ), $category->name ) ) . '" class="text-muted">' . esc_html( $category->name ) . '</a></small> ';
-                ?>
-                </div>
-                <?php
-              endif;
               ?>
+                <div class="mb-1 text-muted"><small>
+                <?php if(count($categories) > 0 )
+                  echo '<i class="fa fa-bookmark-o"></i> ';
+
+                foreach($categories as $category)
+                echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'hfsi' ), $category->name ) ) . '" class="text-muted">' . esc_html( $category->name ) . '</a> ';
+                ?>
+                 <?php if(count($categories) > 0 ) echo " | "; ?>
+
+              <i class="fa fa-clock-o"></i> <?php the_date( 'd/m/Y', null, null, true ); ?></small>
+              </div>
             </div>
           </div>
           <!-- /title -->
