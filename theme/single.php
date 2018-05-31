@@ -48,9 +48,6 @@ get_header();
             <div class="col-sm-12">
             <?php if ( '' !== get_the_post_thumbnail() ) : ?>
               <div class="post-thumbnail" style="height:260px;background:#ddd url('<?= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')[0] ?>') no-repeat fixed right top;background-size: cover;">
-                <a href="<?php the_permalink(); ?>">
-                  <?php // the_post_thumbnail(); ?>
-                </a>
               </div><!-- .post-thumbnail -->
             <?php endif; ?>
             </div>
