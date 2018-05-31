@@ -139,10 +139,25 @@
     }
   }
 
+
   /* Font size */
+  $transition-time: 500ms;
   @for $i from 1 through 9{
     .rgba#{$i}{
       background-color: rgba(0,0,0, $i / 10);
+      -webkit-transition: background-color $transition-time linear;
+      -moz-transition: background-color $transition-time linear;
+      -o-transition: background-color $transition-time linear;
+      -ms-transition: background-color $transition-time linear;
+      transition: background-color $transition-time linear;
+      &.hover0:hover{
+        background-color: rgba(0,0,0,0);
+      }
+      @for $j from 1 through 9{
+        &.hover#{$j}:hover{
+          background-color: rgba(0,0,0, $j / 10);
+        }
+      }
     }
   }
 

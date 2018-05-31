@@ -166,45 +166,540 @@ body
 /* Font size */
 .rgba1
 {
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
   background-color: rgba(0, 0, 0, .1);
 }
 
-.rgba2
+.rgba1.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba1.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba1.hover2:hover
 {
   background-color: rgba(0, 0, 0, .2);
 }
 
-.rgba3
+.rgba1.hover3:hover
 {
   background-color: rgba(0, 0, 0, .3);
 }
 
-.rgba4
+.rgba1.hover4:hover
 {
   background-color: rgba(0, 0, 0, .4);
 }
 
-.rgba5
+.rgba1.hover5:hover
 {
   background-color: rgba(0, 0, 0, .5);
 }
 
-.rgba6
+.rgba1.hover6:hover
 {
   background-color: rgba(0, 0, 0, .6);
 }
 
-.rgba7
+.rgba1.hover7:hover
 {
   background-color: rgba(0, 0, 0, .7);
 }
 
-.rgba8
+.rgba1.hover8:hover
 {
   background-color: rgba(0, 0, 0, .8);
 }
 
+.rgba1.hover9:hover
+{
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.rgba2
+{
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba2.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba2.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba2.hover2:hover
+{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba2.hover3:hover
+{
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba2.hover4:hover
+{
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba2.hover5:hover
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba2.hover6:hover
+{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba2.hover7:hover
+{
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba2.hover8:hover
+{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba2.hover9:hover
+{
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.rgba3
+{
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba3.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba3.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba3.hover2:hover
+{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba3.hover3:hover
+{
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba3.hover4:hover
+{
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba3.hover5:hover
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba3.hover6:hover
+{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba3.hover7:hover
+{
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba3.hover8:hover
+{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba3.hover9:hover
+{
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.rgba4
+{
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba4.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba4.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba4.hover2:hover
+{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba4.hover3:hover
+{
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba4.hover4:hover
+{
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba4.hover5:hover
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba4.hover6:hover
+{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba4.hover7:hover
+{
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba4.hover8:hover
+{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba4.hover9:hover
+{
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.rgba5
+{
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba5.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba5.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba5.hover2:hover
+{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba5.hover3:hover
+{
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba5.hover4:hover
+{
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba5.hover5:hover
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba5.hover6:hover
+{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba5.hover7:hover
+{
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba5.hover8:hover
+{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba5.hover9:hover
+{
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.rgba6
+{
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba6.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba6.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba6.hover2:hover
+{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba6.hover3:hover
+{
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba6.hover4:hover
+{
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba6.hover5:hover
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba6.hover6:hover
+{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba6.hover7:hover
+{
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba6.hover8:hover
+{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba6.hover9:hover
+{
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.rgba7
+{
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba7.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba7.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba7.hover2:hover
+{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba7.hover3:hover
+{
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba7.hover4:hover
+{
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba7.hover5:hover
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba7.hover6:hover
+{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba7.hover7:hover
+{
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba7.hover8:hover
+{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba7.hover9:hover
+{
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.rgba8
+{
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba8.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba8.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba8.hover2:hover
+{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba8.hover3:hover
+{
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba8.hover4:hover
+{
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba8.hover5:hover
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba8.hover6:hover
+{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba8.hover7:hover
+{
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba8.hover8:hover
+{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba8.hover9:hover
+{
+  background-color: rgba(0, 0, 0, .9);
+}
+
 .rgba9
+{
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.rgba9.hover0:hover
+{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rgba9.hover1:hover
+{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.rgba9.hover2:hover
+{
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.rgba9.hover3:hover
+{
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.rgba9.hover4:hover
+{
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.rgba9.hover5:hover
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.rgba9.hover6:hover
+{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.rgba9.hover7:hover
+{
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.rgba9.hover8:hover
+{
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.rgba9.hover9:hover
 {
   background-color: rgba(0, 0, 0, .9);
 }
