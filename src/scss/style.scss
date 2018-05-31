@@ -46,6 +46,8 @@
   body{
     @include roboto;
     font-size:1em;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
   }
 
   /* Font size */
