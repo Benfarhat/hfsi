@@ -221,9 +221,9 @@ function hfsi_setPostViews($postID) {
   $count_key = 'post_views_count';
   $count = get_post_meta($postID, $count_key, true);
   if($count==''){
-      $count = 0;
+      $count = 1;
       delete_post_meta($postID, $count_key);
-      add_post_meta($postID, $count_key, '0');
+      add_post_meta($postID, $count_key, $count);
   }else{
       $count++;
       update_post_meta($postID, $count_key, $count);
