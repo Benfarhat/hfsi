@@ -17,7 +17,8 @@ get_header();
   <main id="main" class="site-main py-3" role="main">
 
   <?php
-			while ( have_posts() ) : the_post();
+      while ( have_posts() ) : the_post();
+      hfsi_setPostViews(get_the_ID());
       ?>
 
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -38,7 +39,8 @@ get_header();
                 ?>
                  <?php if(count($categories) > 0 ) echo " | "; ?>
 
-              <i class="fa fa-clock-o"></i> <?php the_date( 'd/m/Y', null, null, true ); ?></small>
+              <i class="fa fa-clock-o"></i> <?php the_date( 'd/m/Y', null, null, true ); ?> |
+              <i class="fa fa-views"></i> <?= hfsi_getPostViews(get_the_ID()) ?> <?= hfsi_getPostViews(get_the_ID()) > 0 ? "vues" : "vue" ?></small>
               </div>
             </div>
           </div>

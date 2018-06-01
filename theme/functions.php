@@ -47,7 +47,11 @@ if ( ! function_exists( 'hfsi_setup' ) ) :
 		update_option('medium_size_w', 730); /* internal max-width of col-8 */
     update_option('large_size_w', 1110); /* internal max-width of col-12 */
 
-
+    /* Activer le support des catégories pour les pages */
+    function hfsi_cat_pages() {
+      register_taxonomy_for_object_type('category', 'page');
+    }
+    add_action('init', 'hfsi_cat_pages');
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -192,6 +196,33 @@ if ( ! function_exists('hfsi_excerpt_more') ) {
 	}
 }
 add_filter('excerpt_more', 'hfsi_excerpt_more');
+
+
+// function to display number of posts.
+function hfsi_getPostViews($postID){
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if($count==''){
+      delete_post_meta($postID, $count_key);
+      add_post_meta($postID, $count_key, '0');
+      $count = 0;
+  }
+  return $count;
+}
+
+// function to count views.
+function hfsi_setPostViews($postID) {
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if($count==''){
+      $count = 0;
+      delete_post_meta($postID, $count_key);
+      add_post_meta($postID, $count_key, '0');
+  }else{
+      $count++;
+      update_post_meta($postID, $count_key, $count);
+  }
+}
 
 /**
  * Implement the Custom Header feature.
