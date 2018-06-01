@@ -23,6 +23,7 @@ get_header();
 
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="container">
+        <?php get_template_part( 'elements/breadcrumb' ); ?>
           <!-- title -->
           <div class="row entry-header animated slideInRight">
             <div class="col-sm-12">
@@ -45,16 +46,9 @@ get_header();
             </div>
           </div>
           <!-- /title -->
-          <!-- thumbnail -->
-          <div class="row entry-thumbnail animated slideInLeft">
-            <div class="col-sm-12">
-            <?php if ( '' !== get_the_post_thumbnail() ) : ?>
-              <div class="post-thumbnail" style="height:260px;background:#ddd url('<?= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')[0] ?>') no-repeat fixed right top;background-size: cover;">
-              </div><!-- .post-thumbnail -->
-            <?php endif; ?>
-            </div>
-          </div>
-          <!-- /thumbnail -->
+
+          <?php get_template_part( 'elements/thumbnail' ); ?>
+
           <!-- content -->
           <div class="row entry-content mt-3 animated slideInLeft">
             <div class="col-sm-12">
