@@ -48,17 +48,6 @@ if ( ! function_exists( 'hfsi_setup' ) ) :
     update_option('large_size_w', 1110); /* internal max-width of col-12 */
 
 
-		add_theme_support( 'post-formats', array(
-			'aside',
-			'gallery',
-			'link',
-			'image',
-			'quote',
-			'status',
-			'video',
-			'audio',
-			'chat'
-    ) );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
