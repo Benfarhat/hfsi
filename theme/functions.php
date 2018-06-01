@@ -47,11 +47,17 @@ if ( ! function_exists( 'hfsi_setup' ) ) :
 		update_option('medium_size_w', 730); /* internal max-width of col-8 */
     update_option('large_size_w', 1110); /* internal max-width of col-12 */
 
-    /* Activer le support des catégories pour les pages */
-    function hfsi_cat_pages() {
+    /* Add category and tag support to pages */
+    function hfsi_cat_tag_pages() {
       register_taxonomy_for_object_type('category', 'page');
+	    register_taxonomy_for_object_type('post_tag', 'page');
     }
-    add_action('init', 'hfsi_cat_pages');
+    add_action('init', 'hfsi_cat_tag_pages');
+    // ensure all tags are included in queries
+    function hfsi_tags_support_query($wp_query) {
+      if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+    }
+    add_action('pre_get_posts', 'hfsi_tags_support_query');
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(

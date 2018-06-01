@@ -35,20 +35,40 @@ get_header();
           <div class="row entry-header animated slideInRight">
             <div class="col-sm-12">
               <h2 class="titre mb-1"><?php the_title(); ?></h2>
-              <?php
-              $categories = get_the_category();
-              ?>
                 <div class="mb-1 text-muted"><small>
-                <?php if(count($categories) > 0 )
+
+                <?php
+                // Get categories list ***************************
+                $categories = get_the_category();
+                if ( !empty( $categories ) ) {
                   echo '<i class="fa fa-bookmark-o"></i> ';
 
-                foreach($categories as $category)
-                echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'hfsi' ), $category->name ) ) . '" class="text-muted">' . esc_html( $category->name ) . '</a> ';
-                ?>
-                 <?php if(count($categories) > 0 ) echo " | "; ?>
+                  foreach( $categories as $category )
+                  echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'Voir toutes les pages dans la catégorie  %s', 'hfsi' ), $category->name ) ) . '" class="text-muted">' . esc_html( $category->name ) . '</a> ';
 
-              <i class="fa fa-tags"></i> @TODO TAG LIST |
-              <i class="fa fa-eye"></i> <?= hfsi_getPostViews(get_the_ID()) ?> <?= hfsi_getPostViews(get_the_ID()) > 1 ? "vues" : "vue" ?></small>
+                  if( count($categories) > 0 ) echo " | ";
+                }
+                // End get tags list
+
+                // Get tags list ********************************
+                $tags = get_the_tags();
+                if ( !empty( $tags ) ) {
+
+                  echo '<i class="fa fa-tags"></i> Mots clés: ';
+                  print_r(count($tags));
+                  $i = 0;
+                  foreach( $tags as $tag ){
+                    echo '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'Voir toutes les pages avec le mot clés %s', 'hfsi' ), $tag->name ) ) . '" class="text-muted">' . esc_html( $tag->name ) . '</a> ';
+                    $i++;
+
+                    if( $i < count($tags) ) echo " • ";
+                  }
+
+                  if(count($tags) > 0 ) echo " | ";
+                }
+                // End get tags list
+                ?>
+                <i class="fa fa-eye"></i> <?= hfsi_getPostViews(get_the_ID()) ?> <?= hfsi_getPostViews(get_the_ID()) > 1 ? "vues" : "vue" ?></small>
               </div>
             </div>
           </div>
