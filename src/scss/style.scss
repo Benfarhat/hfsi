@@ -401,6 +401,42 @@
     }
   }
 
+  /* Wordpress class */
+
+  /* Custm title */
+  .entry-content {
+    h1{
+      font-size:1.8rem;
+    }
+    h2{
+      font-size:1.6rem;
+    }
+    h3{
+      font-size:1.4rem;
+    }
+    h4{
+      font-size:1.2rem;
+    }
+    h5{
+      font-size:1.14rem;
+    }
+    h6{
+      font-size:1.07rem;
+    }
+
+    h1, h2, h3{
+      border-bottom: 3px solid rgba(0,0,0,.1);
+      padding-bottom:12px;
+      margin-bottom:24px;
+    }
+
+    h4, h5, h6{
+      border-bottom: 1.5px solid rgba(0,0,0,.1);
+      margin-bottom:18px;
+    }
+
+  }
+
   /* Custom form */
 
   form.comment-form{

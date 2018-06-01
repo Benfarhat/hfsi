@@ -288,5 +288,12 @@ require get_template_directory() . '/inc/options-page.php';
 require get_template_directory() . '/inc/template-login.php';
 
 
+/**
+ * Customize tinyMCE button.
+ *
+ */
+require get_template_directory() . '/inc/tinymce.php';
+
+
 
 

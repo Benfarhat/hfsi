@@ -1009,6 +1009,55 @@ footer #footer-bottom a.nav-link a:hover
   text-decoration: underline;
 }
 
+/* Wordpress class */
+/* Custm title */
+.entry-content h1
+{
+  font-size: 1.8rem;
+}
+
+.entry-content h2
+{
+  font-size: 1.6rem;
+}
+
+.entry-content h3
+{
+  font-size: 1.4rem;
+}
+
+.entry-content h4
+{
+  font-size: 1.2rem;
+}
+
+.entry-content h5
+{
+  font-size: 1.14rem;
+}
+
+.entry-content h6
+{
+  font-size: 1.07rem;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3
+{
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid rgba(0, 0, 0, .1);
+}
+
+.entry-content h4,
+.entry-content h5,
+.entry-content h6
+{
+  margin-bottom: 18px;
+  border-bottom: 1.5px solid rgba(0, 0, 0, .1);
+}
+
 /* Custom form */
 form.comment-form input[type='text'],
 form.comment-form input[type='password'],
