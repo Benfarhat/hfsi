@@ -23,15 +23,31 @@ get_header();
 
   <?php
 			while ( have_posts() ) : the_post();
+      hfsi_setPostViews(get_the_ID());
       ?>
 
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="container">
 
           <!-- Title -->
-          <div class="row entry-header">
+          <div class="row entry-header animated slideInRight">
             <div class="col-sm-12">
-              <h2 class="titre animated slideInRight"><?php the_title(); ?></h2>
+              <h2 class="titre mb-1"><?php the_title(); ?></h2>
+              <?php
+              $categories = get_the_category();
+              ?>
+                <div class="mb-1 text-muted"><small>
+                <?php if(count($categories) > 0 )
+                  echo '<i class="fa fa-bookmark-o"></i> ';
+
+                foreach($categories as $category)
+                echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'hfsi' ), $category->name ) ) . '" class="text-muted">' . esc_html( $category->name ) . '</a> ';
+                ?>
+                 <?php if(count($categories) > 0 ) echo " | "; ?>
+
+              <i class="fa fa-tags"></i> @TODO TAG LIST |
+              <i class="fa fa-eye"></i> <?= hfsi_getPostViews(get_the_ID()) ?> <?= hfsi_getPostViews(get_the_ID()) > 1 ? "vues" : "vue" ?></small>
+              </div>
             </div>
           </div>
           <!-- /Title -->

@@ -40,7 +40,7 @@ get_header();
                  <?php if(count($categories) > 0 ) echo " | "; ?>
 
               <i class="fa fa-clock-o"></i> <?php the_date( 'd/m/Y', null, null, true ); ?> |
-              <i class="fa fa-views"></i> <?= hfsi_getPostViews(get_the_ID()) ?> <?= hfsi_getPostViews(get_the_ID()) > 0 ? "vues" : "vue" ?></small>
+              <i class="fa fa-eye"></i> <?= hfsi_getPostViews(get_the_ID()) ?> <?= hfsi_getPostViews(get_the_ID()) > 1 ? "vues" : "vue" ?></small>
               </div>
             </div>
           </div>
