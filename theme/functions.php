@@ -167,6 +167,16 @@ function hfsi_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'hfsi_scripts' );
 
+/**
+ * Register and load Bootstrap CDN to WP Editor
+ */
+function hfsi_style_to_wp_editor() {
+	add_editor_style( get_template_directory_uri() . '/css/bootstrap.css' );
+	add_editor_style( get_template_directory_uri() . '/css/style.css' );
+	add_editor_style( get_template_directory_uri() . '/css/custom.css' );
+	add_editor_style( get_template_directory_uri() . '/css/tinymce.css' );
+}
+add_action( 'admin_init', 'hfsi_style_to_wp_editor' );
 
 /*Remove WordPress menu from admin bar*/
 function remove_wp_logo( $wp_admin_bar ) {
