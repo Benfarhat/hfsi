@@ -75,92 +75,37 @@ get_header();
           </div>
         </div>
       </article>
-<?php
-/*
-          <!-- thumbnail -->
-          <div class="row entry-thumbnail animated slideInLeft">
-            <div class="col-sm-12">
-            <?php if ( '' !== get_the_post_thumbnail() ) : ?>
-              <div class="post-thumbnail" style="height:260px;background:#ddd url('<?= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')[0] ?>') no-repeat fixed right top;background-size: cover;">
-                <div class="overlay rgba3 hover0"></div>
-              </div><!-- .post-thumbnail -->
-            <?php endif; ?>
-            </div>
-          </div>
-          <!-- /thumbnail -->
-*/
-?>
-<?php
-/*
-
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <div class="container">
-          <!-- Title -->
-          <div class="row entry-header animated slideInRight">
-            <div class="col-sm-12">
-              <h3 class="title mb-1"><?php the_title(); ?></h3>
-                <div class="mb-1 text-muted"><small>
-
-                <?php
-                // Get categories list ***************************
-                $categories = get_the_category();
-                if ( !empty( $categories ) ) {
-                  echo '<i class="fa fa-bookmark-o"></i> ';
-
-                  foreach( $categories as $category )
-                  echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'Voir toutes les pages dans la catégorie  %s', 'hfsi' ), $category->name ) ) . '" class="text-muted">' . esc_html( $category->name ) . '</a> ';
-
-                  if( count($categories) > 0 ) echo " | ";
-                }
-                // End get tags list
-
-                // Get tags list ********************************
-                $tags = get_the_tags();
-                if ( !empty( $tags ) ) {
-
-                  echo '<i class="fa fa-tags"></i> Mots clés: ';
-                  print_r(count($tags));
-                  $i = 0;
-                  foreach( $tags as $tag ){
-                    echo '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'Voir toutes les pages avec le mot clés %s', 'hfsi' ), $tag->name ) ) . '" class="text-muted">' . esc_html( $tag->name ) . '</a> ';
-                    $i++;
-
-                    if( $i < count($tags) ) echo " • ";
-                  }
-
-                  if(count($tags) > 0 ) echo " | ";
-                }
-                // End get tags list
-                ?>
-                <i class="fa fa-eye"></i> <?= hfsi_getPostViews(get_the_ID()) ?> <?= hfsi_getPostViews(get_the_ID()) > 1 ? "vues" : "vue" ?></small>
-              </div>
-            </div>
-          </div>
-          <!-- /Title -->
-
-          <?php get_template_part( 'elements/thumbnail' ); ?>
-
-          <!-- Content -->
-          <div class="row entry-content mt-3 animated slideInLeft">
-            <div class="col-sm-12">
-              <?php
-                the_content();
-                wp_link_pages( array(
-                  'before' => '<div class="page-links">' . __( 'Pages:', 'hfsi' ),
-                  'after'  => '</div>',
-                ) );
-              ?>
-            </div>
-          </div>
-          <!-- /Content -->
-
-        </div>
-      </article><!-- #post-## -->
-      */
-
-
+      <?php
 			endwhile; // End of the loop.
       ?>
+      </div>
+      <!-- /Row -->
+      <!-- Row -->
+      <div>
+      <nav aria-label="navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts' ); ?></div>
+      <div class="nav-next alignright"><?php previous_posts_link( 'Newer posts' ); ?></div>
+
+      <?= the_posts_pagination( array(
+        //'mid_size'  => 2,
+				'prev_text' => '<span class="screen-reader-text">' . __( 'Previous page', 'hfsi' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'hfsi' ) . '</span>',
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'hfsi' ) . ' </span>',
+      ) ); ?>
+
       </div>
       <!-- /Row -->
     </div>
