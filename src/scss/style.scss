@@ -437,9 +437,16 @@
 
   }
 
-  h1, h2, h3, h4, h5, h6{
+  h1, h2, h3{
     &.title{
       border-bottom: 4px solid rgba(0,0,0,.1);
+      padding-bottom:8px;
+    }
+  }
+
+  h4, h5, h6{
+    &.title{
+      border-bottom: 2px solid rgba(0,0,0,.1);
       padding-bottom:8px;
     }
   }

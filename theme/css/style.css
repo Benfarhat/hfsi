@@ -1060,13 +1060,18 @@ footer #footer-bottom a.nav-link a:hover
 
 h1.title,
 h2.title,
-h3.title,
+h3.title
+{
+  padding-bottom: 8px;
+  border-bottom: 4px solid rgba(0, 0, 0, .1);
+}
+
 h4.title,
 h5.title,
 h6.title
 {
   padding-bottom: 8px;
-  border-bottom: 4px solid rgba(0, 0, 0, .1);
+  border-bottom: 2px solid rgba(0, 0, 0, .1);
 }
 
 /* Custom form */
