@@ -1065,7 +1065,7 @@ h4.title,
 h5.title,
 h6.title
 {
-  margin-bottom: 18px;
+  padding-bottom: 8px;
   border-bottom: 4px solid rgba(0, 0, 0, .1);
 }
 
