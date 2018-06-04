@@ -240,6 +240,28 @@ function hfsi_setPostViews($postID) {
   }
 }
 
+/* Excerpt */
+/**
+ * Filter the except length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function hfsi_custom_excerpt_length( $length ) {
+  return 20;
+}
+add_filter( 'excerpt_length', 'hfsi_custom_excerpt_length', 999 );
+
+/**
+ * Filter the excerpt "read more" string.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ */
+function hfsi_excerpt_more( $more ) {
+  return '...';
+}
+add_filter( 'excerpt_more', 'hfsi_excerpt_more' );
 
 /**
  * Implement the Custom Header feature.
