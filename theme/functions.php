@@ -240,16 +240,6 @@ function hfsi_setPostViews($postID) {
   }
 }
 
-  /**
-   * Filters the archive title.
-   *
-   * @since 4.1.0
-   *
-   * @param string $title Archive title to be displayed.
-   */
-  return $title;
-}
-
 
 /**
  * Implement the Custom Header feature.
