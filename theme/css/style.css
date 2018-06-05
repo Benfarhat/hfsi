@@ -1133,3 +1133,11 @@ form.comment-form input[type='submit']
 {
   width: 100%;
 }
+
+.page-item.active .page-link
+{
+  z-index: 1;
+  color: #fff;
+  border-color: var(--success);
+  background-color: var(--success);
+}

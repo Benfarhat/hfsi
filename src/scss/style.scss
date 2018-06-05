@@ -500,3 +500,10 @@
       }
     }
   }
+
+  .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    border-color: var(--success);
+    background-color: var(--success);
+}
