@@ -263,20 +263,6 @@ function hfsi_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'hfsi_excerpt_more' );
 
-/**
- * Limit the main query search results to another value (default to 25).
- * With bootstrap template maybe using a multiple of 3 or 4 should be better
- * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/post_limits
- *
- * @param string $limit The 'LIMIT' clause for the query.
- * @param object $query The current query object.
- *
- * @return string The filtered LIMIT.
- */
-function hfsi_filter_main_search_post_limits( $limit, $query ) {
-  return 'LIMIT 0, 24';
-}
-add_filter( 'post_limits', 'hfsi_filter_main_search_post_limits', 10, 2 );
 
 /**
  * Implement the Custom Header feature.
