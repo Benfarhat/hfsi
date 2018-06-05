@@ -491,3 +491,12 @@
       color:#fff;
     }
   }
+
+  /* Little fix for grid view */
+  .row{
+    article{
+      .card{
+        width:100%;
+      }
+    }
+  }

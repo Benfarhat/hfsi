@@ -1127,3 +1127,9 @@ form.comment-form input[type='submit']
   border-left-color: transparent;
   background: var(--success);
 }
+
+/* Little fix for grid view */
+.row article .card
+{
+  width: 100%;
+}
