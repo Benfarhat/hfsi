@@ -274,7 +274,7 @@ add_filter( 'excerpt_more', 'hfsi_excerpt_more' );
  * @return string The filtered LIMIT.
  */
 function hfsi_filter_main_search_post_limits( $limit, $query ) {
-  return 'LIMIT 0, 2';
+  return 'LIMIT 0, 24';
 }
 add_filter( 'post_limits', 'hfsi_filter_main_search_post_limits', 10, 2 );
 
