@@ -16,52 +16,22 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-              <div class="contact">
-                  <address>
-                    <strong>Smart , Inc.</strong><br>
-                    14 Hached St<br>
-                    Tunis, TN1000<br>
-                    <abbr title="Phone">P:</abbr> (216) 71-000-000
-                  </address>
-
-                  <address>
-                    <strong>Full Name</strong><br>
-                    <a href="mailto:#">contact.us@example.com</a>
-                  </address>
-                </div>
+          <?php if(get_theme_mod('left_footer_content')):
+            echo '<h5 class="title">'.get_post_field('post_title', get_theme_mod('left_footer_content') ).'</h5>';
+            echo get_post_field('post_content', get_theme_mod('left_footer_content') );
+          endif;?>
           </div>
           <div class="col-md-4">
-
-
-              <ul>
-                  <li>Lorem ipsum dolor sit amet</li>
-                  <li>Consectetur adipiscing elit</li>
-                  <li>Integer molestie lorem at massa</li>
-                  <li>Facilisis in pretium nisl aliquet</li>
-                  <li>Nulla volutpat aliquam velit
-                    <ul>
-                      <li>Phasellus iaculis neque</li>
-                      <li>Purus sodales ultricies</li>
-                      <li>Vestibulum laoreet porttitor sem</li>
-                      <li>Ac tristique libero volutpat at</li>
-                    </ul>
-                  </li>
-              </ul>
-
+          <?php if(get_theme_mod('middle_footer_content')):
+            echo '<h5 class="title">'.get_post_field('post_title', get_theme_mod('middle_footer_content') ).'</h5>';
+            echo get_post_field('post_content', get_theme_mod('middle_footer_content') );
+          endif;?>
           </div>
           <div class="col-md-4">
-
-              <ul class="list-unstyled">
-                  <li><i class="fa fa-home"></i> Lorem ipsum dolor sit amet</li>
-                  <li><i class="fa fa-user"></i> Consectetur adipiscing elit</li>
-                  <li><i class="fa fa-facebook"></i> Integer molestie lorem at massa</li>
-                  <li><i class="fa fa-twitter"></i> Facilisis in pretium nisl aliquet</li>
-                  <li><i class="fa fa-instagram"></i> Lorem ipsum dolor sit amet</li>
-                  <li><i class="fa fa-youtube"></i> Consectetur adipiscing elit</li>
-                  <li><i class="fa fa-vin"></i> Integer molestie lorem at massa</li>
-                  <li><i class="fa fa-cog"></i> Facilisis in pretium nisl aliquet</li>
-              </ul>
-
+          <?php if(get_theme_mod('right_footer_content')):
+            echo '<h5 class="title">'.get_post_field('post_title', get_theme_mod('right_footer_content') ).'</h5>';
+            echo get_post_field('post_content', get_theme_mod('right_footer_content') );
+          endif;?>
           </div>
         </div>
       </div>

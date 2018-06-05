@@ -295,6 +295,35 @@ function hfsi_display_pagination() {
   }
 
 /**
+ * Generate custom search form
+ *
+ * @param string $form Form HTML.
+ * @return string Modified form HTML.
+ *
+ */
+function hfsi_search_form( $form ) {
+    $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
+    <div>
+    <label class="screen-reader-text" for="s">' . __( 'Recherche:' ) . '</label>
+    <div class="d-flex justify-content-between">
+      <input class="flex-grow"
+        type="text"
+        name="s"
+        value="'.get_search_query().'"
+        placeholder="'.esc_attr_x( 'votre recherche …', 'placeholder' ).'"
+        style="flex-grow: 1;padding:4px 8px;border:none;">
+      <button class="btn my-2 my-sm-0 text-success" type="submit" name="searchsubmit" id="searchsubmit" ><i class="fa fa-search"></i></button>
+    </div>
+
+
+    </div>
+    </form>';
+
+    return $form;
+}
+add_filter( 'get_search_form', 'hfsi_search_form' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
