@@ -19,6 +19,7 @@ function hfsi_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'organization_banner_title' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'organization_banner_subtitle' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'organization_banner_slogan' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'title_loop_homepage' )->transport = 'postMessage';
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -55,6 +56,16 @@ function hfsi_customize_register( $wp_customize ) {
 			'render_callback' => function() {
         if ( ( get_theme_mod( 'title_carousel' ) ) != '' ) {
           echo get_theme_mod( 'title_carousel' );
+        }
+      },
+      'fallback_refresh' => true
+    ) );
+		$wp_customize->selective_refresh->add_partial( 'title_loop_homepage', array(
+			'selector'        => '.title_loop_homepage',
+      'container_inclusive' => false,
+			'render_callback' => function() {
+        if ( ( get_theme_mod( 'title_loop_homepage' ) ) != '' ) {
+          echo get_theme_mod( 'title_loop_homepage' );
         }
       },
       'fallback_refresh' => true
@@ -136,6 +147,17 @@ function hfsi_customize_partial_organization_banner_slogan() {
 function hfsi_customize_partial_organization_subtitle() {
   if ( ( get_theme_mod( 'organization_subtitle' ) ) != '' ) {
     echo get_theme_mod( 'organization_subtitle' );
+  }
+}
+
+/**
+ * Render the Organization subtitle.
+ *
+ * @return void
+ */
+function hfsi_customize_partial_title_loop_homepage() {
+  if ( ( get_theme_mod( 'title_loop_homepage' ) ) != '' ) {
+    echo get_theme_mod( 'title_loop_homepage' );
   }
 }
 
