@@ -30,6 +30,10 @@ function hfsi_full_customize_register( $wp_customize )
         'title'    => __( 'Carousel / Diaporama', 'starter' ),
         'priority' => 35
     ) );
+    $wp_customize->add_section( 'hfsi_homepage_category_loop' , array(
+        'title'    => __( 'Présentation homepage', 'starter' ),
+        'priority' => 160
+    ) );
     $wp_customize->add_section( 'hfsi_footer_section' , array(
         'title'    => __( 'Footer / Bas de page', 'starter' ),
         'priority' => 180
@@ -223,6 +227,24 @@ function hfsi_full_customize_register( $wp_customize )
         'section' => 'hfsi_carousel_section',
         'settings' => 'category_carousel',
         'priority' => 20,
+        'type' => 'select',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+        'choices' => hfsi_get_categories_select()
+    )
+  );
+
+  // Category selection for carousel
+    $wp_customize->add_setting( 'category_loop_homepage' , array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( 'category_loop_homepage', array(
+        'label' => __( 'Select category to display in homepage' ),
+        'description' => esc_html__( 'Choose your category' ),
+        'section' => 'hfsi_homepage_category_loop',
+        'settings' => 'category_loop_homepage',
+        'priority' => 10,
         'type' => 'select',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
         'choices' => hfsi_get_categories_select()
