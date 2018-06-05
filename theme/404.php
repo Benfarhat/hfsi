@@ -165,7 +165,7 @@ a::after {
 <div class="terminal">
   <h1>Erreur <span class="errorcode">404</span> Page non trouvée!</h1>
   <p class="output">La page que vous recherchez a peut-être été supprimée, son nom a été modifié ou est temporairement indisponible</p>
-  <p class="output">Veuillez essayer la page <a href="<?= get_template_directory_uri() ?>">d'acceuil</a> de l'hopital FSI, ou la section <a href="<?= get_template_directory_uri() ?>">e-learning</a></p>
+  <p class="output">Veuillez essayer la page <a href="<?= site_url() ?>">d'acceuil</a> de l'hopital FSI, ou la section <a href="<?= site_url() ?>">e-learning</a></p>
   <p class="output">Les administrateurs</p>
 </div>
 </body>
