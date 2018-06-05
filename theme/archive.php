@@ -51,11 +51,16 @@ get_header();
     <!-- /Archive title and description -->
     <?php endif; ?>
     <?php
-    // Enable pagination and change limit value
-      $current_query = $wp_query->query;
-      $current_query['paged'] = (get_query_var('paged')) ? get_query_var('paged') : 1;
-      $current_query['posts_per_page'] = 3;
-      query_posts($current_query);
+      global $wp_query;
+      query_posts(
+        array_merge(
+        array(
+          'paged' => $paged
+        ),
+        $wp_query->query
+      )
+      );
+      // var_dump($wp_query);
     ?>
     <!-- Row -->
     <div class="row">
@@ -88,65 +93,10 @@ get_header();
       ?>
       </div>
       <!-- /Row -->
-      <!-- Row -->
-      <nav aria-label="navigation">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts' ); ?></div>
-      <div class="nav-next alignright"><?php previous_posts_link( 'Newer posts' ); ?></div>
-
-      <?php // echo paginate_links();
-      $pagination =  paginate_links( array(
-        //'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-        'format' => '/page/%#%',
-        'current' => max( 1, get_query_var('paged') ),
-        //'total' => $posts_array->max_num_pages,
-
-        'show_all'           => false,
-        'end_size'           => 1,
-        'mid_size'           => 2,
-        'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
-        'next_text'          => __( 'Next page', 'twentyfifteen' ),
-        'type' => 'array'
-    ) );
-        print_r($pagination);
-        if( is_array( $pagination ) ) {
-          $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
-          echo '<nav aria-label="navigation"><ul class="pagination justify-content-center">';
-          foreach ( $pagination as $page ) {
-            print_r($page);
-                  echo '<li class="page-item">'.$page.'</li>';
-          }
-         echo '</ul></nav>';
-          }
-       ?>
+      <hr>
       <?php
-          $defaults = array(
-            'range'           => 4,
-            'custom_query'    => FALSE,
-            'previous_string' => __( 'Previous', 'hfsi' ),
-            'next_string'     => __( 'Next', 'hfsi' ),
-            'before_output'   => '<nav aria-label="navigation"><ul class="pagination justify-content-center">',
-            'after_output'    => '</ul></nav>'
-        );
-        the_posts_pagination( array(
-        'mid_size'  => 2,
-				'prev_text' => '<span class="screen-reader-text">' . __( 'Previous page', 'hfsi' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'hfsi' ) . '</span>',
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'hfsi' ) . ' </span>',
-      ) ); ?>
-
+      hfsi_display_pagination();
+      ?>
       </div>
       <!-- /Row -->
     </div>
