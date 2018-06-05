@@ -148,7 +148,8 @@ if ( has_nav_menu( 'menu-top' ) ) {
             <p class="organization_banner_slogan"><?= get_theme_mod('organization_banner_slogan'); ?></p>
             <?php endif; ?>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-7 d-flex flex-column justify-content-between">
+            <div>
           <?php
 
 $defaults = array(
@@ -175,7 +176,8 @@ if ( has_nav_menu( 'menu-banner' ) ) {
   wp_nav_menu( $defaults );
 }
 ?>
-
+            </div>
+          <?php get_search_form(); ?>
           </div>
         </div>
       </div>
