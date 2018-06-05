@@ -263,6 +263,36 @@ function hfsi_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'hfsi_excerpt_more' );
 
+/* Custom pagination */
+function hfsi_display_pagination() {
+
+  global $wp_query;
+
+  $big = 999999999; // need an unlikely integer
+
+  $pages = paginate_links( array(
+          'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+          'format' => '?paged=%#%',
+          'current' => max( 1, get_query_var('paged') ),
+          'total' => $wp_query->max_num_pages,
+          'type'  => 'array',
+          'prev_text'    => sprintf( '<i></i> %1$s','<i class="fa fa-angle-double-left"></i>' ),
+          'next_text'    => sprintf( '%1$s <i></i>','<i class="fa fa-angle-double-right"></i>' ),
+
+      ) );
+      if( is_array( $pages ) ) {
+          $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
+          $current = $wp_query->query_vars['page'];
+          echo ' <nav aria-label="navigation"><ul class="pagination justify-content-center">';
+          foreach ( $pages as $page ) {
+                  echo '<li class="page-item';
+                  if( strip_tags($page) == $paged)
+                    echo ' active';
+                  echo '">'.str_replace( "page-numbers", 'page-link', $page ).'</li>';
+          }
+         echo '</ul></nav>';
+          }
+  }
 
 /**
  * Implement the Custom Header feature.
