@@ -139,8 +139,8 @@ if ( has_nav_menu( 'menu-top' ) ) {
     <div id="particles-js" class="overlay position-absolute"></div>
     <div class="container position-relative d-flex flex-column">
       <div class="overlay rgba4 animated bounceInRight">
-        <div class="row py-5">
-          <div class="col-md-4 offset-md-1 text-center title" role="banner">
+        <div class="row py-0">
+          <div class="col-md-5 text-center title" role="banner">
             <img src="<?= get_template_directory_uri() ?>/img/logo/3/logo128.png" alt="">
             <h2 class="organization_banner_title"><?= get_theme_mod('organization_banner_title', 'HOPITAL FSI'); ?></h2>
             <h3 class="organization_banner_subtitle"><?= get_theme_mod('organization_banner_subtitle', 'La Marsa'); ?></h3>
@@ -148,8 +148,8 @@ if ( has_nav_menu( 'menu-top' ) ) {
             <p class="organization_banner_slogan"><?= get_theme_mod('organization_banner_slogan'); ?></p>
             <?php endif; ?>
           </div>
-          <div class="col-md-7 d-flex flex-column justify-content-between">
-            <div>
+          <div class="col-md-7 pl-0 d-flex flex-column justify-content-between" style="border-left:1px solid rgba(255,255,255,.1)">
+            <div style="border-bottom: 1px solid rgba(255,255,255,.1);">
           <?php
 
 $defaults = array(
