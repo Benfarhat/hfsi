@@ -296,14 +296,12 @@ $the_query = new WP_Query( $args );
         <?php else : ?>
         <div class="d-flex flex-row" style="background-color:var(--<?php $color = array('success', 'danger', 'warning', 'secondary', 'dark'); echo $color[rand(0, 4)]; ?>);height: 225px; width: 100%; display: block;">
           <div class="flex-1 align-self-center text-center">
-            <h6 class="text-uppercase text-white"><?php the_title(); ?></h6>
+            <h6 class="text-uppercase text-white" style="border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:8px;"><?php the_title(); ?></h6>
           </div>
         </div>
         <?php endif; ?>
-          <div class="card-body">
-        <?php if (has_post_thumbnail( get_the_ID() ) ): ?>
+        <div class="card-body">
           <h5 class="card-title title"><?php the_title(); ?></h5>
-        <?php endif; ?>
           <p class="card-text"><?= the_excerpt(); ?></p>
           </div>
           <div class="card-footer">
