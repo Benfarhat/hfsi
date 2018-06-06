@@ -837,7 +837,7 @@ body
 
 #header-top nav .nav-link:hover
 {
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, .25);
 }
 
 /* Menu */
