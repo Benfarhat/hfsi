@@ -266,7 +266,7 @@ $the_query = new WP_Query( $args );
     <div class="container p-0">
 
         <div class="row">
-            <h2 class="title_loop_homepage titre animated slideInRight"><?= get_theme_mod('title_loop_homepage', 'Nos derners articles'); ?></h2>
+            <h2 class="title_loop_homepage titre animated slideInRight"><?= get_theme_mod('title_loop_homepage', 'Nos derniers articles'); ?></h2>
           </div>
 
     <?php
@@ -291,10 +291,20 @@ $the_query = new WP_Query( $args );
 
       <article id="post-<?php the_ID(); ?>" class="col-md-4 d-flex align-items-stretch">
         <div class="card mb-4 box-shadow">
+        <?php if (has_post_thumbnail( get_the_ID() ) ): ?>
           <img class="card-img-top" alt="<?php the_title(); ?>" style="height: 225px; width: 100%; display: block;" src="<?= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')[0] ?>" data-holder-rendered="true">
+        <?php else : ?>
+        <div class="d-flex flex-row" style="background-color:var(--<?php $color = array('success', 'danger', 'warning', 'secondary', 'dark'); echo $color[rand(0, 4)]; ?>);height: 225px; width: 100%; display: block;">
+          <div class="flex-1 align-self-center text-center">
+            <h6 class="text-uppercase text-white"><?php the_title(); ?></h6>
+          </div>
+        </div>
+        <?php endif; ?>
           <div class="card-body">
+        <?php if (has_post_thumbnail( get_the_ID() ) ): ?>
           <h5 class="card-title title"><?php the_title(); ?></h5>
-            <p class="card-text"><?= the_excerpt(); ?></p>
+        <?php endif; ?>
+          <p class="card-text"><?= the_excerpt(); ?></p>
           </div>
           <div class="card-footer">
             <div class="row d-flex justify-content-between align-items-center">

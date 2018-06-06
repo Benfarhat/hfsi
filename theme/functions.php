@@ -252,6 +252,25 @@ function hfsi_custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'hfsi_custom_excerpt_length', 999 );
 
+/* Another excerpt function */
+// truncate string at word. @see: https://wp-mix.com/php-truncate-text-word/
+function hfsi_excerpt($string, $limit, $break = ".", $pad = "...") {
+
+	if (strlen($string) <= $limit) return $string;
+
+	if (false !== ($max = strpos($string, $break, $limit))) {
+
+		if ($max < strlen($string) - 1) {
+
+			$string = substr($string, 0, $max) . $pad;
+
+		}
+
+	}
+
+	return $string;
+
+}
 /**
  * Filter the excerpt "read more" string.
  *
