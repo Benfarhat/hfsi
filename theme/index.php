@@ -270,27 +270,39 @@ $the_query = new WP_Query( $args );
           </div>
 
     <?php
-      global $wp_query;
-      query_posts(
-        array_merge(
-        array(
-          'paged' => $paged
-        ),
-        $wp_query->query
-      )
+
+    echo '<h1>'.get_theme_mod('num_loop_homepage', 24).'</h1>';
+      //global $wp_query;
+
+      $args = array(
+        'posts_per_page' => get_theme_mod('num_loop_homepage', 24),
+        'ignore_sticky_posts' => !get_theme_mod('enable_sticky_loop_homepage', true),
       );
-      // var_dump($wp_query);
+
+      if ( get_theme_mod('category_loop_homepage') ):
+        $args['category_name'] = get_theme_mod('category_loop_homepage');
+      endif;
+      $wp_query_homepage = new WP_Query( $args );
+      // var_dump($wp_query_homepage);
     ?>
     <!-- Row -->
     <div class="row">
     <?php
-			while ( have_posts() ) : the_post();
+			while ( $wp_query_homepage->have_posts() ) : $wp_query_homepage->the_post();
       /* if we change content to experct, we need to delete this counter */
       hfsi_setPostViews(get_the_ID());
       ?>
 
       <article id="post-<?php the_ID(); ?>" class="col-md-4 d-flex align-items-stretch">
-        <div class="card mb-4 box-shadow">
+        <div <?php
+        $classes = array(
+          'card',
+          'mb-4',
+          'box-shadow',
+        );
+        post_class( $classes );
+        /* @todo Maybe adding visual effect to sticky elements */
+        ?>>
         <?php if (has_post_thumbnail( get_the_ID() ) ): ?>
           <img class="card-img-top" alt="<?php the_title(); ?>" style="height: 225px; width: 100%; display: block;" src="<?= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large')[0] ?>" data-holder-rendered="true">
         <?php else : ?>
@@ -321,8 +333,15 @@ $the_query = new WP_Query( $args );
       </div>
       <!-- /Row -->
       <hr>
-
-
+      <?php
+      if ( get_theme_mod('category_loop_homepage') ):
+        // Get the URL of current (or selected) category
+        $category_link = get_category_link( get_theme_mod('category_loop_homepage') );
+        ?>
+        <a class="btn btn-success" href="<?= esc_url( $category_link ); ?>">Tout voir</a>
+        <?php
+      endif;
+      ?>
     </div>
   </section>
   <!-- /Content -->
