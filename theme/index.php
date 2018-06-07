@@ -114,11 +114,11 @@ $the_query = new WP_Query( $args );
                               <label for="inputEmail4">Numéro des analyses</label>
                               <input type="email" class="form-control" id="numanalyse" placeholder="Numéro des analyses">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                               <label for="inputPassword4">Matricule</label>
                               <input type="password" class="form-control" id="identifiant" placeholder="Votre identifiant">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                               <label for="inputPassword4">Date des analyses</label>
                               <input type="password" class="form-control" id="identifiant" placeholder="Cliquer pour afficher le calendrier">
                             </div>
@@ -130,6 +130,8 @@ $the_query = new WP_Query( $args );
                 </div>
               </div>
             </div>
+
+            <!--
 
             <div class="row mt-4">
                 <h2 class="titre animated slideInLeft">Infos</h2>
@@ -196,6 +198,9 @@ $the_query = new WP_Query( $args );
                   </div>
                 </div>
               </div>
+
+        -->
+
         </div>
         <!-- Rendez vous -->
         <div id="rdv" class="col-md-6">
