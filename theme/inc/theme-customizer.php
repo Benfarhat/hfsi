@@ -173,7 +173,7 @@ function hfsi_full_customize_register( $wp_customize )
   ) );
 
   $wp_customize->add_control( 'title_carousel', array(
-        'label' => __( 'Enable carousel', 'hfsi' ),
+        'label' => __( 'Carousel title', 'hfsi' ),
         'description' => esc_html__( 'Title for your carousel' ),
         'section'  => 'hfsi_carousel_section',
         'settings' => 'title_carousel',
@@ -260,7 +260,7 @@ function hfsi_full_customize_register( $wp_customize )
 
 
 
-  // Number of elements for carousel
+  // Number of elements for loop in homepage
   $wp_customize->add_setting( 'num_loop_homepage' , array(
     'default'   => 5,
     'transport' => 'refresh',
@@ -275,6 +275,9 @@ $wp_customize->add_control( 'num_loop_homepage', array(
     'type' => 'select',
     'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
     'choices' => array(
+      '' => 'Selectionner...',
+      '0' => '0',
+      '1' => '1',
       '2' => '2',
       '3' => '3',
       '4' => '4',
@@ -296,8 +299,25 @@ $wp_customize->add_control( 'num_loop_homepage', array(
 );
 
 
+    // Enable sticky homepage
+    $wp_customize->add_setting( 'enable_sticky_loop_homepage' , array(
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
 
-  // Category selection for carousel
+  $wp_customize->add_control( 'enable_sticky_loop_homepage', array(
+        'label' => __( 'Enable Sticky', 'hfsi' ),
+        'description' => esc_html__( 'Enable sticky posts add some extra posts to elements to display' ),
+        'section'  => 'hfsi_homepage_category_loop',
+        'settings' => 'enable_sticky_loop_homepage',
+        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+
+  // Category selection for loop homepage
     $wp_customize->add_setting( 'category_loop_homepage' , array(
         'default'   => '',
         'transport' => 'refresh',
