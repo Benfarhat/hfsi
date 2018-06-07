@@ -167,8 +167,7 @@ function hfsi_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+
 add_action( 'wp_enqueue_scripts', 'hfsi_scripts' );
 
 /**
