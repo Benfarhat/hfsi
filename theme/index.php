@@ -332,13 +332,14 @@ $the_query = new WP_Query( $args );
       ?>
       </div>
       <!-- /Row -->
-      <hr>
       <?php
+      // var_dump($wp_query_homepage->query_vars);
       if ( get_theme_mod('category_loop_homepage') ):
         // Get the URL of current (or selected) category
-        $category_link = get_category_link( get_theme_mod('category_loop_homepage') );
+        $category_link = get_category_link( $wp_query_homepage->query_vars['cat'] );
         ?>
-        <a class="btn btn-success" href="<?= esc_url( $category_link ); ?>">Tout voir</a>
+        <a class="btn btn-success" href="<?= esc_url( $category_link ); ?>"><i class="fa fa-bars"></i> Tout voir</a>
+        <hr>
         <?php
       endif;
       ?>
