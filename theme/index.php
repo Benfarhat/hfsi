@@ -135,11 +135,7 @@ $the_query = new WP_Query( $args );
         <div class="col-sm-6">
             <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker5').datetimepicker();
-            });
-        </script>
+
     </div>
 </div>
 

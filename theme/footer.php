@@ -187,6 +187,11 @@ if ( has_nav_menu( 'menu-bottom' ) ) {
 	  }
 
 	);</script>
+    <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker5').datetimepicker();
+      });
+  </script>
 
 </body>
 
