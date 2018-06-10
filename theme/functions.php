@@ -104,10 +104,48 @@ if ( ! function_exists( 'hfsi_setup' ) ) :
     ) );
 
     remove_theme_support( 'colors' );
+
 	}
 endif;
 add_action( 'after_setup_theme', 'hfsi_setup' );
 
+/**
+ * Remove Wordpress Version Number
+ */
+function hfsi_remove_version() {
+  return '';
+  }
+  add_filter('the_generator', 'hfsi_remove_version');
+
+/**
+ * Custom dashboard widget
+ */
+add_action('wp_dashboard_setup', 'hfsi_custom_dashboard_widgets');
+
+function hfsi_custom_dashboard_widgets() {
+global $wp_meta_boxes;
+
+wp_add_dashboard_widget('custom_help_widget', 'Thème HFSI', 'hfsi_custom_dashboard_help');
+}
+
+function hfsi_custom_dashboard_help() {
+echo '<p>Thème HFSI réalisé par Benfarhat Elyes.</p><p>Ce thème est complétement paramétrable et permet de faciliter le travail des administrateurs / webmasters du HFSI en gérant notamment les différents élements du thème mais également la configuration des services web.</p>';
+}
+
+/**
+ * Update / Fiw Wordpress URLs
+ */
+// update_option( 'siteurl', 'http://example.com' );
+// update_option( 'home', 'http://example.com' );
+
+/**
+ * Disable Login by Email
+ */
+remove_filter( 'authenticate', 'wp_authenticate_email_password', 20 );
+/**
+ * Disable XML-RPC
+ */
+add_filter('xmlrpc_enabled', '__return_false');
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
