@@ -335,6 +335,73 @@ $wp_customize->add_control( 'num_loop_homepage', array(
     )
   );
 
+  /* Webservices section */
+
+
+    // Enable
+    $wp_customize->add_setting( 'enable_webservice' , array(
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'enable_webservice', array(
+        'label' => __( 'Enable webservice', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable Webservice' ),
+        'section'  => 'hfsi_webservice_section',
+        'settings' => 'enable_webservice',
+        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+
+  // title
+
+  $wp_customize->add_setting( 'webservice_title' , array(
+    'default' => '',
+    'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'webservice_title', array(
+    'label' => __( 'Webservice title', 'hfsi' ),
+    'description' => esc_html__( 'Title for the webservice section' ),
+    'section'  => 'hfsi_webservice_section',
+    'settings' => 'webservice_title',
+    'priority' => 5, // Optional. Order priority to load the control. Default: 10
+    'type' => 'text', // Can be either text, email, url, number, hidden, or date
+    'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    'input_attrs' => array( // Optional.
+       'style' => 'border: 1px solid #ddd',
+       'placeholder' => __( 'Enter webservice title...' ),
+    ),
+  ) );
+
+  // Protocol
+  $wp_customize->add_setting( 'webservice_protocol',
+   array(
+      'default' => 0,
+      'transport' => 'refresh',
+      'sanitize_callback' => 'hfsi_chkbox_sanitization'
+   )
+);
+
+$wp_customize->add_control( 'webservice_protocol',
+   array(
+      'label' => __( 'Protocol' ),
+      'description' => esc_html__( 'Secure (https) or unsecure access (http)' ),
+      'section' => 'hfsi_webservice_section',
+      'settings' => 'webservice_protocol',
+      'priority' => 10, // Optional. Order priority to load the control. Default: 10
+      'type' => 'radio',
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'choices' => array( // Optional.
+         '0' => __( 'http://' ),
+         '1' => __( 'https://' )
+      )
+   )
+);
+
     // Footer section
     // @see: https://wptheming.com/2015/02/page-select-customizer/
     // Left footer
@@ -391,7 +458,7 @@ $wp_customize->add_control( 'num_loop_homepage', array(
       )
     );
 
-
+/*
     // Webservice section
 
 
@@ -411,7 +478,7 @@ $wp_customize->add_control( 'num_loop_homepage', array(
           'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
       )
     );
-
+*/
 
   // Remove unused section
   // @see: https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/remove_section
