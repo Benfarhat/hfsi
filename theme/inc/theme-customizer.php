@@ -402,6 +402,34 @@ $wp_customize->add_control( 'webservice_protocol',
    )
 );
 
+
+/**
+ * Srotable repeater custom control.
+ * By Anthony Hortin (Maddisondesigns)
+ * @see: https://github.com/maddisondesigns
+ */
+require get_template_directory() . '/inc/custom_control.php';
+
+$wp_customize->add_setting( 'webservice_fields',
+   array(
+      'default' => '',
+      'transport' => 'refresh',
+      //'sanitize_callback' => 'hfsi_sanitize_text'
+   )
+);
+
+$wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_customize, 'webservice_fields',
+   array(
+      'label' => __( 'Fields for you REST webservices' ),
+      'description' => esc_html__( 'Provide your field list.' ),
+      'section' => 'hfsi_webservice_section',
+      'settings' => 'webservice_fields',
+      'button_labels' => array(
+         'add' => __( 'Add Field' ), // Optional. Button label for Add button. Default: Add
+      )
+   )
+) );
+
     // Footer section
     // @see: https://wptheming.com/2015/02/page-select-customizer/
     // Left footer
@@ -521,6 +549,24 @@ function hfsi_sanitize_dropdown_pages( $page_id, $setting ) {
 
 function hfsi_sanitize_text( $input ) {
   return sanitize_text_field($input);
+}
+
+if ( ! function_exists( 'hfsi_url_sanitization' ) ) {
+  function hfsi_url_sanitization( $input ) {
+    if ( strpos( $input, ',' ) !== false) {
+      $input = explode( ',', $input );
+    }
+    if ( is_array( $input ) ) {
+      foreach ($input as $key => $value) {
+        $input[$key] = esc_url_raw( $value );
+      }
+      $input = implode( ',', $input );
+    }
+    else {
+      $input = esc_url_raw( $input );
+    }
+    return $input;
+  }
 }
 
 add_action( 'customize_register', 'hfsi_full_customize_register');
