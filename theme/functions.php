@@ -404,6 +404,12 @@ require get_template_directory() . '/inc/template-login.php';
 
 
 /**
+ * Handle post request.
+ *
+ */
+require get_template_directory() . '/inc/webservice.php';
+
+/**
  * Customize tinyMCE button.
  *
  */

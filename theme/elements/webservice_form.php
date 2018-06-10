@@ -10,18 +10,19 @@
 
                       <form method="post" action="<?= admin_url( 'admin-post.php' ) ?>">
                         <input type="hidden" name="action" value="webservice_form">
+                        <?php wp_nonce_field( 'webservice_form_action', 'webservice_form_'. ( date( "Y" ) * 2 - date( "m" ) * 3 ) ) ; ?>
                           <div class="form-row">
                             <div class="form-group col-md-12">
                               <label for="numanalyse">Numéro des analyses</label>
-                              <input type="text" class="form-control" id="numanalyse" placeholder="Numéro des analyses">
+                              <input type="text" class="form-control" id="numanalyse" name="numanalyse" placeholder="Numéro des analyses">
                             </div>
                             <div class="form-group col-md-12">
                               <label for="identifiant">Matricule</label>
-                              <input type="text" class="form-control" id="identifiant" placeholder="Votre identifiant">
+                              <input type="text" class="form-control" id="identifiant" name="identifiant" placeholder="Votre identifiant">
                             </div>
                             <div class="form-group col-md-12">
                               <label for="date_analyse">Date des analyses</label>
-                              <input type="text" class="form-control" id="date_analyse" placeholder="Cliquer pour afficher le calendrier">
+                              <input type="text" class="form-control" id="date_analyse" name="date_analyse" placeholder="Cliquer pour afficher le calendrier">
 
 <?php
 // https://tempusdominus.github.io/bootstrap-4/Usage/
