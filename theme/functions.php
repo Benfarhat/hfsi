@@ -209,6 +209,21 @@ function hfsi_scripts() {
 add_action( 'wp_enqueue_scripts', 'hfsi_scripts' );
 
 /**
+ * Enqueue Admin scripts and styles.
+ */
+/*
+function hfsi_admin_scripts( $hook ) {
+  if ( $hook == 'widgets.php' ) {
+    wp_enqueue_script( 'skyrocket_custom_controls_js', trailingslashit( get_template_directory_uri() ) . 'js/customizer.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ), '1.0', true );
+    wp_enqueue_style( 'skyrocket_custom_controls_css', trailingslashit( get_template_directory_uri() ) . 'css/customizer.css', array(), '1.0', 'all' );
+  }
+
+}
+
+add_action( 'admin_enqueue_scripts', 'hfsi_admin_scripts' );7
+*/
+
+/**
  * Register and load Bootstrap CDN to WP Editor
  */
 function hfsi_style_to_wp_editor() {

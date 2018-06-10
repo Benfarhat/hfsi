@@ -404,7 +404,7 @@ $wp_customize->add_control( 'webservice_protocol',
 
 
 /**
- * Srotable repeater custom control.
+ * Sortable repeater custom control.
  * By Anthony Hortin (Maddisondesigns)
  * @see: https://github.com/maddisondesigns
  */
@@ -420,7 +420,7 @@ $wp_customize->add_setting( 'webservice_fields',
 
 $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_customize, 'webservice_fields',
    array(
-      'label' => __( 'Fields for you REST webservices' ),
+      'label' => __( 'Fields for your REST webservices' ),
       'description' => esc_html__( 'Provide your field list.' ),
       'section' => 'hfsi_webservice_section',
       'settings' => 'webservice_fields',
