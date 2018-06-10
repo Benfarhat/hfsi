@@ -38,15 +38,38 @@ function webservice_form_data() {
           wp_remote_get( $url, $args );
           */
           // https://developer.wordpress.org/reference/functions/set_transient/
-          $response = wp_remote_get( 'https://api.github.com/users/benfarhat' );
+          //$response = wp_remote_get( 'https://api.github.com/users/benfarhat' );
+          $response = wp_remote_get( 'www.cviproject.eu/wp-content/uploads/2016/06/dummyPDF.pdf' );
+
+
+          if (is_wp_error( $server_response) ) {
+
+          } else {
+            $response_body = wp_remote_retrieve_body( $response);
+            header("Content-type: application/pdf");
+            header("Content-disposition: attachment;filename=downloaded.pdf");
+            echo $response_body;
+          }
+          /*
           $http_code = wp_remote_retrieve_response_code( $response );
 
+          var_dump($response) ;
           if( $http_code == 200) {
             //echo wp_remote_retrieve_body( $response );
-            wp_send_json_success( $response );
+            // wp_send_json_success( $response );
+            // If it's a pdf:
+
+            header('Content-Disposition: attachment; filename=' . urlencode($f));
+            header('Content-Type: application/force-download');
+            header('Content-Type: application/octet-stream');
+            header('Content-Type: application/download');
+            header('Content-Description: File Transfer');
+            header('Content-Length: ' . filesize($f));
+
           } else {
 
           }
+          */
 
 
       }
