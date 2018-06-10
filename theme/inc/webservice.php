@@ -26,8 +26,16 @@ function webservice_form_data() {
         // Sanitize the POST field
         // @see: https://developer.wordpress.org/themes/theme-security/data-sanitization-escaping/
 
-          //var_dump($_POST);
           $action = empty( $_REQUEST['action'] ) ? '' : $_REQUEST['action'];
+
+          $params = array(
+          'numanalyse' => sanitize_text_field( $_POST['numanalyse'] ),
+          'identifiant' => sanitize_text_field( $_POST['identifiant'] ),
+          'date_analyse' => sanitize_text_field( $_POST['date_analyse'] )
+          );
+          $protocol = 'http';
+          $endpoint = 'www.cviproject.eu/wp-content/uploads/2016/06/dummyPDF.pdf';
+          $url = $protocol.'://'.$endpoint.'?num='.$params['numanalyse'].'&identifiant='.$params['identifiant'].'&date='.$params['date_analyse'];
 
           /*
           $args = array(
@@ -39,15 +47,14 @@ function webservice_form_data() {
           */
           // https://developer.wordpress.org/reference/functions/set_transient/
           //$response = wp_remote_get( 'https://api.github.com/users/benfarhat' );
-          $response = wp_remote_get( 'www.cviproject.eu/wp-content/uploads/2016/06/dummyPDF.pdf' );
-
+          $response = wp_remote_get( esc_url($url) );
 
           if (is_wp_error( $server_response) ) {
 
           } else {
             $response_body = wp_remote_retrieve_body( $response);
             header("Content-type: application/pdf");
-            header("Content-disposition: attachment;filename=downloaded.pdf");
+            header("Content-disposition: attachment;filename=".$params['numanalyse'].".pdf");
             echo $response_body;
           }
           /*
