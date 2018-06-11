@@ -399,6 +399,14 @@ function hfsi_search_form( $form ) {
 add_filter( 'get_search_form', 'hfsi_search_form' );
 
 /**
+ * Create slug
+ */
+function hfsi_create_slug($string){
+  $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
+  return $slug;
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
