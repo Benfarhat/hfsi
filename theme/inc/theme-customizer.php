@@ -361,7 +361,7 @@ $wp_customize->add_control( 'num_loop_homepage', array(
   // title
 
   $wp_customize->add_setting( 'webservice_title' , array(
-    'default' => '',
+    'default' => 'Vos résultats de laboratoire',
     'transport' => 'refresh',
   ) );
 
