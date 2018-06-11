@@ -20,13 +20,20 @@ function webservice_form_data() {
       if ( ! isset( $_POST[$name_of_nonce_field] )
           || ! wp_verify_nonce( $_POST[$name_of_nonce_field], $name_of_action )
       ) {
+        var_dump(isset( $_POST[$name_of_nonce_field] ));
+
+        var_dump(wp_verify_nonce( $_POST[$name_of_nonce_field], $name_of_action ));
+        var_dump($_POST[$name_of_nonce_field]);
+
         print 'Sorry, your token/nonce did not verify.';
-        exit;
+        // exit;
       } else {
         // Sanitize the POST field
         // @see: https://developer.wordpress.org/themes/theme-security/data-sanitization-escaping/
 
           $action = empty( $_REQUEST['action'] ) ? '' : $_REQUEST['action'];
+
+          $fields = json_decode(get_theme_mod('webservice_fields'));
 
           $params = array(
           'numanalyse' => sanitize_text_field( $_POST['numanalyse'] ),
