@@ -32,7 +32,7 @@ jQuery( document ).ready(function($) {
 		}
 	});
 
-  /*
+
 
 	// Make our Repeater fields sortable
 	jQuery(this).find('.sortable').sortable({
@@ -41,7 +41,7 @@ jQuery( document ).ready(function($) {
 		}
 	});
 
-  */
+
 
 	// Remove item starting from it's parent element
 	$('.sortable').on('click', '.customize-control-sortable-repeater-delete', function(event) {
