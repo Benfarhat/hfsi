@@ -11,17 +11,16 @@ jQuery( document ).ready(function($) {
 	// Update the values for all our input fields and initialise the sortable repeater
 	$('.sortable_repeater_control').each(function() {
     // If there is an existing customizer value, populate our rows
-    var datas = $(this).find('.customize-control-sortable-repeater').val();
-    console.log(datas);
-    console.log(JSON.parse(datas));
-		var defaultValuesArray = $(this).find('.customize-control-sortable-repeater').val().split(',');
+    var defaultValuesArray = JSON.parse( $(this).find('.customize-control-sortable-repeater').val() );
+
     var numRepeaterItems = defaultValuesArray.length;
-    //console.log(JSON.parse(defaultValuesArray[0]));
-    //debugger;
-    console.log(numRepeaterItems);
 		if(numRepeaterItems > 0) {
 			// Add the first item to our existing input field
-			$(this).find('.repeater-input').val(defaultValuesArray[0]);
+      $(this).find('.repeater-input').val(defaultValuesArray[0].fieldname);
+      $(this).find('.repeater-label-input').val(defaultValuesArray[0].label);
+      $(this).find('.repeater-type-input').val(defaultValuesArray[0].type);
+      $(this).find('.repeater-class-input').val(defaultValuesArray[0].class);
+
 			// Create a new row for each new value
 			if(numRepeaterItems > 1) {
 				var i;
@@ -85,19 +84,17 @@ jQuery( document ).ready(function($) {
 	});
 
 	// Append a new row to our list of elements
-	function skyrocketAppendRow($element, defaultValue = '') {
-		//var newRow = '<div class="repeater" style="display:none"><input type="text" value="' + defaultValue + '" class="repeater-input" placeholder="https://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a></div>';
-		//var newRow = '<div class="repeater" style="border:1px solid #ccc;padding:2px;background-color:#fff;margin-top:4px;"><input type="text" value="' + defaultValue + '" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="<?php echo esc_html( $this->description ); ?>" /><select class="repeater-type-input" style="width:100%;border:1px solid #ddd;" ><option value="url">URL</option><option value="text">Text</option><option value="date">Date</option><option value="integer">Integer</option></select><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a></div>';
+	function skyrocketAppendRow($element, defaultValue = {fieldname: '',label: '',type: '',class: ''}) {
 		var newRow = `					<div class="repeater" style="border:1px solid #ccc;padding:2px;background-color:#fff;margin-top:4px;">
-    <input type="text" value="" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="Fieldname..." />
-    <input type="text" value="" class="repeater-label-input" style="width:100%;border:1px solid #ddd;" placeholder="Label for this field..." />
+    <input type="text" value="${defaultValue.fieldname}" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="Fieldname..." />
+    <input type="text" value="${defaultValue.label}" class="repeater-label-input" style="width:100%;border:1px solid #ddd;" placeholder="Label for this field..." />
     <select class="repeater-type-input" style="width:100%;border:1px solid #ddd;" >
-      <option value="url">URL</option>
-      <option value="text">Text</option>
-      <option value="date">Date</option>
-      <option value="integer">Integer</option>
+      <option value="url"${defaultValue.type=='url'?" selected":""}>URL</option>
+      <option value="text"${defaultValue.type=='text'?" selected":""}>Text</option>
+      <option value="date"${defaultValue.type=='date'?" selected":""}>Date</option>
+      <option value="integer"${defaultValue.type=='integer'?" selected":""}>Integer</option>
     </select>
-    <input type="text" value="" class="repeater-class-input" style="width:100%;border:1px solid #ddd;" placeholder="Custom class..." />
+    <input type="text" value="${defaultValue.class}" class="repeater-class-input" style="width:100%;border:1px solid #ddd;" placeholder="Custom class..." />
     <span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a>
   </div>`;
 
@@ -109,7 +106,6 @@ jQuery( document ).ready(function($) {
 
 	// Get the values from the repeater input fields and add to our hidden field
 	function skyrocketGetAllInputs($element) {
-    console.log($element);
 		var inputValues = $element.find('.repeater').map(function() {
       return {
         fieldname: $(this).find('.repeater-input').val(),
@@ -123,8 +119,6 @@ jQuery( document ).ready(function($) {
 		// Important! Make sure to trigger change event so Customizer knows it has to save the field
 		$element.find('.customize-control-sortable-repeater').trigger('change');
 	}
-
-
 
 
 });
