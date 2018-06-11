@@ -1,5 +1,3 @@
-
-        <div id="resultat-analyse" class="col-md-6">
             <div class="row">
               <h2 class="titre animated slideInLeft">Vos résultats de laboratoire</h2>
             </div>
@@ -33,7 +31,8 @@
                 </div>
               </div>
             </div>
-
+<?php
+/*
             <!--
 
             <div class="row mt-4">
@@ -103,5 +102,5 @@
               </div>
 
         -->
-
-        </div>
+        */
+?>
