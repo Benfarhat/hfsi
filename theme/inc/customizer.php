@@ -22,6 +22,7 @@ function hfsi_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'title_loop_homepage' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'webservice_title' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'webservice_button_title' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'rendezvous_title' )->transport = 'postMessage';
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
