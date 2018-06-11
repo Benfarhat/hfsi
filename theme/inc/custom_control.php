@@ -56,21 +56,26 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 				<?php } ?>
         <?php
-        /* We don't need this, description will be used as placeholder
         if( !empty( $this->description ) ) { ?>
 					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
         <?php }
-        */?>
+        ?>
 				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-sortable-repeater" <?php $this->link(); ?> />
 				<div class="sortable">
           <div class="repeater" style="border:1px solid #ccc;padding:2px;background-color:#fff;margin-top:4px;">
-            <input type="text" value="" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="Fieldname..." />
+            <label>Field Name</label>
+            <input type="text"  value="" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="Fieldname..." />
+            <label>Field Label</label>
             <input type="text" value="" class="repeater-label-input" style="width:100%;border:1px solid #ddd;" placeholder="Label for this field..." />
+            <label>Field Placeholder</label>
+            <input type="text" value="" class="repeater-placeholder-input" style="width:100%;border:1px solid #ddd;" placeholder="Placeholder for this field..." />
+            <label>Field Type</label>
             <select class="repeater-type-input" style="width:100%;border:1px solid #ddd;" >
               <option value="text">Text</option>
               <option value="date">Date</option>
               <option value="integer">Integer</option>
             </select>
+            <label>Field class</label>
             <input type="text" value="" class="repeater-class-input" style="width:100%;border:1px solid #ddd;" placeholder="Custom class..." />
             <span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a>
           </div>
@@ -198,30 +203,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		}
 	}
 
-	/**
-	 * Alpha Color (Hex & RGBa) sanitization
-	 *
-	 * @param  string	Input to be sanitized
-	 * @return string	Sanitized input
-	 */
-	if ( ! function_exists( 'skyrocket_hex_rgba_sanitization' ) ) {
-		function skyrocket_hex_rgba_sanitization( $input, $setting ) {
-			if ( empty( $input ) || is_array( $input ) ) {
-				return $setting->default;
-			}
 
-			if ( false === strpos( $input, 'rgba' ) ) {
-				// If string doesn't start with 'rgba' then santize as hex color
-				$input = sanitize_hex_color( $input );
-			} else {
-				// Sanitize as RGBa color
-				$input = str_replace( ' ', '', $input );
-				sscanf( $input, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
-				$input = 'rgba(' . skyrocket_in_range( $red, 0, 255 ) . ',' . skyrocket_in_range( $green, 0, 255 ) . ',' . skyrocket_in_range( $blue, 0, 255 ) . ',' . skyrocket_in_range( $alpha, 0, 1 ) . ')';
-			}
-			return $input;
-		}
-	}
 
 	/**
 	 * Only allow values between a certain minimum & maxmium range
@@ -241,47 +223,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		}
 	}
 
-	/**
-	 * Google Font sanitization
-	 *
-	 * @param  string	JSON string to be sanitized
-	 * @return string	Sanitized input
-	 */
-	if ( ! function_exists( 'skyrocket_google_font_sanitization' ) ) {
-		function skyrocket_google_font_sanitization( $input ) {
-			$val =  json_decode( $input, true );
-			if( is_array( $val ) ) {
-				foreach ( $val as $key => $value ) {
-					$val[$key] = sanitize_text_field( $value );
-				}
-				$input = json_encode( $val );
-			}
-			else {
-				$input = json_encode( sanitize_text_field( $val ) );
-			}
-			return $input;
-		}
-	}
-
-	/**
-	 * Date Time sanitization
-	 *
-	 * @param  string	Date/Time string to be sanitized
-	 * @return string	Sanitized input
-	 */
-	if ( ! function_exists( 'skyrocket_date_time_sanitization' ) ) {
-		function skyrocket_date_time_sanitization( $input, $setting ) {
-			$datetimeformat = 'Y-m-d';
-			if ( $setting->manager->get_control( $setting->id )->include_time ) {
-				$datetimeformat = 'Y-m-d H:i:s';
-			}
-			$date = DateTime::createFromFormat( $datetimeformat, $input );
-			if ( $date === false ) {
-				$date = DateTime::createFromFormat( $datetimeformat, $setting->default );
-			}
-			return $date->format( $datetimeformat );
-		}
-  }
 
 
 }
