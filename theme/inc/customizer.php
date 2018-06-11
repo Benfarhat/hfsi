@@ -20,6 +20,8 @@ function hfsi_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'organization_banner_subtitle' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'organization_banner_slogan' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'title_loop_homepage' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'webservice_title' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'webservice_button_title' )->transport = 'postMessage';
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -66,6 +68,26 @@ function hfsi_customize_register( $wp_customize ) {
 			'render_callback' => function() {
         if ( ( get_theme_mod( 'title_loop_homepage' ) ) != '' ) {
           echo get_theme_mod( 'title_loop_homepage' );
+        }
+      },
+      'fallback_refresh' => true
+    ) );
+		$wp_customize->selective_refresh->add_partial( 'webservice_title', array(
+			'selector'        => '.webservice_title',
+      'container_inclusive' => false,
+			'render_callback' => function() {
+        if ( ( get_theme_mod( 'webservice_title' ) ) != '' ) {
+          echo get_theme_mod( 'webservice_title' );
+        }
+      },
+      'fallback_refresh' => true
+    ) );
+		$wp_customize->selective_refresh->add_partial( 'webservice_button_title', array(
+			'selector'        => '.webservice_button_title',
+      'container_inclusive' => false,
+			'render_callback' => function() {
+        if ( ( get_theme_mod( 'webservice_button_title' ) ) != '' ) {
+          echo get_theme_mod( 'webservice_button_title' );
         }
       },
       'fallback_refresh' => true
