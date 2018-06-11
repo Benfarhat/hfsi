@@ -19,13 +19,24 @@ if ( get_theme_mod('enable_category_carousel') ):
   get_template_part( 'elements/slideshow' );
 endif;
 ?>
-  <!-- Horaire et rendez vous -->
+  <?php if ( get_theme_mod('enable_webservice') || true ): // @todo
+    // At this position we have at least on of them;
+    $taille = (get_theme_mod('enable_webservice') && true) ? 6 : 12 ;
+    ?>
+  <!-- Resultats d'analyses et rendez vous -->
   <section id="horaire-rdv">
     <div class="container mt-3">
       <div class="row">
-        <!-- Horaire -->
-        <?php get_template_part( 'elements/webservice_form' ); // col-md-6 ?>
-        <?php get_template_part( 'elements/appointment' ); // col-md-6 ?>
+      <?php if ( get_theme_mod('enable_webservice') ): ?>
+        <!-- Resultats d'analyses -->
+        <div id="resultat-analyse" class="col-md-<?$ $taille ?>">
+          <?php get_template_part( 'elements/webservice_form' ); // col-md-6 ?>
+        </div>
+      <?php endif; ?>
+        <!-- Rendez vous -->
+        <div id="rdv" class="col-md-<?$ $taille ?>">
+          <?php get_template_part( 'elements/appointment' ); // col-md-6 ?>
+        </div>
       </div>
     </div>
   </section>
