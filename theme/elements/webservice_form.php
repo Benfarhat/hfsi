@@ -7,7 +7,8 @@
                   <div class="card-body">
                       <form method="post" action="<?= admin_url( 'admin-post.php' ) ?>">
                         <input type="hidden" name="action" value="webservice_form">
-                        <?php wp_nonce_field( 'webservice_form_action', 'webservice_form_'. ( date( "Y" ) * 2 - date( "m" ) * 3 ) ) ; ?>
+                        <?php // wp_nonce_field( 'webservice_form_action', 'webservice_form_'. ( date( "Y" ) * 2 - date( "m" ) * 3 ) ) ; ?>
+                        <?php wp_nonce_field( 'hfsi_webservice' ); ?>
                           <div class="form-row">
                             <?php
                             $fields = json_decode(get_theme_mod('webservice_fields'));

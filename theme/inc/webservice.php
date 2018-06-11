@@ -14,18 +14,21 @@ add_action( 'admin_post_webservice_form', 'webservice_form_data' );
 function webservice_form_data() {
 
 
-      $name_of_nonce_field = 'webservice_form_'. ( date( "Y" ) * 2 - date( "m" ) * 3 );
-      $name_of_action = 'webservice_form_action';
+      $name_of_nonce_field = '_wpnonce';
 
       if ( ! isset( $_POST[$name_of_nonce_field] )
-          || ! wp_verify_nonce( $_POST[$name_of_nonce_field], $name_of_action )
+     //     || ! wp_verify_nonce( $_POST[$name_of_nonce_field], $name_of_action )
       ) {
-        var_dump(isset( $_POST[$name_of_nonce_field] ));
+        /*
+        var_dump(isset( $_POST['_wpnonce'] ));
 
-        var_dump(wp_verify_nonce( $_POST[$name_of_nonce_field], $name_of_action ));
-        var_dump($_POST[$name_of_nonce_field]);
-
-        print 'Sorry, your token/nonce did not verify.';
+        var_dump(wp_verify_nonce( $_POST['_wpnonce']));
+        var_dump(wp_verify_nonce( $_POST['_wpnonce'], 'hfsi_webservice'));
+        var_dump($_POST['_wpnonce']);
+        var_dump($name_of_nonce_field);
+        var_dump($name_of_action);
+        */
+        wp_die('Sorry, your token/nonce did not verify.');
         // exit;
       } else {
         // Sanitize the POST field
