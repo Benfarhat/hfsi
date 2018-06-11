@@ -86,7 +86,7 @@ jQuery( document ).ready(function($) {
 
 	// Append a new row to our list of elements
 	function skyrocketAppendRow($element, defaultValue = {fieldname: '',label: '',type: '',class: ''}) {
-		var newRow = `					<div class="repeater" style="border:1px solid #ccc;padding:2px;background-color:#fff;margin-top:4px;">
+		var newRow = `					<div class="repeater" style="border:1px solid #ccc;padding:2px;background-color:#fff;margin-top:8px;">
 		<label>Field Name</label>
 		<input type="text" value="${defaultValue.fieldname}" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="Fieldname..." />
 		<label>Field Label</label>
@@ -95,7 +95,6 @@ jQuery( document ).ready(function($) {
 		<input type="text" value="${defaultValue.placeholder}" class="repeater-placeholder-input" style="width:100%;border:1px solid #ddd;" placeholder="Placeholder for this field..." />
 		<label>Field Type</label>
 		<select class="repeater-type-input" style="width:100%;border:1px solid #ddd;" >
-      <option value="url"${defaultValue.type=='url'?" selected":""}>URL</option>
       <option value="text"${defaultValue.type=='text'?" selected":""}>Text</option>
       <option value="date"${defaultValue.type=='date'?" selected":""}>Date</option>
       <option value="integer"${defaultValue.type=='integer'?" selected":""}>Integer</option>
