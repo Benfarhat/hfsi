@@ -83,12 +83,24 @@ function hfsi_customize_register( $wp_customize ) {
       },
       'fallback_refresh' => true
     ) );
+    
 		$wp_customize->selective_refresh->add_partial( 'webservice_button_title', array(
 			'selector'        => '.webservice_button_title',
       'container_inclusive' => false,
 			'render_callback' => function() {
         if ( ( get_theme_mod( 'webservice_button_title' ) ) != '' ) {
           echo get_theme_mod( 'webservice_button_title' );
+        }
+      },
+      'fallback_refresh' => true
+    ) );
+    
+		$wp_customize->selective_refresh->add_partial( 'rendezvous_title', array(
+			'selector'        => '.rendezvous_title',
+      'container_inclusive' => false,
+			'render_callback' => function() {
+        if ( ( get_theme_mod( 'rendezvous_title' ) ) != '' ) {
+          echo get_theme_mod( 'rendezvous_title' );
         }
       },
       'fallback_refresh' => true
