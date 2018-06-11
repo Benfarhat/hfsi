@@ -15,13 +15,13 @@
 get_header();
 ?>
 <?php
-if ( get_theme_mod('enable_category_carousel') ):
+if ( get_theme_mod('enable_category_carousel', true) ):
   get_template_part( 'elements/slideshow' );
 endif;
 ?>
-  <?php if ( get_theme_mod('enable_webservice') || true ): // @todo
+  <?php if ( get_theme_mod('enable_webservice', true) || true ): // @todo
     // At this position we have at least on of them;
-    $taille = (get_theme_mod('enable_webservice') && true) ? 6 : 12 ;
+    $taille = (get_theme_mod('enable_webservice', true) && true) ? 6 : 12 ;
     ?>
   <!-- Resultats d'analyses et rendez vous -->
   <section id="horaire-rdv">
@@ -29,18 +29,19 @@ endif;
       <div class="row">
       <?php if ( get_theme_mod('enable_webservice') ): ?>
         <!-- Resultats d'analyses -->
-        <div id="resultat-analyse" class="col-md-<?$ $taille ?>">
+        <div id="resultat-analyse" class="col-md-<?= $taille ?>">
           <?php get_template_part( 'elements/webservice_form' ); // col-md-6 ?>
         </div>
       <?php endif; ?>
         <!-- Rendez vous -->
-        <div id="rdv" class="col-md-<?$ $taille ?>">
+        <div id="rdv" class="col-md-<?= $taille ?>">
           <?php get_template_part( 'elements/appointment' ); // col-md-6 ?>
         </div>
       </div>
     </div>
   </section>
   <!-- /Horaire et rendez vous -->
+  <?php endif; ?>
 
   <!-- Content -->
   <section id="content-loop" class="py-5">
