@@ -32,10 +32,18 @@ function hfsi_full_customize_register( $wp_customize )
     ) );
     $wp_customize->add_section( 'hfsi_webservice_section' , array(
         'title'    => __( 'Webservice', 'hfsi' ),
-        'priority' => 106
+        'priority' => 104
     ) );
     $wp_customize->add_section( 'hfsi_rendezvous' , array(
         'title'    => __( 'Rendez vous', 'hfsi' ),
+        'priority' => 105
+    ) );
+    $wp_customize->add_section( 'hfsi_homepage_category_loop' , array(
+        'title'    => __( 'Homepage', 'hfsi' ),
+        'priority' => 107
+    ) );
+    $wp_customize->add_section( 'hfsi_homepage_category_loop2' , array(
+        'title'    => __( 'Extended homepage', 'hfsi' ),
         'priority' => 108
     ) );
     $wp_customize->add_section( 'hfsi_footer_section' , array(
@@ -264,7 +272,7 @@ function hfsi_full_customize_register( $wp_customize )
 
   // Number of elements for loop in homepage
   $wp_customize->add_setting( 'num_loop_homepage' , array(
-    'default'   => 5,
+    'default'   => 12,
     'transport' => 'refresh',
 ) );
 
@@ -336,6 +344,127 @@ $wp_customize->add_control( 'num_loop_homepage', array(
         'choices' => hfsi_get_categories_select()
     )
   );
+
+  
+  /* Homepage 2 loop */
+
+
+    // Enable
+    $wp_customize->add_setting( 'enable_homepage2' , array(
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'enable_homepage2', array(
+        'label' => __( 'Enable webservice', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable Webservice' ),
+        'section'  => 'hfsi_homepage_category_loop2',
+        'settings' => 'enable_homepage2',
+        'priority' => 2, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+  // Carousel Title
+  $wp_customize->add_setting( 'title_loop_homepage2' , array(
+    'default' => '',
+    'sanitize_callback' => 'hfsi_sanitize_text',
+    'transport' => 'postMessage',
+) );
+
+$wp_customize->add_control( 'title_loop_homepage2', array(
+      'label' => __( 'extended Homepage loop title', 'hfsi' ),
+      'description' => esc_html__( 'Title for Extended Homepage loop' ),
+      'section'  => 'hfsi_homepage_category_loop2',
+      'settings' => 'title_loop_homepage2',
+      'priority' => 8, // Optional. Order priority to load the control. Default: 10
+      'type'=> 'text',
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'input_attrs' => array( // Optional.
+         'style' => 'border: 1px solid #ddd',
+         'placeholder' => __( 'Enter title for extended homepage loop...' ),
+      ),
+  )
+);
+
+
+
+// Number of elements for loop in homepage
+$wp_customize->add_setting( 'num_loop_homepage2' , array(
+  'default'   => 12,
+  'transport' => 'refresh',
+) );
+
+$wp_customize->add_control( 'num_loop_homepage2', array(
+  'label' => __( 'How many elements you want to display' ),
+  'description' => esc_html__( 'Choose a number' ),
+  'section' => 'hfsi_homepage_category_loop2',
+  'settings' => 'num_loop_homepage2',
+  'priority' => 12,
+  'type' => 'select',
+  'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+  'choices' => array(
+    '' => 'Selectionner...',
+    '0' => '0',
+    '1' => '1',
+    '2' => '2',
+    '3' => '3',
+    '4' => '4',
+    '5' => '5',
+    '6' => '6',
+    '7' => '7',
+    '8' => '8',
+    '9' => '9',
+    '10' => '10',
+    '12' => '12',
+    '14' => '14',
+    '16' => '16',
+    '18' => '18',
+    '20' => '20',
+    '22' => '22',
+    '24' => '24',
+  )
+)
+);
+
+
+  // Enable sticky homepage
+  $wp_customize->add_setting( 'enable_sticky_loop_homepage2' , array(
+    'default' => 0,
+    'sanitize_callback' => 'hfsi_chkbox_sanitization',
+    'transport' => 'refresh',
+) );
+
+$wp_customize->add_control( 'enable_sticky_loop_homepage2', array(
+      'label' => __( 'Enable Sticky', 'hfsi' ),
+      'description' => esc_html__( 'Enable sticky posts add some extra posts to elements to display' ),
+      'section'  => 'hfsi_homepage_category_loop2',
+      'settings' => 'enable_sticky_loop_homepage2',
+      'priority' => 10, // Optional. Order priority to load the control. Default: 10
+      'type'=> 'checkbox',
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+  )
+);
+
+// Category selection for loop homepage
+  $wp_customize->add_setting( 'category_loop_homepage2' , array(
+      'default'   => '',
+      'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'category_loop_homepage2', array(
+      'label' => __( 'Select category to display inside extended homepage' ),
+      'description' => esc_html__( 'Choose your category' ),
+      'section' => 'hfsi_homepage_category_loop2',
+      'settings' => 'category_loop_homepage2',
+      'priority' => 16,
+      'type' => 'select',
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'choices' => hfsi_get_categories_select()
+  )
+);
+
 
   /* Webservices section */
 
