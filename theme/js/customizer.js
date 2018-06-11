@@ -10,10 +10,15 @@ jQuery( document ).ready(function($) {
 
 	// Update the values for all our input fields and initialise the sortable repeater
 	$('.sortable_repeater_control').each(function() {
-		// If there is an existing customizer value, populate our rows
+    // If there is an existing customizer value, populate our rows
+    var datas = $(this).find('.customize-control-sortable-repeater').val();
+    console.log(datas);
+    console.log(JSON.parse(datas));
 		var defaultValuesArray = $(this).find('.customize-control-sortable-repeater').val().split(',');
-		var numRepeaterItems = defaultValuesArray.length;
-
+    var numRepeaterItems = defaultValuesArray.length;
+    //console.log(JSON.parse(defaultValuesArray[0]));
+    //debugger;
+    console.log(numRepeaterItems);
 		if(numRepeaterItems > 0) {
 			// Add the first item to our existing input field
 			$(this).find('.repeater-input').val(defaultValuesArray[0]);
@@ -27,12 +32,16 @@ jQuery( document ).ready(function($) {
 		}
 	});
 
+  /*
+
 	// Make our Repeater fields sortable
 	jQuery(this).find('.sortable').sortable({
 		update: function(event, ui) {
 			skyrocketGetAllInputs($(this).parent());
 		}
 	});
+
+  */
 
 	// Remove item starting from it's parent element
 	$('.sortable').on('click', '.customize-control-sortable-repeater-delete', function(event) {
@@ -54,6 +63,7 @@ jQuery( document ).ready(function($) {
 
 	// Add new item
 	$('.customize-control-sortable-repeater-add').click(function(event) {
+    console.log("ok");
 		event.preventDefault();
 		skyrocketAppendRow($(this).parent());
 		skyrocketGetAllInputs($(this).parent());
@@ -77,7 +87,7 @@ jQuery( document ).ready(function($) {
 	// Append a new row to our list of elements
 	function skyrocketAppendRow($element, defaultValue = '') {
 		//var newRow = '<div class="repeater" style="display:none"><input type="text" value="' + defaultValue + '" class="repeater-input" placeholder="https://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a></div>';
-		var newRow = '<div class="repeater" style="border:1px solid #ccc;padding:2px;background-color:#fff;margin-top:4px;"><input type="text" value="' + defaultValue + '" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="<?php echo esc_html( $this->description ); ?>" /><select class="repeater-type-input" style="width:100%;border:1px solid #ddd;" ><option value="url">URL</option><option value="text">Text</option><option value="date">Date</option><option value="integer">Integer</option></select><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a></div>';
+		//var newRow = '<div class="repeater" style="border:1px solid #ccc;padding:2px;background-color:#fff;margin-top:4px;"><input type="text" value="' + defaultValue + '" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="<?php echo esc_html( $this->description ); ?>" /><select class="repeater-type-input" style="width:100%;border:1px solid #ddd;" ><option value="url">URL</option><option value="text">Text</option><option value="date">Date</option><option value="integer">Integer</option></select><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a></div>';
 		var newRow = `					<div class="repeater" style="border:1px solid #ccc;padding:2px;background-color:#fff;margin-top:4px;">
     <input type="text" value="" class="repeater-input" style="width:100%;border:1px solid #ddd;" placeholder="Fieldname..." />
     <input type="text" value="" class="repeater-label-input" style="width:100%;border:1px solid #ddd;" placeholder="Label for this field..." />
@@ -101,18 +111,15 @@ jQuery( document ).ready(function($) {
 	function skyrocketGetAllInputs($element) {
     console.log($element);
 		var inputValues = $element.find('.repeater').map(function() {
-		//var inputValues = $element.find('.repeater-input').map(function() {
       return {
         fieldname: $(this).find('.repeater-input').val(),
         label: $(this).find('.repeater-label-input').val(),
         type: $(this).find('.repeater-type-input').val(),
         class: $(this).find('.repeater-class-input').val(),
       };
-			//return $(this).val();
     }).toArray();
-    console.log(inputValues)
 		// Add all the values from our repeater fields to the hidden field (which is the one that actually gets saved)
-		$element.find('.customize-control-sortable-repeater').val(inputValues);
+		$element.find('.customize-control-sortable-repeater').val(JSON.stringify(inputValues));
 		// Important! Make sure to trigger change event so Customizer knows it has to save the field
 		$element.find('.customize-control-sortable-repeater').trigger('change');
 	}
