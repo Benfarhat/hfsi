@@ -23,25 +23,27 @@ Additional CSS	custom_css	200
 function hfsi_full_customize_register( $wp_customize )
 {
     $wp_customize->add_section( 'hfsi_interface_section' , array(
-        'title'    => __( 'Interface Title', 'starter' ),
+        'title'    => __( 'Interface Title', 'hfsi' ),
         'priority' => 30
     ) );
     $wp_customize->add_section( 'hfsi_carousel_section' , array(
-        'title'    => __( 'Carousel / Diaporama', 'starter' ),
+        'title'    => __( 'Carousel / Diaporama', 'hfsi' ),
         'priority' => 35
     ) );
+    $wp_customize->add_section( 'hfsi_webservice_section' , array(
+        'title'    => __( '<i class="fa fa-download"></i> Webservice', 'hfsi' ),
+        'priority' => 100
+    ) );
     $wp_customize->add_section( 'hfsi_homepage_category_loop' , array(
-        'title'    => __( 'Présentation homepage', 'starter' ),
+        'title'    => __( 'Présentation homepage', 'hfsi' ),
         'priority' => 160
     ) );
     $wp_customize->add_section( 'hfsi_footer_section' , array(
-        'title'    => __( 'Footer / Bas de page', 'starter' ),
+        'title'    => __( 'Footer / Bas de page', 'hfsi' ),
         'priority' => 180
     ) );
-    $wp_customize->add_section( 'hfsi_webservice_section' , array(
-        'title'    => __( 'Webservice', 'starter' ),
-        'priority' => 200
-    ) );
+
+
 
     // Title
     $wp_customize->add_setting( 'organization_title' , array(
@@ -350,7 +352,7 @@ $wp_customize->add_control( 'num_loop_homepage', array(
         'description' => esc_html__( 'Enable or disable Webservice' ),
         'section'  => 'hfsi_webservice_section',
         'settings' => 'enable_webservice',
-        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'priority' => 2, // Optional. Order priority to load the control. Default: 10
         'type'=> 'checkbox',
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
     )
