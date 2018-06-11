@@ -31,7 +31,7 @@ function hfsi_full_customize_register( $wp_customize )
         'priority' => 35
     ) );
     $wp_customize->add_section( 'hfsi_webservice_section' , array(
-        'title'    => __( '<i class="fa fa-download"></i> Webservice', 'hfsi' ),
+        'title'    => __( 'Webservice', 'hfsi' ),
         'priority' => 100
     ) );
     $wp_customize->add_section( 'hfsi_homepage_category_loop' , array(
