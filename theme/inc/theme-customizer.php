@@ -430,6 +430,28 @@ $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_
    )
 ) );
 
+
+  // title
+
+  $wp_customize->add_setting( 'webservice_button_title' , array(
+    'default' => '',
+    'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'webservice_button_title', array(
+    'label' => __( "Webservice Submit Button's title", 'hfsi' ),
+    'description' => esc_html__( 'Label for the form submit button' ),
+    'section'  => 'hfsi_webservice_section',
+    'settings' => 'webservice_button_title',
+    'priority' => 6, // Optional. Order priority to load the control. Default: 10
+    'type' => 'text', // Can be either text, email, url, number, hidden, or date
+    'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    'input_attrs' => array( // Optional.
+       'style' => 'border: 1px solid #ddd',
+       'placeholder' => __( 'Enter webservice submit title...' ),
+    ),
+  ) );
+
     // Footer section
     // @see: https://wptheming.com/2015/02/page-select-customizer/
     // Left footer

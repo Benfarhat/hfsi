@@ -1,5 +1,5 @@
 
-        <div id="horaire" class="col-md-6">
+        <div id="resultat-analyse" class="col-md-6">
             <div class="row">
               <h2 class="titre animated slideInLeft">Vos résultats de laboratoire</h2>
             </div>
@@ -23,25 +23,6 @@
                             <div class="form-group col-md-12">
                               <label for="date_analyse">Date des analyses</label>
                               <input type="text" class="form-control" id="date_analyse" name="date_analyse" placeholder="Cliquer pour afficher le calendrier">
-
-<?php
-// https://tempusdominus.github.io/bootstrap-4/Usage/
-
-// TODO
-
-?>
-<!-- Datepicker -->
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>
-        </div>
-
-    </div>
-</div>
-
-<!-- /Datepicker -->
 
                             </div>
                           </div>
@@ -124,4 +105,3 @@
         -->
 
         </div>
-        <!-- Rendez vous -->
