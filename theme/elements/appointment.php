@@ -1,5 +1,3 @@
-
-        <div id="rdv" class="col-md-6">
           <div class="row">
             <h2 class="titre animated slideInRight">Rendez-vous en ligne</h2>
           </div>
@@ -56,4 +54,3 @@
                 </form>
 
           </div>
-        </div>
