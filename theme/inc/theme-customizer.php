@@ -388,6 +388,23 @@ $wp_customize->add_control( 'title_loop_homepage2', array(
   )
 );
 
+    // Enable picture
+    $wp_customize->add_setting( 'enable_picture_homepage2' , array(
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'enable_picture_homepage2', array(
+        'label' => __( 'Enable webservice', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable Webservice' ),
+        'section'  => 'hfsi_homepage_category_loop2',
+        'settings' => 'enable_picture_homepage2',
+        'priority' => 2, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
 
 
 // Number of elements for loop in homepage

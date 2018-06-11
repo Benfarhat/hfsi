@@ -20,6 +20,7 @@ function hfsi_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'organization_banner_subtitle' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'organization_banner_slogan' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'title_loop_homepage' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'title_loop_homepage2' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'webservice_title' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'webservice_button_title' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'rendezvous_title' )->transport = 'postMessage';
@@ -101,6 +102,17 @@ function hfsi_customize_register( $wp_customize ) {
 			'render_callback' => function() {
         if ( ( get_theme_mod( 'rendezvous_title' ) ) != '' ) {
           echo get_theme_mod( 'rendezvous_title' );
+        }
+      },
+      'fallback_refresh' => true
+    ) );
+    
+		$wp_customize->selective_refresh->add_partial( 'enable_picture_homepage2', array(
+			'selector'        => '.enable_picture_homepage2',
+      'container_inclusive' => false,
+			'render_callback' => function() {
+        if ( ( get_theme_mod( 'enable_picture_homepage2' ) ) != '' ) {
+          echo get_theme_mod( 'enable_picture_homepage2' );
         }
       },
       'fallback_refresh' => true
