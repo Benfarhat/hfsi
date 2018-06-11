@@ -33,10 +33,12 @@ endif;
           <?php get_template_part( 'elements/webservice_form' ); // col-md-6 ?>
         </div>
       <?php endif; ?>
+      <?php if ( get_theme_mod('enable_rendezvous') ): ?>
         <!-- Rendez vous -->
         <div id="rdv" class="col-md-<?= $taille ?>">
           <?php get_template_part( 'elements/appointment' ); // col-md-6 ?>
         </div>
+      <?php endif; ?>
       </div>
     </div>
   </section>
