@@ -1,5 +1,5 @@
           <div class="row">
-            <h2 class="titre animated slideInRight">Rendez-vous en ligne</h2>
+            <h2 class="titre animated slideInRight rendezvous_title">Rendez-vous en ligne</h2>
           </div>
           <div class="card-body animated slideInRight">
 
