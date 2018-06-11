@@ -34,9 +34,13 @@ function hfsi_full_customize_register( $wp_customize )
         'title'    => __( 'Webservice', 'hfsi' ),
         'priority' => 100
     ) );
-    $wp_customize->add_section( 'hfsi_homepage_category_loop' , array(
-        'title'    => __( 'Présentation homepage', 'hfsi' ),
-        'priority' => 160
+    $wp_customize->add_section( 'hfsi_webservice_section' , array(
+        'title'    => __( 'Webservice', 'hfsi' ),
+        'priority' => 100
+    ) );
+    $wp_customize->add_section( 'hfsi_rendezvous' , array(
+        'title'    => __( 'Rendez vous', 'hfsi' ),
+        'priority' => 120
     ) );
     $wp_customize->add_section( 'hfsi_footer_section' , array(
         'title'    => __( 'Footer / Bas de page', 'hfsi' ),
