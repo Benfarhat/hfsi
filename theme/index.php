@@ -66,25 +66,10 @@ endif;
     <?php get_template_part( 'elements/extended_homepage' ); ?>
   <?php endif; ?>
 
+  <?php if ( get_theme_mod('enable_en_avant_section') ): ?>
+    <?php get_template_part( 'elements/featured_article' ); ?>
+  <?php endif; ?>
 
-  <!-- Code du patient -->
-  <section id="code-patient" class="color-white text-center position-relative my-5 py-2">
-      <div class="position-absolute overlay rgba2"></div>
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="icon icon-lg"><i class="fa fa-heartbeat"></i>
-                  </div>
-                  <h3 class="text-uppercase">Code du patient</h3>
-                  <p class="lead">Le patient qui effectue un séjour dans notre établissement bénéficie d'un certain nombre de droits garantis par une charte.</p>
-                  <p class="text-center">
-                      <a href="#" class="btn btn-success btn-lg">Consulter le code du patient</a>
-                  </p>
-              </div>
 
-          </div>
-      </div>
-  </section>
-  <!-- /Code du patient -->
 <?php
 get_footer();
