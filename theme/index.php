@@ -46,7 +46,7 @@ endif;
   <?php endif; ?>
 
   <!-- Content -->
-  <section id="content-loop" class="py-5">
+  <section id="content-loop" class="py-2">
     <div class="container p-0">
 
         <div class="row">
@@ -131,7 +131,7 @@ endif;
 
   <?php if ( get_theme_mod('enable_homepage2') ): ?>
   <!-- Content -->
-  <section id="content-loop" class="py-5">
+  <section id="content-loop" class="py-2">
     <div class="container p-0">
 
         <div class="row">
@@ -189,7 +189,7 @@ endif;
           <div class="card-footer">
             <div class="row d-flex justify-content-between align-items-center">
               <div class="btn-group col-lg-5">
-                <a href="<?= get_permalink( get_the_ID() )?>" class="btn btn-sm <?= get_theme_mod('bgcolor_homepage2', 'btn-outline-success') ?>">Consulter <i class="fa fa-angle-right"></i></a>
+                <a href="<?= get_permalink( get_the_ID() )?>" class="btn btn-sm <?= get_theme_mod('button_color_homepage2', 'btn-outline-success') ?>">Consulter <i class="fa fa-angle-right"></i></a>
                 <?php edit_post_link( '<i class="fa fa-edit"></i>', '', '', null, 'btn btn-sm btn-outline-secondary btn-edit-post-link' ); ?>
               </div>
               <small class="col-lg-7 text-muted d-flex justify-content-end"><span><i class="fa fa-eye"></i> <?= hfsi_getPostViews(get_the_ID()) ?> <?= hfsi_getPostViews(get_the_ID()) > 1 ? "vues" : "vue" ?>&nbsp;|&nbsp;<i class="fa fa-clock-o"></i> <?php the_date( 'd/m/Y', null, null, true ); ?></span></small>
@@ -208,7 +208,7 @@ endif;
         // Get the URL of current (or selected) category
         $category_link = get_category_link( $wp_query_homepage2->query_vars['cat'] );
         ?>
-        <a class="btn btn-success" href="<?= esc_url( $category_link ); ?>"><i class="fa fa-bars"></i> Tout voir</a>
+        <a class="btn <?= get_theme_mod('button_color_homepage2', 'btn-success') ?>" href="<?= esc_url( $category_link ); ?>"><i class="fa fa-bars"></i> Tout voir</a>
         <hr>
         <?php
       endif;
@@ -219,78 +219,8 @@ endif;
     <?php endif; ?>
 
 
-
-  <!-- Content -->
-  <section id="content-loop" class="py-5">
-    <div class="container p-0">
-
-        <div class="row">
-            <h2 class="titre animated slideInRight">Nos services</h2>
-          </div>
-
-        <div class="row mt-3 animated slideInLeft">
-            <div class="col-sm-4">
-              <div class="card bg-info">
-                <div class="card-body">
-                  <h5 class="card-title">Neurologie</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-outline-light">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="card bg-secondary">
-                <div class="card-body">
-                  <h5 class="card-title">Cardiologie</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-outline-light">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="card bg-info">
-                <div class="card-body">
-                  <h5 class="card-title">Chirugie</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-outline-light">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="row mt-3 animated slideInRight">
-            <div class="col-sm-4">
-              <div class="card bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Hopital du jour</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-info">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="card bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Nutrition</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-secondary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="card bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Laboratoire</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-info">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
-  </section>
-  <!-- /Content -->
   <!-- Code du patient -->
-  <section id="code-patient" class="color-white text-center position-relative my-5 py-5">
+  <section id="code-patient" class="color-white text-center position-relative my-5 py-2">
       <div class="position-absolute overlay rgba2"></div>
       <div class="container">
           <div class="row">
