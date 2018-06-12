@@ -565,6 +565,25 @@ $wp_customize->add_control( 'enable_sticky_loop_homepage2', array(
     )
   );
 
+
+    // Only for admin
+    $wp_customize->add_setting( 'enable_admin_webservice' , array(
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'enable_admin_webservice', array(
+        'label' => __( 'Enable webservice only for admin', 'hfsi' ),
+        'description' => esc_html__( 'Enable only for admin option for test purpose' ),
+        'section'  => 'hfsi_webservice_section',
+        'settings' => 'enable_admin_webservice',
+        'priority' => 2, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+
   // title
 
   $wp_customize->add_setting( 'webservice_title' , array(
