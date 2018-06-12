@@ -2,6 +2,13 @@
             <h2 class="titre animated slideInRight rendezvous_title"><?= get_theme_mod('rendezvous_title', 'Rendez-vous en ligne') ?></h2>
           </div>
           <div class="card-body animated slideInRight">
+             <?= do_shortcode( get_post_field('post_content', get_theme_mod('rendezvous_content') ) ) ?>
+          </div>
+          <?php /*
+          <div class="row">
+            <h2 class="titre animated slideInRight rendezvous_title"><?= get_theme_mod('rendezvous_title', 'Rendez-vous en ligne') ?></h2>
+          </div>
+          <div class="card-body animated slideInRight">
 
               <form>
                   <div class="form-row">
@@ -54,3 +61,4 @@
                 </form>
 
           </div>
+*/ ?>
