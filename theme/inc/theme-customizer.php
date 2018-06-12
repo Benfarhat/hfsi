@@ -345,7 +345,7 @@ $wp_customize->add_control( 'num_loop_homepage', array(
     )
   );
 
-  
+
   /* Homepage 2 loop */
 
 
@@ -605,11 +605,34 @@ $wp_customize->add_control( 'webservice_protocol',
       'type' => 'radio',
       'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
       'choices' => array( // Optional.
-         '0' => __( 'http://' ),
-         '1' => __( 'https://' )
+         '0' => __( 'https://' ),
+         '1' => __( 'http://' )
       )
    )
 );
+
+
+
+  // title
+
+  $wp_customize->add_setting( 'webservice_url' , array(
+    'default' => 'www.cviproject.eu/wp-content/uploads/2016/06/dummyPDF.pdf',
+    'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'webservice_url', array(
+    'label' => __( 'Webservice title', 'hfsi' ),
+    'description' => esc_html__( "URL ou adresse IP du point d'accès, for example: www.hfsi.tn/api/1/getResults" ),
+    'section'  => 'hfsi_webservice_section',
+    'settings' => 'webservice_url',
+    'priority' => 15, // Optional. Order priority to load the control. Default: 10
+    'type' => 'text', // Can be either text, email, url, number, hidden, or date
+    'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    'input_attrs' => array( // Optional.
+       'style' => 'border: 1px solid #ddd',
+       'placeholder' => __( 'URL endpoint (without http or https)...' ),
+    ),
+  ) );
 
 
 /**
@@ -633,6 +656,7 @@ $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_
       'description' => esc_html__( 'Provide your field list.' ),
       'section' => 'hfsi_webservice_section',
       'settings' => 'webservice_fields',
+      'priority' => 25,
       'button_labels' => array(
          'add' => __( 'Add Field' ), // Optional. Button label for Add button. Default: Add
       )
@@ -652,7 +676,7 @@ $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_
     'description' => esc_html__( 'Label for the form submit button' ),
     'section'  => 'hfsi_webservice_section',
     'settings' => 'webservice_button_title',
-    'priority' => 6, // Optional. Order priority to load the control. Default: 10
+    'priority' => 20, // Optional. Order priority to load the control. Default: 10
     'type' => 'text', // Can be either text, email, url, number, hidden, or date
     'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
     'input_attrs' => array( // Optional.
