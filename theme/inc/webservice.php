@@ -36,17 +36,46 @@ function webservice_form_data() {
 
           $action = empty( $_REQUEST['action'] ) ? '' : $_REQUEST['action'];
 
-          $fields = json_decode(get_theme_mod('webservice_fields'));
 
           $params = array(
           'numanalyse' => sanitize_text_field( $_POST['numanalyse'] ),
           'identifiant' => sanitize_text_field( $_POST['identifiant'] ),
           'date_analyse' => sanitize_text_field( $_POST['date_analyse'] )
           );
-          $protocol = 'http';
-          $endpoint = 'www.cviproject.eu/wp-content/uploads/2016/06/dummyPDF.pdf';
-          $url = $protocol.'://'.$endpoint.'?num='.$params['numanalyse'].'&identifiant='.$params['identifiant'].'&date='.$params['date_analyse'];
 
+          // Protocols
+          $protocol = ( get_theme_mod('webservice_protocol') == 1 ) ? 'http' : 'https';
+
+          // Endpoint
+          //$endpoint = 'www.cviproject.eu/wp-content/uploads/2016/06/dummyPDF.pdf';
+          $endpoint =  get_theme_mod('webservice_url');
+
+          // Params
+          $fields = json_decode(get_theme_mod('webservice_fields'));
+          $params = '?';
+          $errors= '';
+
+          foreach($fields as $field){
+            if(sanitize_text_field( $_POST[$field->fieldname] ) != '')
+              $params.=$field->fieldname."=".sanitize_text_field( $_POST[$field->fieldname] ).'&';
+            else
+              $errors .= '&nbsp; - '.$field->label.'<br>';
+          }
+
+
+          // URL
+          $url = esc_url($protocol.'://'.$endpoint.trim($params,'&'));
+
+          if($errors != ''){
+            $errors = "Un ou plusieurs paramètres n'ont pas été renseignés correctement: <br>".$errors;
+            if ( wp_get_referer() ){
+              $errors .= '<a href="'.wp_get_referer().'" class="btn btn-outline-info">Retour au formulaire</a>';
+            }
+            wp_die($errors);
+          }
+
+
+          //wp_die($url);
           /*
           $args = array(
             'headers' => array(
@@ -57,7 +86,7 @@ function webservice_form_data() {
           */
           // https://developer.wordpress.org/reference/functions/set_transient/
           //$response = wp_remote_get( 'https://api.github.com/users/benfarhat' );
-          $response = wp_remote_get( esc_url($url) );
+          $response = wp_remote_get( 'http://www.cviproject.eu/wp-content/uploads/2016/06/dummyPDF.pdf' );
 
           if (is_wp_error( $server_response) ) {
 
