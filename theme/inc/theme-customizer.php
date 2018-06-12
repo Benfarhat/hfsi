@@ -653,7 +653,7 @@ $wp_customize->add_setting( 'webservice_fields',
 $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_customize, 'webservice_fields',
    array(
       'label' => __( 'Fields for your REST webservices' ),
-      'description' => esc_html__( 'Provide your field list.' ),
+      'description' => esc_html__( 'Remember: the first fieldname will be used as response filename.' ),
       'section' => 'hfsi_webservice_section',
       'settings' => 'webservice_fields',
       'priority' => 25,
