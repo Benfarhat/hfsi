@@ -357,8 +357,8 @@ $wp_customize->add_control( 'num_loop_homepage', array(
   ) );
 
   $wp_customize->add_control( 'enable_homepage2', array(
-        'label' => __( 'Enable webservice', 'hfsi' ),
-        'description' => esc_html__( 'Enable or disable Webservice' ),
+        'label' => __( 'Enable Extended homepage', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable extended homepage' ),
         'section'  => 'hfsi_homepage_category_loop2',
         'settings' => 'enable_homepage2',
         'priority' => 2, // Optional. Order priority to load the control. Default: 10
@@ -396,8 +396,8 @@ $wp_customize->add_control( 'title_loop_homepage2', array(
   ) );
 
   $wp_customize->add_control( 'enable_picture_homepage2', array(
-        'label' => __( 'Enable webservice', 'hfsi' ),
-        'description' => esc_html__( 'Enable or disable Webservice' ),
+        'label' => __( 'Enable picture', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable picture' ),
         'section'  => 'hfsi_homepage_category_loop2',
         'settings' => 'enable_picture_homepage2',
         'priority' => 2, // Optional. Order priority to load the control. Default: 10
@@ -405,6 +405,67 @@ $wp_customize->add_control( 'title_loop_homepage2', array(
         'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
     )
   );
+
+
+
+  // bgcolor
+  $wp_customize->add_setting( 'bgcolor_homepage2' , array(
+    'default'   => 'bg-light',
+    'transport' => 'refresh',
+) );
+
+$wp_customize->add_control( 'bgcolor_homepage2', array(
+    'label' => __( 'Choose a background color' ),
+    'description' => esc_html__( 'Choose a background color' ),
+    'section' => 'hfsi_homepage_category_loop2',
+    'settings' => 'bgcolor_homepage2',
+    'priority' => 12,
+    'type' => 'select',
+    'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    'choices' => array(
+      '' => 'Selectionner...',
+      'bg-info' => 'blue',
+      'bg-success' => 'green',
+      'bg-danger' => 'red',
+      'bg-warning' => 'orange',
+      'bg-light' => 'white',
+      'bg-dark' => 'dark'
+    )
+)
+);
+
+
+  // button color
+  $wp_customize->add_setting( 'button_color_homepage2' , array(
+    'default'   => 'bg-light',
+    'transport' => 'refresh',
+) );
+
+$wp_customize->add_control( 'button_color_homepage2', array(
+    'label' => __( 'Choose a button style' ),
+    'description' => esc_html__( 'Choose bg-color for your button' ),
+    'section' => 'hfsi_homepage_category_loop2',
+    'settings' => 'button_color_homepage2',
+    'priority' => 12,
+    'type' => 'select',
+    'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    'choices' => array(
+      '' => 'Selectionner...',
+      'btn-info' => 'blue',
+      'btn-success' => 'green',
+      'btn-danger' => 'red',
+      'btn-warning' => 'orange',
+      'btn-light' => 'white',
+      'btn-outline-dark' => 'dark',
+      'btn-outline-info' => 'blue border',
+      'btn-outline-success' => 'green border',
+      'btn-outline-danger' => 'red border',
+      'btn-outline-warning' => 'orange border',
+      'btn-outline-light' => 'white border',
+      'btn-outline-dark' => 'dark border'
+    )
+)
+);
 
 
 // Number of elements for loop in homepage
