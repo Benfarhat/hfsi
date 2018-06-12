@@ -33,7 +33,7 @@ function webservice_form_data() {
       } else {
         // Sanitize the POST field
         // @see: https://developer.wordpress.org/themes/theme-security/data-sanitization-escaping/
-
+/*
           $action = empty( $_REQUEST['action'] ) ? '' : $_REQUEST['action'];
 
 
@@ -42,7 +42,7 @@ function webservice_form_data() {
           'identifiant' => sanitize_text_field( $_POST['identifiant'] ),
           'date_analyse' => sanitize_text_field( $_POST['date_analyse'] )
           );
-
+*/
           // Protocols
           $protocol = ( get_theme_mod('webservice_protocol') == 1 ) ? 'http' : 'https';
 
@@ -62,6 +62,9 @@ function webservice_form_data() {
               $errors .= '&nbsp; - '.$field->label.'<br>';
           }
 
+          // Filename
+
+          $filename = hfsi_create_slug(sanitize_text_field( $_POST[$fields[0]->fieldname] ));
 
           // URL
           $url = esc_url($protocol.'://'.$endpoint.trim($params,'&'));
@@ -93,7 +96,7 @@ function webservice_form_data() {
           } else {
             $response_body = wp_remote_retrieve_body( $response);
             header("Content-type: application/pdf");
-            header("Content-disposition: attachment;filename=".$params['numanalyse'].".pdf");
+            header("Content-disposition: attachment;filename=".$filename.".pdf");
             echo $response_body;
           }
           /*
