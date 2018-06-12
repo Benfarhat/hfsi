@@ -32,10 +32,14 @@ function hfsi_full_customize_register( $wp_customize )
     ) );
     $wp_customize->add_section( 'hfsi_webservice_section' , array(
         'title'    => __( 'Webservice', 'hfsi' ),
-        'priority' => 104
+        'priority' => 102
     ) );
     $wp_customize->add_section( 'hfsi_rendezvous' , array(
         'title'    => __( 'Rendez vous', 'hfsi' ),
+        'priority' => 103
+    ) );
+    $wp_customize->add_section( 'hfsi_consulter_rendezvous' , array(
+        'title'    => __( 'Consulter vos rendez vous', 'hfsi' ),
         'priority' => 105
     ) );
     $wp_customize->add_section( 'hfsi_homepage_category_loop' , array(
@@ -750,6 +754,68 @@ $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_
        'placeholder' => __( 'Enter rendezvous section title...' ),
     ),
   ) );
+
+
+  $wp_customize->add_setting( 'rendezvous_content' , array(
+    'default' => '',
+    'sanitize_callback' => 'hfsi_sanitize_dropdown_pages',
+    'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'rendezvous_content', array(
+        'label' => __( 'Appointment form', 'hfsi' ),
+        'description' => esc_html__( 'Choose a page' ),
+        'section'  => 'hfsi_rendezvous',
+        'settings' => 'rendezvous_content',
+        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'type' => 'dropdown-pages',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+
+
+  /* Show Appointment / Consulter Rendez vous */
+
+
+    // Enable
+    $wp_customize->add_setting( 'enable_rendezvous_confirm' , array(
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'enable_rendezvous_confirm', array(
+        'label' => __( 'Enable to show your appointment', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable the possibility to know if a rendezvous is confirmed or not!' ),
+        'section'  => 'hfsi_consulter_rendezvous',
+        'settings' => 'enable_rendezvous_confirm',
+        'priority' => 2, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+
+  // title
+
+  $wp_customize->add_setting( 'rendezvous_title_confirm' , array(
+    'default' => 'Consulter vos rendez vous en ligne',
+    'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'rendezvous_title_confirm', array(
+    'label' => __( 'confirm appointment title', 'hfsi' ),
+    'description' => esc_html__( 'Title for Rendez vous "confirmation" section' ),
+    'section'  => 'hfsi_consulter_rendezvous',
+    'settings' => 'rendezvous_title_confirm',
+    'priority' => 5, // Optional. Order priority to load the control. Default: 10
+    'type' => 'text', // Can be either text, email, url, number, hidden, or date
+    'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    'input_attrs' => array( // Optional.
+       'style' => 'border: 1px solid #ddd',
+       'placeholder' => __( 'Enter section title...' ),
+    ),
+  ) );
+
 
   // En avant
 
