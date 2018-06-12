@@ -46,6 +46,10 @@ function hfsi_full_customize_register( $wp_customize )
         'title'    => __( 'Extended homepage', 'hfsi' ),
         'priority' => 108
     ) );
+    $wp_customize->add_section( 'hfsi_en_avant_section' , array(
+        'title'    => __( 'Article en avant', 'hfsi' ),
+        'priority' => 170
+    ) );
     $wp_customize->add_section( 'hfsi_footer_section' , array(
         'title'    => __( 'Footer / Bas de page', 'hfsi' ),
         'priority' => 180
@@ -746,6 +750,46 @@ $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_
        'placeholder' => __( 'Enter rendezvous section title...' ),
     ),
   ) );
+
+  // En avant
+
+
+
+    // Enable Carousel
+    $wp_customize->add_setting( 'enable_en_avant_section' , array(
+      'default' => 0,
+      'sanitize_callback' => 'hfsi_chkbox_sanitization',
+      'transport' => 'refresh',
+  ) );
+
+  $wp_customize->add_control( 'enable_en_avant_section', array(
+        'label' => __( 'Enable Featured page', 'hfsi' ),
+        'description' => esc_html__( 'Enable or disable featured page' ),
+        'section'  => 'hfsi_en_avant_section',
+        'settings' => 'enable_en_avant_section',
+        'priority' => 10, // Optional. Order priority to load the control. Default: 10
+        'type'=> 'checkbox',
+        'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+    )
+  );
+
+
+    $wp_customize->add_setting( 'hfsi_en_avant_content' , array(
+      'default' => '',
+      'sanitize_callback' => 'hfsi_sanitize_dropdown_pages',
+      'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( 'hfsi_en_avant_content', array(
+          'label' => __( 'Featured article', 'hfsi' ),
+          'description' => esc_html__( 'Choose a page' ),
+          'section'  => 'hfsi_en_avant_section',
+          'settings' => 'hfsi_en_avant_content',
+          'priority' => 10, // Optional. Order priority to load the control. Default: 10
+          'type' => 'dropdown-pages',
+          'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      )
+    );
 
 
     // Footer section
