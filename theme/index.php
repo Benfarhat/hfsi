@@ -19,9 +19,9 @@ if ( get_theme_mod('enable_category_carousel', true) ):
   get_template_part( 'elements/slideshow' );
 endif;
 ?>
-  <?php if ( get_theme_mod('enable_webservice', true) || true ): // @todo
+  <?php if ( get_theme_mod('enable_webservice', true) || get_theme_mod('enable_rendezvous', true) ): // @todo
     // At this position we have at least on of them;
-    $taille = (get_theme_mod('enable_webservice', true) && true) ? 6 : 12 ;
+    $taille = (get_theme_mod('enable_webservice', true) && get_theme_mod('enable_rendezvous', true)) ? 6 : 12 ;
     ?>
   <!-- Resultats d'analyses et rendez vous -->
   <section id="horaire-rdv">
@@ -33,7 +33,7 @@ endif;
           <?php get_template_part( 'elements/webservice_form' ); // col-md-6 ?>
         </div>
       <?php endif; ?>
-      <?php if ( get_theme_mod('enable_rendezvous') ): ?>
+      <?php if ( get_theme_mod('enable_rendezvous', true) ): ?>
         <!-- Rendez vous -->
         <div id="rdv" class="col-md-<?= $taille ?>">
           <?php get_template_part( 'elements/appointment' ); // col-md-6 ?>
