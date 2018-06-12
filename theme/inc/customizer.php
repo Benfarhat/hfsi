@@ -107,12 +107,12 @@ function hfsi_customize_register( $wp_customize ) {
       'fallback_refresh' => true
     ) );
     
-		$wp_customize->selective_refresh->add_partial( 'enable_picture_homepage2', array(
-			'selector'        => '.enable_picture_homepage2',
+		$wp_customize->selective_refresh->add_partial( 'title_loop_homepage2', array(
+			'selector'        => '.title_loop_homepage2',
       'container_inclusive' => false,
 			'render_callback' => function() {
-        if ( ( get_theme_mod( 'enable_picture_homepage2' ) ) != '' ) {
-          echo get_theme_mod( 'enable_picture_homepage2' );
+        if ( ( get_theme_mod( 'title_loop_homepage2' ) ) != '' ) {
+          echo get_theme_mod( 'title_loop_homepage2' );
         }
       },
       'fallback_refresh' => true
