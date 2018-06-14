@@ -12,7 +12,9 @@ jQuery( document ).ready(function($) {
 	$('.sortable_repeater_control').each(function() {
     // If there is an existing customizer value, populate our rows
     var defaultValue = $(this).find('.customize-control-sortable-repeater').val();
-    if(defaultValue == '') defaultValue = '[{"fieldname":"","label":"","placeholder":"","type":"text","class":""}]';
+    if(defaultValue == '')
+      defaultValue = '[]';
+      //defaultValue = '[{"fieldname":"","label":"","placeholder":"","type":"text","class":""}]';
     var defaultValuesArray = JSON.parse( defaultValue );
 
 
