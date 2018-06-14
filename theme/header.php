@@ -96,9 +96,7 @@
               <a class="navbar-brand" href="<?= home_url('/')?>"><span class="text-success organization_title"><?= esc_html(get_theme_mod('organization_title', get_bloginfo('name'))); ?></span> <span class="organization_subtitle"><?= esc_html(get_theme_mod('organization_subtitle', get_bloginfo('description'))); ?></span></a></a>
           </li>
       </ul>
-      <!--
-        <a class="navbar-brand position-relative animated bounceInLeft" href="<?= home_url('/')?>"><?php echo hfsi_get_svg_logo('#b33939',false, 32) ?> <span class="text-success"><?php bloginfo('name'); ?></span> <?php bloginfo('description'); ?></a>
-      -->
+
       <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation"></button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
