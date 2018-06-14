@@ -90,7 +90,7 @@
     <div class="container animated bounceInLeft">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0" role="navigation">
           <li class="bg-danger mr-2 d-flex align-items-center">
-              <a class="flag" href="<?= home_url('/')?>"><span class="d-flex align-items-center"><?php echo hfsi_get_svg_logo('#b33939',false, 42) ?></span></a>
+              <a class="flag" href="<?= home_url('/')?>"><span class="d-flex align-items-center"><?php echo hfsi_get_svg_logo('#b33939', 42) ?></span></a>
           </li>
           <li>
               <a class="navbar-brand" href="<?= home_url('/')?>"><span class="text-success organization_title"><?= esc_html(get_theme_mod('organization_title', get_bloginfo('name'))); ?></span> <span class="organization_subtitle"><?= esc_html(get_theme_mod('organization_subtitle', get_bloginfo('description'))); ?></span></a></a>
