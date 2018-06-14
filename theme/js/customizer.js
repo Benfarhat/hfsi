@@ -11,7 +11,10 @@ jQuery( document ).ready(function($) {
 	// Update the values for all our input fields and initialise the sortable repeater
 	$('.sortable_repeater_control').each(function() {
     // If there is an existing customizer value, populate our rows
-    var defaultValuesArray = JSON.parse( $(this).find('.customize-control-sortable-repeater').val() );
+    var defaultValue = $(this).find('.customize-control-sortable-repeater').val();
+    if(defaultValue == '') defaultValue = '[{"fieldname":"","label":"","placeholder":"","type":"text","class":""}]';
+    var defaultValuesArray = JSON.parse( defaultValue );
+
 
     var numRepeaterItems = defaultValuesArray.length;
 		if(numRepeaterItems > 0) {
